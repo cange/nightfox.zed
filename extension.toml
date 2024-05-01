@@ -1,0 +1,7 @@
+id = "nightfox-zed"
+name = "Nightfox for Zed"
+version = "0.1.0"
+schema_version = 1
+authors = ["Christian Angermann <28717+cange@users.noreply.github.com>"]
+description = "Nightfox theme is a direct Nvim port to Zed"
+repository = "https://github.com/cange/nightfox.zed"
