@@ -1,7 +1,8 @@
 ---@class ZedTheme
----@field ns string Namespace
+---@field private _ns string Namespace
+---@field private _neovim_polyfill function
 local M = {}
-M.ns = "" -- namespace
+M._ns = "" -- namespace
 
 ---Mocks Neovim's API since some endpoints are required by nightfox.nvim
 function M._neovim_polyfill()
@@ -22,7 +23,7 @@ function M.hex_color_with_alpha(hex_color, percent)
     error(
       string.format(
         "[%s] Invalid value! Expected: between 0 and 1. Received: %s",
-        M.ns,
+        M._ns,
         percent
       )
     )
@@ -319,7 +320,7 @@ function M.define_theme(name)
     },
   }
 
-  print(string.format("[%s] ✓ %q - %q theme defined", M.ns, name, appearance))
+  print(string.format("[%s] ✓ %q %s theme defined", M._ns, name, appearance))
   return {
     name = name,
     appearance = appearance,
@@ -332,8 +333,8 @@ end
 ---@return table
 function M.generate(metadata, namespace)
   M._neovim_polyfill()
-  M.ns = namespace
-  print(string.format("[%s] → Generate themes", M.ns))
+  M._ns = namespace
+  print(string.format("[%s] ⚙ Generating themes", M._ns))
 
   return {
     ["$schema"] = "https://zed.dev/schema/themes/v0.1.0.json",
