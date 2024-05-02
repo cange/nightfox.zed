@@ -1,10 +1,37 @@
-<div align="center">
-  <h1>Nightfox</h1>
-  <div>
-    The direct port of
-    <a href="https://github.com/EdenEast/nightfox.nvim">nightfox.nvim</a> to Zed
-  </div>
-</div>
+# Nightfox Zed
+
+> A port of [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) form
+> Neovim to Zed
+
+## Available Themes
+
+### Nightfox
+
+![nightfox](./assets/nightfox.png)
+
+### Dayfox
+
+![dayfox](./assets/dayfox.png)
+
+### Dawnfox
+
+![dawnfox](./assets/dawnfox.png)
+
+### Duskfox
+
+![duskfox](./assets/duskfox.png)
+
+### Nordfox
+
+![nordfox](./assets/nordfox.png)
+
+### Terafox
+
+![terafox](./assets/terafox.png)
+
+### Carbonfox
+
+![carbonfox](./assets/carbonfox.png)
 
 ## Development
 

@@ -6,3 +6,7 @@
 
 ### macOS ###
 .DS_Store
+
+### misc ###
+/screenshots
+/bin
