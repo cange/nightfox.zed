@@ -1,41 +1,12 @@
-# Compiled Lua sources
-luac.out
+### Lua ###
+/luarocks
+/lua
+/lua_modules
+/.luarocks
 
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
+### macOS ###
+.DS_Store
 
-# Object files
-*.o
-*.os
-*.ko
-*.obj
-*.elf
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-*.def
-*.exp
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
+### misc ###
+/screenshots
+/bin
