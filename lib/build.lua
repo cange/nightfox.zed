@@ -24,7 +24,7 @@ end
 
 function M.build()
   local metadata = M.fetch_metadata()
-  local filename = "themes/nightfox.json"
+  local filename = "themes/" .. metadata.id .. ".json"
   local file = assert(io.open(filename, "w"))
   M._ns = metadata.id or M._ns
   local content =
