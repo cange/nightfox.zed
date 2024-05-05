@@ -44,14 +44,13 @@ function M.define_theme(name)
   local spec = require("nightfox.spec").load(theme)
   local appearance = pal.meta.light and "light" or "dark"
   local style = {
-    border = spec.bg2,
-    ["border.variant"] = spec.bg2,
+    border = spec.bg0,
+    ["border.disabled"] = spec.bg1,
     ["border.focused"] = spec.sel0,
-    ["border.selected"] = spec.bg2,
-    ["border.transparent"] = spec.bg2,
-    ["border.disabled"] = spec.bg2,
+    ["border.selected"] = spec.sel1,
+    ["border.transparent"] = spec.bg1,
+    ["border.variant"] = spec.bg0,
     ["elevated_surface.background"] = spec.bg0,
-    ["surface.background"] = spec.bg2,
     background = spec.bg1,
     ["element.background"] = M.hex_color_with_alpha(pal.orange.base, 0.1),
     ["element.hover"] = M.hex_color_with_alpha(pal.orange.base, 0.2),
@@ -405,7 +404,6 @@ return M
 ---@field fg3 string Darker fg (line numbers, fold colums)
 ---@field sel0 string Popup bg, visual selection bg
 ---@field sel1 string Popup sel bg, search bg
----
 ---@field syntax SpecSyntax
 ---@field diag SpecDiagnostic
 ---@field diag_bg SpecDiagnosticBg
