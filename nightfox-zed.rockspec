@@ -5,9 +5,9 @@ source = {
   url = "https://github.com/cange/nightfox.zed",
 }
 description = {
-  summary = "Nightfox theme is a direct Nvim port to Zed",
+  summary = "A port of nightfox.nvim theme from Neovim to Zed",
   detailed = [[
-    This theme uses the original color palette of nightfox.vim
+    This theme uses the original color palette of nightfox.nvim
     https://github.com/EdenEast/nightfox.nvim theme.
   ]],
   license = "MIT",
