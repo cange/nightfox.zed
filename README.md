@@ -40,7 +40,7 @@
 Run the following command to install the required dependencies:
 
 ```sh
-luarocks install nightfox-zed
+luarocks install nvim-nightfox
 ```
 
 ### Build

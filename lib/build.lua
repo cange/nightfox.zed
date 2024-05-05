@@ -4,7 +4,7 @@ local toml = require("toml")
 ---@class ZedBuild
 ---@field private _ns string Namespace
 local M = {}
-M._ns = "nightfox-zed"
+M._ns = "nvim-nightfox"
 
 ---Reads data from extension file
 ---@return Metadata

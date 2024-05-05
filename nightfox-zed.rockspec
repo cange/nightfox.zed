@@ -1,4 +1,4 @@
-package = "nightfox-zed"
+package = "nvim-nightfox"
 version = "0.1.0"
 source = {
   tag = "0.1.0",
