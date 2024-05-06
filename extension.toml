@@ -1,7 +1,7 @@
 id = "nvim-nightfox"
-name = "Nightfox for Zed"
+name = "Nightfox (Neovim) Themes"
 version = "0.1.0"
 schema_version = 1
 authors = ["Christian Angermann <28717+cange@users.noreply.github.com>"]
-description = "A port of nightfox.nvim theme from Neovim to Zed"
+description = "A port of the Neovim Nightfox themes"
 repository = "https://github.com/cange/nightfox.zed"

@@ -34,7 +34,7 @@ function M.build()
     })
 
   if file then
-    file:write(content)
+    file:write(content .. "\n") -- ensure newline at the end of file
     file:close()
     print(string.format("[%s] ✓ %q file created", M._ns, filename))
   else
