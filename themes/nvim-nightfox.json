@@ -2,8 +2,6 @@
   "$schema": "https://zed.dev/schema/themes/v0.1.0.json",
   "name": "Nightfox (Neovim) Themes",
   "author": "Christian Angermann <28717+cange@users.noreply.github.com>",
-  "description": "A port of the Neovim Nightfox themes",
-  "url": "https://github.com/cange/nightfox.zed",
   "themes": [
     {
       "name": "Nightfox",

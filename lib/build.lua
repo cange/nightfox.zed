@@ -30,7 +30,7 @@ function M.build()
   local content =
     dkjson.encode(require("lib.theme").generate(metadata, M._ns), {
       indent = true,
-      keyorder = { "$schema", "name", "author", "description", "url", "themes" },
+      keyorder = { "$schema", "name", "author", "themes" },
     })
 
   if file then

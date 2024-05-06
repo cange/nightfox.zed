@@ -338,9 +338,7 @@ function M.generate(metadata, namespace)
   return {
     ["$schema"] = "https://zed.dev/schema/themes/v0.1.0.json",
     author = metadata.authors[1],
-    description = metadata.description,
     name = metadata.name,
-    url = metadata.repository,
     themes = {
       M.define_theme("Nightfox"),
       M.define_theme("Dayfox"),
