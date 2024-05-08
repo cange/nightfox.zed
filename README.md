@@ -48,8 +48,10 @@ luarocks install nvim-nightfox
 Run the following command to build the theme:
 
 ```sh
-lua lib/build.lua
+make build
 ```
+
+or `make dev` for development mode.
 
 It generates the appropriate zed theme config file.
 
