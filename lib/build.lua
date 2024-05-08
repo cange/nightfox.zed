@@ -23,6 +23,7 @@ function M._fetch_metadata()
 end
 
 function M.build()
+  print(string.format("[%s] → Start in %q mode", M._ns, os.getenv("DEV_MODE") ~= nil and "dev" or "prod"))
   local metadata = M._fetch_metadata()
   local filename = "themes/" .. metadata.id .. ".json"
   local file = assert(io.open(filename, "w"))

@@ -294,10 +294,11 @@ function M._define_theme(name)
       },
     },
   }
+  local display_name = name .. (os.getenv("DEV_MODE") ~= nil and " (dev)" or "")
 
-  print(string.format("[%s] ✓ %q %s theme defined", M._ns, name, appearance))
+  print(string.format("[%s] ✓ %q %s theme defined", M._ns, display_name, appearance))
   return {
-    name = name,
+    name = display_name,
     appearance = appearance,
     style = style,
   }
