@@ -8,7 +8,7 @@ M._ns = "nvim-nightfox"
 
 ---Reads data from extension file
 ---@return Metadata
-function M.fetch_metadata()
+function M._fetch_metadata()
   local filename = "extension.toml"
   print(string.format("[%s] ⚙ Fetch metadata %q", M._ns, filename))
   local file = assert(io.open(filename, "r"))
@@ -23,15 +23,14 @@ function M.fetch_metadata()
 end
 
 function M.build()
-  local metadata = M.fetch_metadata()
+  local metadata = M._fetch_metadata()
   local filename = "themes/" .. metadata.id .. ".json"
   local file = assert(io.open(filename, "w"))
   M._ns = metadata.id or M._ns
-  local content =
-    dkjson.encode(require("lib.theme").generate(metadata, M._ns), {
-      indent = true,
-      keyorder = { "$schema", "name", "author", "themes" },
-    })
+  local content = dkjson.encode(require("lib.theme").generate(metadata, M._ns), {
+    indent = true,
+    keyorder = { "$schema", "name", "author", "themes" },
+  })
 
   if file then
     file:write(content .. "\n") -- ensure newline at the end of file

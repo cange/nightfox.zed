@@ -1,41 +1,14 @@
 ---@class ZedTheme
 ---@field private _ns string Namespace
 ---@field private _neovim_polyfill function
+---@field private _with_alpha function
 local M = {}
 M._ns = "" -- namespace
-
----Mocks Neovim's API since some endpoints are required by nightfox.nvim
-function M._neovim_polyfill()
-  vim = {
-    fn = {
-      has = function() return false end,
-      expand = function(args) return args end,
-    },
-  }
-end
-
----Provides a color in hexadecimal format with an alpha channel
----@param hex_color string
----@param percent number Alpha channel number between 0 and 1
----@return string Hexadecimal color with alpha channel
-function M.hex_color_with_alpha(hex_color, percent)
-  if percent < 0 or percent > 1 then
-    error(
-      string.format(
-        "[%s] Invalid value! Expected: between 0 and 1. Received: %s",
-        M._ns,
-        percent
-      )
-    )
-  end
-  local alpha_value = math.floor(percent * 255)
-  return hex_color .. string.format("%02X", alpha_value)
-end
 
 ---Maps values of nightfox.vim to zed's theme properties
 ---@param name "Nightfox" | "Dayfox" | "Dawnfox" | "Duskfox" | "Nordfox" | "Terafox" | "Carbonfox"
 ---@return table
-function M.define_theme(name)
+function M._define_theme(name)
   M._neovim_polyfill()
   local theme = name:lower()
   ---@type Palette
@@ -52,14 +25,14 @@ function M.define_theme(name)
     ["border.variant"] = spec.bg0,
     ["elevated_surface.background"] = spec.bg0,
     background = spec.bg1,
-    ["element.background"] = M.hex_color_with_alpha(pal.orange.base, 0.1),
-    ["element.hover"] = M.hex_color_with_alpha(pal.orange.base, 0.2),
-    ["element.active"] = M.hex_color_with_alpha(pal.orange.base, 0.8),
-    ["element.selected"] = M.hex_color_with_alpha(pal.orange.base, 0.6),
+    ["element.background"] = M._with_alpha(pal.orange.base, 0.1),
+    ["element.hover"] = M._with_alpha(pal.orange.base, 0.2),
+    ["element.active"] = M._with_alpha(pal.orange.base, 0.8),
+    ["element.selected"] = M._with_alpha(pal.orange.base, 0.6),
     ["element.disabled"] = pal.orange.base,
     ["drop_target.background"] = spec.bg0,
     ["ghost_element.background"] = nil,
-    ["ghost_element.hover"] = M.hex_color_with_alpha(spec.sel0, 0.8),
+    ["ghost_element.hover"] = M._with_alpha(spec.sel0, 0.8),
     ["ghost_element.selected"] = spec.sel0,
     ["ghost_element.active"] = nil,
     ["ghost_element.disabled"] = nil,
@@ -68,6 +41,7 @@ function M.define_theme(name)
     ["text.disabled"] = spec.syntax.comment,
     ["text.placeholder"] = spec.fg3,
     ["text.accent"] = spec.fg2,
+    ["link_text.hover"] = pal.cyan.base,
     icon = "#ff0000",                 -- debug apparently not assigned yet
     ["icon.muted"] = "#00ff00",       -- debug apparently not assigned yet
     ["icon.disabled"] = "#0000ff",    -- debug apparently not assigned yet
@@ -75,7 +49,7 @@ function M.define_theme(name)
     ["icon.accent"] = "#00ffff",      -- debug apparently not assigned yet
     ["status_bar.background"] = spec.bg0,
     ["title_bar.background"] = spec.bg0,
-    ["toolbar.background"] = M.hex_color_with_alpha(spec.bg1, 0.6),
+    ["toolbar.background"] = M._with_alpha(spec.bg1, 0.6),
     ["tab_bar.background"] = spec.bg0,
     ["tab.inactive_background"] = spec.bg0,
     ["tab.active_background"] = spec.bg1,
@@ -88,6 +62,7 @@ function M.define_theme(name)
     ["scrollbar.thumb.border"] = pal.black.dim,
     ["scrollbar.track.background"] = spec.bg1,
     ["scrollbar.track.border"] = spec.bg0,
+
     ["editor.foreground"] = spec.fg1,
     ["editor.background"] = spec.bg1,
     ["editor.gutter.background"] = spec.bg1,
@@ -101,6 +76,7 @@ function M.define_theme(name)
     ["editor.active_wrap_guide"] = spec.bg2,
     ["editor.document_highlight.read_background"] = nil,
     ["editor.document_highlight.write_background"] = nil,
+
     ["terminal.background"] = spec.bg1,
     ["terminal.foreground"] = spec.fg1,
     ["terminal.bright_foreground"] = spec.fg0,
@@ -129,7 +105,7 @@ function M.define_theme(name)
     ["terminal.ansi.white"] = pal.white.base,
     ["terminal.ansi.bright_white"] = pal.white.bright,
     ["terminal.ansi.dim_white"] = pal.white.dim,
-    ["link_text.hover"] = pal.cyan.base,
+
     hidden = spec.fg3,
     ["hidden.background"] = nil,
     ["hidden.border"] = nil,
@@ -182,7 +158,7 @@ function M.define_theme(name)
       {
         cursor = pal.green.base,
         background = pal.green.base,
-        selection = M.hex_color_with_alpha(pal.green.base, 0.24),
+        selection = M._with_alpha(pal.green.base, 0.24),
       },
     },
     syntax = {
@@ -327,6 +303,32 @@ function M.define_theme(name)
   }
 end
 
+---Mocks Neovim's API since some endpoints are required by nightfox.nvim
+function M._neovim_polyfill()
+  vim = {
+    fn = {
+      has = function()
+        return false
+      end,
+      expand = function(args)
+        return args
+      end,
+    },
+  }
+end
+
+---Provides a color in hexadecimal format with an alpha channel
+---@param hex_color string
+---@param percent number Alpha channel number between 0 and 1
+---@return string Hexadecimal color with alpha channel
+function M._with_alpha(hex_color, percent)
+  if percent < 0 or percent > 1 then
+    error(string.format("[%s] Invalid value! Expected: between 0 and 1. Received: %s", M._ns, percent))
+  end
+  local alpha_value = math.floor(percent * 255)
+  return hex_color .. string.format("%02X", alpha_value)
+end
+
 ---@param namespace string
 ---@param metadata Metadata
 ---@return table
@@ -340,13 +342,13 @@ function M.generate(metadata, namespace)
     author = metadata.authors[1],
     name = metadata.name,
     themes = {
-      M.define_theme("Nightfox"),
-      M.define_theme("Dayfox"),
-      M.define_theme("Dawnfox"),
-      M.define_theme("Duskfox"),
-      M.define_theme("Nordfox"),
-      M.define_theme("Terafox"),
-      M.define_theme("Carbonfox"),
+      M._define_theme("Nightfox"),
+      M._define_theme("Dayfox"),
+      M._define_theme("Dawnfox"),
+      M._define_theme("Duskfox"),
+      M._define_theme("Nordfox"),
+      M._define_theme("Terafox"),
+      M._define_theme("Carbonfox"),
     },
   }
 end
