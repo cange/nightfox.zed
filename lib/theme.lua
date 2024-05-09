@@ -53,7 +53,7 @@ function M._define_theme(name)
     ["tab_bar.background"] = spec.bg0,
     ["tab.inactive_background"] = spec.bg0,
     ["tab.active_background"] = spec.bg1,
-    ["search.match_background"] = nil,
+    ["search.match_background"] = spec.sel1,
     ["panel.background"] = spec.bg0,
     ["panel.focused_border"] = nil,
     ["pane.focused_border"] = nil,
