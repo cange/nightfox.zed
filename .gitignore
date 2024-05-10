@@ -8,5 +8,4 @@
 .DS_Store
 
 ### misc ###
-/screenshots
-/bin
+*/screenshots

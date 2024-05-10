@@ -3,3 +3,6 @@ build:
 
 dev:
 	@DEV_MODE=1 lua lib/build.lua  # Set DEV_MODE environment variable and run script
+
+screenshots:
+	./bin/compress.sh && ls -lh assets/images

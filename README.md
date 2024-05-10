@@ -7,31 +7,31 @@
 
 ### Nightfox
 
-![nightfox](./assets/nightfox.png)
+![nightfox](./assets/images/nightfox-0.1.1.png)
 
 ### Dayfox
 
-![dayfox](./assets/dayfox.png)
+![dayfox](./assets/images/dayfox-0.1.1.png)
 
 ### Dawnfox
 
-![dawnfox](./assets/dawnfox.png)
+![dawnfox](./assets/images/dawnfox-0.1.1.png)
 
 ### Duskfox
 
-![duskfox](./assets/duskfox.png)
+![duskfox](./assets/images/duskfox-0.1.1.png)
 
 ### Nordfox
 
-![nordfox](./assets/nordfox.png)
+![nordfox](./assets/images/nordfox-0.1.1.png)
 
 ### Terafox
 
-![terafox](./assets/terafox.png)
+![terafox](./assets/images/terafox-0.1.1.png)
 
 ### Carbonfox
 
-![carbonfox](./assets/carbonfox.png)
+![carbonfox](./assets/images/carbonfox-0.1.1.png)
 
 ## Development
 
