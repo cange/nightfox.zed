@@ -28,10 +28,7 @@ function M.build()
   local filename = "themes/" .. metadata.id .. ".json"
   local file = assert(io.open(filename, "w"))
   M._ns = metadata.id or M._ns
-  local content = dkjson.encode(require("lib.theme").generate(metadata, M._ns), {
-    indent = true,
-    keyorder = { "$schema", "name", "author", "themes" },
-  })
+  local content = dkjson.encode(require("lib.theme").generate(metadata, M._ns))
 
   if file then
     file:write(content .. "\n") -- ensure newline at the end of file
