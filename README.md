@@ -7,31 +7,31 @@
 
 ### Nightfox
 
-![nightfox](./assets/images/nightfox-0.1.1.png)
+![nightfox](https://github.com/cange/nightfox.zed/assets/28717/f351512a-8346-4679-8a03-b8eedc32cfde)
 
 ### Dayfox
 
-![dayfox](./assets/images/dayfox-0.1.1.png)
+![dayfox](https://github.com/cange/nightfox.zed/assets/28717/5b88f2cb-f118-4ba5-bb5f-da87ef12f8b7)
 
 ### Dawnfox
 
-![dawnfox](./assets/images/dawnfox-0.1.1.png)
+![dawnfox](https://github.com/cange/nightfox.zed/assets/28717/1a1387c2-4e1b-4edb-8c1a-ad19c12a189b)
 
 ### Duskfox
 
-![duskfox](./assets/images/duskfox-0.1.1.png)
+![duskfox](https://github.com/cange/nightfox.zed/assets/28717/569ff286-0645-4d4d-aef5-0996de06651a)
 
 ### Nordfox
 
-![nordfox](./assets/images/nordfox-0.1.1.png)
+![nordfox](https://github.com/cange/nightfox.zed/assets/28717/3e64882d-dde8-4485-bccd-aece4f053fe5)
 
 ### Terafox
 
-![terafox](./assets/images/terafox-0.1.1.png)
+![terafox](https://github.com/cange/nightfox.zed/assets/28717/82793707-e395-4877-b2be-1662a38982bd)
 
 ### Carbonfox
 
-![carbonfox](./assets/images/carbonfox-0.1.1.png)
+![carbonfox](https://github.com/cange/nightfox.zed/assets/28717/f8c89b7e-3cc0-4be0-a0ad-4b2a08b82268)
 
 ## Development
 
