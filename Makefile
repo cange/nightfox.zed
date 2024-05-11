@@ -1,8 +1,6 @@
 build:
-	@lua lib/build.lua  # Run lua script for building in normal mode
+	@lua lib/build.lua
 
 dev:
-	@DEV_MODE=1 lua lib/build.lua  # Set DEV_MODE environment variable and run script
+	@DEV_MODE=1 lua lib/build.lua
 
-screenshots:
-	./bin/compress.sh && ls -lh assets/images
