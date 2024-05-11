@@ -1,7 +1,7 @@
 package = "nvim-nightfox"
-version = "0.1.0"
+version = "0.1.1"
 source = {
-  tag = "0.1.0",
+  tag = "0.1.1",
   url = "https://github.com/cange/nightfox.zed",
 }
 description = {
