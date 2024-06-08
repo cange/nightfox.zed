@@ -5,7 +5,7 @@
   "themes": [
     {
       "appearance": "dark",
-      "name": "Nightfox (dev)",
+      "name": "Nightfox",
       "style": {
         "accents": [
           "#6085b6",
@@ -16,7 +16,6 @@
           "#6e9783",
           "#baa363"
         ],
-        "add": "#26343c",
         "background": "#131a24",
         "border": "#131a24",
         "border.disabled": "#192330",
@@ -80,6 +79,7 @@
         "status_bar.background": "#131a24",
         "success": "#81b29a",
         "success.background": "#2e4045",
+        "surface.background": "#131a24",
         "syntax": {
           "boolean": {
             "color": "#f6b079"
@@ -204,7 +204,7 @@
     },
     {
       "appearance": "light",
-      "name": "Dayfox (dev)",
+      "name": "Dayfox",
       "style": {
         "accents": [
           "#223d90",
@@ -215,7 +215,6 @@
           "#30583c",
           "#924702"
         ],
-        "add": "#d0d6cd",
         "background": "#e4dcd4",
         "border": "#e4dcd4",
         "border.disabled": "#f6f2ee",
@@ -279,6 +278,7 @@
         "status_bar.background": "#e4dcd4",
         "success": "#396847",
         "success.background": "#bdc9bc",
+        "surface.background": "#e4dcd4",
         "syntax": {
           "boolean": {
             "color": "#7f5152"
@@ -403,7 +403,7 @@
     },
     {
       "appearance": "light",
-      "name": "Dawnfox (dev)",
+      "name": "Dawnfox",
       "style": {
         "accents": [
           "#295e73",
@@ -414,7 +414,6 @@
           "#597668",
           "#dd9024"
         ],
-        "add": "#dbded5",
         "background": "#ebe5df",
         "border": "#ebe5df",
         "border.disabled": "#faf4ed",
@@ -478,6 +477,7 @@
         "status_bar.background": "#ebe5df",
         "success": "#618774",
         "success.background": "#ccd3c9",
+        "surface.background": "#ebe5df",
         "syntax": {
           "boolean": {
             "color": "#ca6e69"
@@ -602,7 +602,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Duskfox (dev)",
+      "name": "Duskfox",
       "style": {
         "accents": [
           "#4a869c",
@@ -613,7 +613,6 @@
           "#8aa872",
           "#e6a852"
         ],
-        "add": "#3d4047",
         "background": "#191726",
         "border": "#191726",
         "border.disabled": "#232136",
@@ -677,6 +676,7 @@
         "status_bar.background": "#191726",
         "success": "#a3be8c",
         "success.background": "#363943",
+        "surface.background": "#191726",
         "syntax": {
           "boolean": {
             "color": "#f0a4a2"
@@ -801,7 +801,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Nordfox (dev)",
+      "name": "Nordfox",
       "style": {
         "accents": [
           "#668aab",
@@ -812,7 +812,6 @@
           "#8aa872",
           "#d9b263"
         ],
-        "add": "#3c4548",
         "background": "#232831",
         "border": "#232831",
         "border.disabled": "#2e3440",
@@ -876,6 +875,7 @@
         "status_bar.background": "#232831",
         "success": "#a3be8c",
         "success.background": "#45504f",
+        "surface.background": "#232831",
         "syntax": {
           "boolean": {
             "color": "#d89079"
@@ -1000,7 +1000,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Terafox (dev)",
+      "name": "Terafox",
       "style": {
         "accents": [
           "#4d7d90",
@@ -1011,7 +1011,6 @@
           "#688b89",
           "#d78b6c"
         ],
-        "add": "#293e40",
         "background": "#0f1c1e",
         "border": "#0f1c1e",
         "border.disabled": "#152528",
@@ -1075,6 +1074,7 @@
         "status_bar.background": "#0f1c1e",
         "success": "#7aa4a1",
         "success.background": "#24383a",
+        "surface.background": "#0f1c1e",
         "syntax": {
           "boolean": {
             "color": "#ff9664"
@@ -1199,7 +1199,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Carbonfox (dev)",
+      "name": "Carbonfox",
       "style": {
         "accents": [
           "#6690d9",
@@ -1210,7 +1210,6 @@
           "#1fa25a",
           "#07a19e"
         ],
-        "add": "#172b20",
         "background": "#0c0c0c",
         "border": "#0c0c0c",
         "border.disabled": "#161616",
@@ -1274,6 +1273,7 @@
         "status_bar.background": "#0c0c0c",
         "success": "#25be6a",
         "success.background": "#182f23",
+        "surface.background": "#0c0c0c",
         "syntax": {
           "boolean": {
             "color": "#5ae0df"
