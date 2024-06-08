@@ -5,6 +5,19 @@
 local M = {}
 M._ns = "" -- namespace
 
+---@param pal Palette
+function M._accent_colors(pal)
+  return {
+    pal.blue.dim,
+    pal.orange.dim,
+    pal.magenta.dim,
+    pal.cyan.dim,
+    pal.red.dim,
+    pal.green.dim,
+    pal.yellow.dim,
+  }
+end
+
 ---Maps values of nightfox.vim to zed's theme properties
 ---@param name "Nightfox" | "Dayfox" | "Dawnfox" | "Duskfox" | "Nordfox" | "Terafox" | "Carbonfox"
 ---@return table
@@ -17,6 +30,7 @@ function M._define_theme(name)
   local spec = require("nightfox.spec").load(theme)
   local appearance = pal.meta.light and "light" or "dark"
   local style = {
+    accents = M._accent_colors(pal),
     border = spec.bg0,
     ["border.disabled"] = spec.bg1,
     ["border.focused"] = spec.sel0,
@@ -74,6 +88,8 @@ function M._define_theme(name)
     ["editor.invisible"] = nil,
     ["editor.wrap_guide"] = spec.bg2,
     ["editor.active_wrap_guide"] = spec.bg2,
+    ["editor.indent_guide"] = spec.bg2,
+    ["editor.indent_guide_active"] = spec.sel1,
     ["editor.document_highlight.read_background"] = nil,
     ["editor.document_highlight.write_background"] = nil,
 

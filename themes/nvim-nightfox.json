@@ -5,8 +5,17 @@
   "themes": [
     {
       "appearance": "dark",
-      "name": "Nightfox",
+      "name": "Nightfox (dev)",
       "style": {
+        "accents": [
+          "#6085b6",
+          "#cf8a52",
+          "#8567b6",
+          "#54aeb0",
+          "#ab435d",
+          "#6e9783",
+          "#baa363"
+        ],
         "add": "#26343c",
         "background": "#131a24",
         "border": "#131a24",
@@ -25,6 +34,8 @@
         "editor.background": "#192330",
         "editor.foreground": "#cdcecf",
         "editor.gutter.background": "#192330",
+        "editor.indent_guide": "#212e3f",
+        "editor.indent_guide_active": "#3c5372",
         "editor.line_number": "#71839b",
         "editor.wrap_guide": "#212e3f",
         "element.active": "#f4a26199",
@@ -193,8 +204,17 @@
     },
     {
       "appearance": "light",
-      "name": "Dayfox",
+      "name": "Dayfox (dev)",
       "style": {
+        "accents": [
+          "#223d90",
+          "#7f5152",
+          "#5e2baf",
+          "#22676d",
+          "#8c1d28",
+          "#30583c",
+          "#924702"
+        ],
         "add": "#d0d6cd",
         "background": "#e4dcd4",
         "border": "#e4dcd4",
@@ -213,6 +233,8 @@
         "editor.background": "#f6f2ee",
         "editor.foreground": "#3d2b5a",
         "editor.gutter.background": "#f6f2ee",
+        "editor.indent_guide": "#dbd1dd",
+        "editor.indent_guide_active": "#a4c1c2",
         "editor.line_number": "#824d5b",
         "editor.wrap_guide": "#dbd1dd",
         "element.active": "#955f6199",
@@ -381,8 +403,17 @@
     },
     {
       "appearance": "light",
-      "name": "Dawnfox",
+      "name": "Dawnfox (dev)",
       "style": {
+        "accents": [
+          "#295e73",
+          "#ca6e69",
+          "#816b9a",
+          "#50848c",
+          "#a5576d",
+          "#597668",
+          "#dd9024"
+        ],
         "add": "#dbded5",
         "background": "#ebe5df",
         "border": "#ebe5df",
@@ -401,6 +432,8 @@
         "editor.background": "#faf4ed",
         "editor.foreground": "#575279",
         "editor.gutter.background": "#faf4ed",
+        "editor.indent_guide": "#ebe0df",
+        "editor.indent_guide_active": "#b8cece",
         "editor.line_number": "#a8a3b3",
         "editor.wrap_guide": "#ebe0df",
         "element.active": "#d7827e99",
@@ -569,8 +602,17 @@
     },
     {
       "appearance": "dark",
-      "name": "Duskfox",
+      "name": "Duskfox (dev)",
       "style": {
+        "accents": [
+          "#4a869c",
+          "#d6746f",
+          "#a580d2",
+          "#7bb8c1",
+          "#d84f76",
+          "#8aa872",
+          "#e6a852"
+        ],
         "add": "#3d4047",
         "background": "#191726",
         "border": "#191726",
@@ -589,6 +631,8 @@
         "editor.background": "#232136",
         "editor.foreground": "#e0def4",
         "editor.gutter.background": "#232136",
+        "editor.indent_guide": "#2d2a45",
+        "editor.indent_guide_active": "#63577d",
         "editor.line_number": "#6e6a86",
         "editor.wrap_guide": "#2d2a45",
         "element.active": "#ea9a9799",
@@ -757,8 +801,17 @@
     },
     {
       "appearance": "dark",
-      "name": "Nordfox",
+      "name": "Nordfox (dev)",
       "style": {
+        "accents": [
+          "#668aab",
+          "#b46950",
+          "#9d7495",
+          "#69a7ba",
+          "#a54e56",
+          "#8aa872",
+          "#d9b263"
+        ],
         "add": "#3c4548",
         "background": "#232831",
         "border": "#232831",
@@ -777,6 +830,8 @@
         "editor.background": "#2e3440",
         "editor.foreground": "#cdcecf",
         "editor.gutter.background": "#2e3440",
+        "editor.indent_guide": "#39404f",
+        "editor.indent_guide_active": "#4f6074",
         "editor.line_number": "#7e8188",
         "editor.wrap_guide": "#39404f",
         "element.active": "#c9826b99",
@@ -945,8 +1000,17 @@
     },
     {
       "appearance": "dark",
-      "name": "Terafox",
+      "name": "Terafox (dev)",
       "style": {
+        "accents": [
+          "#4d7d90",
+          "#d96f3e",
+          "#934e69",
+          "#89aeb8",
+          "#c54e45",
+          "#688b89",
+          "#d78b6c"
+        ],
         "add": "#293e40",
         "background": "#0f1c1e",
         "border": "#0f1c1e",
@@ -965,6 +1029,8 @@
         "editor.background": "#152528",
         "editor.foreground": "#e6eaea",
         "editor.gutter.background": "#152528",
+        "editor.indent_guide": "#1d3337",
+        "editor.indent_guide_active": "#425e5e",
         "editor.line_number": "#587b7b",
         "editor.wrap_guide": "#1d3337",
         "element.active": "#ff834999",
@@ -1133,8 +1199,17 @@
     },
     {
       "appearance": "dark",
-      "name": "Carbonfox",
+      "name": "Carbonfox (dev)",
       "style": {
+        "accents": [
+          "#6690d9",
+          "#34bab8",
+          "#a27fd9",
+          "#2b96d9",
+          "#ca4780",
+          "#1fa25a",
+          "#07a19e"
+        ],
         "add": "#172b20",
         "background": "#0c0c0c",
         "border": "#0c0c0c",
@@ -1153,6 +1228,8 @@
         "editor.background": "#161616",
         "editor.foreground": "#f2f4f8",
         "editor.gutter.background": "#161616",
+        "editor.indent_guide": "#252525",
+        "editor.indent_guide_active": "#525253",
         "editor.line_number": "#7b7c7e",
         "editor.wrap_guide": "#252525",
         "element.active": "#3ddbd999",
