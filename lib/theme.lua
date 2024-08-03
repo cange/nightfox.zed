@@ -3,7 +3,7 @@
 ---@field private _neovim_polyfill function
 ---@field private _with_alpha function
 local M = {}
-M._ns = "" -- namespace
+M._ns = ""
 
 ---Merge two or more tables into one.
 ---@param base table
@@ -43,40 +43,40 @@ function M._status_colors(spec)
     created = spec.git.add,
     ["created.background"] = nil,
     ["created.border"] = nil,
-    deleted = spec.diff.delete, -- diff
+    deleted = spec.diff.delete,
     ["deleted.background"] = nil,
     ["deleted.border"] = nil,
-    error = spec.diag.error, -- diagnostic
+    error = spec.diag.error,
     ["error.background"] = spec.diag_bg.error,
     ["error.border"] = nil,
     hidden = spec.fg3,
     ["hidden.background"] = nil,
     ["hidden.border"] = nil,
-    hint = spec.syntax.comment, -- diagnostic / also used for git inline blame
+    hint = spec.syntax.comment,
     ["hint.background"] = spec.diag_bg.hint,
     ["hint.border"] = nil,
-    ignored = spec.git.ignored, -- git
+    ignored = spec.git.ignored,
     ["ignored.background"] = nil,
     ["ignored.border"] = nil,
-    info = spec.diag.info, -- diagnostic
+    info = spec.diag.info,
     ["info.background"] = spec.diag_bg.info,
     ["info.border"] = nil,
-    modified = spec.git.changed, -- git
+    modified = spec.git.changed,
     ["modified.background"] = nil,
     ["modified.border"] = nil,
     predictive = spec.fg3,
     ["predictive.background"] = nil,
     ["predictive.border"] = nil,
-    renamed = spec.git.changed, -- git
+    renamed = spec.git.changed,
     ["renamed.background"] = nil,
     ["renamed.border"] = nil,
-    success = spec.diag.ok, -- diagnostic
+    success = spec.diag.ok,
     ["success.background"] = spec.diag_bg.ok,
     ["success.border"] = nil,
     unreachable = nil,
     ["unreachable.background"] = nil,
     ["unreachable.border"] = nil,
-    warning = spec.diag.warn, -- diagnostic
+    warning = spec.diag.warn,
     ["warning.background"] = spec.diag_bg.warn,
     ["warning.border"] = nil,
   }
@@ -349,13 +349,10 @@ function M._define_theme(name)
     name = display_name,
     appearance = appearance,
     style = M._tbl_merge({
-        accents = M._accent_colors(pal),
-        players = M._player_colors(pal),
-        syntax = M._syntax_theme(pal, spec), -- https://github.com/zed-industries/zed/blob/main/crates/theme/src/one_themes.rs#L191
-      },
-      M._status_colors(spec),
-      M._theme_colors(pal, spec)
-    ),
+      accents = M._accent_colors(pal),
+      players = M._player_colors(pal),
+      syntax = M._syntax_theme(pal, spec), -- https://github.com/zed-industries/zed/blob/main/crates/theme/src/one_themes.rs#L191
+    }, M._status_colors(spec), M._theme_colors(pal, spec)),
   }
 end
 
@@ -410,124 +407,3 @@ function M.generate(metadata, namespace)
 end
 
 return M
-
---#region Types
-
----@class PaletteMeta
----@field name string
----@field light boolean
-
----@class Shade
----@field base string
----@field bright string
----@field dim string
----@field light boolean
-
----@class Palette
----@field meta PaletteMeta
----@field black Shade
----@field red Shade
----@field green Shade
----@field yellow Shade
----@field blue Shade
----@field magenta Shade
----@field cyan Shade
----@field white Shade
----@field orange Shade
----@field pink Shade
----@field comment string
----@field bg0 string Dark bg (status line and float)
----@field bg1 string Default bg
----@field bg2 string Lighter bg (colorcolm folds)
----@field bg3 string Lighter bg (cursor line)
----@field bg4 string Conceal, border fg
----@field fg0 string Lighter fg
----@field fg1 string Default fg
----@field fg2 string Darker fg (status line)
----@field fg3 string Darker fg (line numbers, fold colums)
----@field sel0 string Popup bg, visual selection bg
----@field sel1 string Popup sel bg, search bg
-
----@class Spec
----@field bg0 string Dark bg (status line and float)
----@field bg1 string Default bg
----@field bg2 string Lighter bg (colorcolm folds)
----@field bg3 string Lighter bg (cursor line)
----@field bg4 string Conceal, border fg
----@field fg0 string Lighter fg
----@field fg1 string Default fg
----@field fg2 string Darker fg (status line)
----@field fg3 string Darker fg (line numbers, fold colums)
----@field sel0 string Popup bg, visual selection bg
----@field sel1 string Popup sel bg, search bg
----@field syntax SpecSyntax
----@field diag SpecDiagnostic
----@field diag_bg SpecDiagnosticBg
----@field diff SpecDiff
----@field git SpecGit
-
----@class SpecSyntax
----@field bracket string Brackets and Punctuation
----@field builtin0 string Builtin variable
----@field builtin1 string Builtin type
----@field builtin2 string Builtin const
----@field builtin3 string Not used
----@field comment string Comment
----@field conditional string Conditional and loop
----@field const string Constants, imports and booleans
----@field dep string Deprecated
----@field field string Field
----@field func string Functions and Titles
----@field ident string Identifiers
----@field keyword string Keywords
----@field number string Numbers
----@field operator string Operators
----@field preproc string PreProc
----@field regex string Regex
----@field statement string Statements
----@field string string Strings
----@field type string Types
----@field variable string Variables
-
----@class SpecDiagnostic
----@field error string
----@field warn string
----@field info string
----@field hint string
----@field ok string
-
----@class SpecDiagnosticBg
----@field error string
----@field warn string
----@field info string
----@field hint string
----@field ok string
-
----@class SpecDiff
----@field add string
----@field delete string
----@field change string
----@field text string
-
----@class SpecGit
----@field add string
----@field changed string
----@field conflict string
----@field ignored string
----@field removed string
-
----@class ZedPlayerColor
----@field cursor string
----@field background string
----@filed selection string
-
----@class ZedHighlightStyle
----@field color string
----@field font_weight string
----@field font_style string
----@field background_color string
----@field underline string
----@field strikethrough string
----@field fade_out string
-
---#endregion
