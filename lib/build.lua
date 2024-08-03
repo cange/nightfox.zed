@@ -40,10 +40,3 @@ function M.build()
 end
 
 M.build()
-
----@class Metadata
----@field id string
----@field name string
----@field authors table
----@field description string
----@field repository string
