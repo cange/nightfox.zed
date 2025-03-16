@@ -12,7 +12,7 @@ jobs:
         with:
           extension-name: nvim-nightfox
           # extension-path: extensions/${{ extension-name }}
-          push-to: cang/extensions
+          push-to: cange/extensions
         env:
           # the personal access token should have "repo" & "workflow" scopes
           COMMITTER_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
