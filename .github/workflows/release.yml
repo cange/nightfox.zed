@@ -1,0 +1,18 @@
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  homebrew:
+    name: Release Zed Extension
+    runs-on: ubuntu-latest
+    steps:
+      - uses: huacnlee/zed-extension-action@v1
+        with:
+          extension-name: nvim-nightfox
+          # extension-path: extensions/${{ extension-name }}
+          push-to: cang/extensions
+        env:
+          # the personal access token should have "repo" & "workflow" scopes
+          COMMITTER_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
