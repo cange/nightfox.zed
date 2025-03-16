@@ -138,7 +138,7 @@ function M._theme_colors(pal, spec)
     ["text.muted"] = spec.fg1,
     ["text.placeholder"] = spec.fg3,
     ["text.disabled"] = spec.syntax.comment,
-    ["text.accent"] = spec.fg2,
+    ["text.accent"] = pal.orange.dim,
     icon = AS_NONE,
     ["icon.muted"] = AS_NONE,
     ["icon.disabled"] = AS_NONE,
