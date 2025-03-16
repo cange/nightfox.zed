@@ -1,11 +1,11 @@
 package = "nvim-nightfox"
-version = "0.3.0"
-source = {
-  tag = "0.3.0",
-  url = "https://github.com/cange/nightfox.zed",
-}
+version = "0.3.0-1"
 description = {
   summary = "A port of the Neovim Nightfox themes",
+  detailed = [[
+    A complete port of the Neovim Nightfox colorscheme collection for Zed editor.
+    Includes all variants.
+  ]],
   license = "MIT",
   homepage = "https://github.com/cange/nightfox.zed",
 }
@@ -18,6 +18,6 @@ dependencies = {
 build = {
   type = "builtin",
   modules = {
-    build = "lib/build.lua",
+    ["nightfox.build"] = "lib/build.lua",
   },
 }
