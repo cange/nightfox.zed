@@ -85,14 +85,14 @@ function M._status_colors(spec)
   }
 end
 
----@param pal Palette
+---@param spec Spec
 ---@return ZedPlayerColor[]
-function M._player_colors(pal)
+function M._player_colors(spec)
   return {
     {
-      cursor = pal.green.base,
-      background = pal.green.base,
-      selection = M._with_alpha(pal.green.base, 0.24),
+      cursor = spec.fg0,
+      background = spec.bg3,
+      selection = M._with_alpha(spec.sel0, 0.5),
     },
   }
 end
@@ -113,15 +113,15 @@ function M._theme_colors(pal, spec)
     ["surface.background"] = spec.bg0,
     background = spec.bg0,
     ["element.background"] = spec.sel0,
-    ["element.hover"] = M._with_alpha(pal.orange.base, 0.3),
-    ["element.active"] = M._with_alpha(pal.orange.base, 0.6),
-    ["element.selected"] = M._with_alpha(pal.orange.base, 0.2),
+    ["element.hover"] = M._with_alpha(spec.sel0, 0.25),
+    ["element.active"] = spec.sel0,
+    ["element.selected"] = M._with_alpha(spec.sel0, 0.75),
     ["element.disabled"] = AS_NONE,
     ["drop_target.background"] = spec.bg0,
     ["ghost_element.background"] = AS_NONE,
-    ["ghost_element.hover"] = M._with_alpha(spec.sel0, 0.4),
-    ["ghost_element.active"] = M._with_alpha(pal.orange.base, 0.4),
-    ["ghost_element.selected"] = spec.sel0,
+    ["ghost_element.hover"] = M._with_alpha(spec.sel1, 0.25),
+    ["ghost_element.active"] = spec.sel1,                        -- usage: UI popout trigger
+    ["ghost_element.selected"] = M._with_alpha(spec.sel1, 0.75), -- usage: UI popout item
     ["ghost_element.disabled"] = AS_NONE,
     text = spec.fg0,
     ["text.muted"] = spec.fg1,
@@ -353,7 +353,7 @@ function M._define_theme(name)
     appearance = appearance,
     style = M._tbl_merge({
       accents = M._accent_colors(pal),
-      players = M._player_colors(pal),
+      players = M._player_colors(spec),
       syntax = M._syntax_theme(pal, spec), -- https://github.com/zed-industries/zed/blob/main/crates/theme/src/one_themes.rs#L191
     }, M._status_colors(spec), M._theme_colors(pal, spec)),
   }
