@@ -8,6 +8,15 @@ M._ns = ""
 ---@type nil -- Marks a nil property as already defined
 local AS_NONE = nil
 
+local debug = {
+  blue = { base = "#0000dd", dim = "#000088", bright = "#0000ff" },
+  cyan = { base = "#00dddd", dim = "#008888", bright = "#00ffff" },
+  green = { base = "#00dd00", dim = "#00a000", bright = "#00ff00" },
+  magenta = { base = "#dd00dd", dim = "#880088", bright = "#ff00ff" },
+  red = { base = "#dd0000", dim = "#880000", bright = "#ff0000" },
+  yellow = { base = "#dddd00", dim = "#888800", bright = "#ffff00" },
+}
+
 ---Merge two or more tables into one.
 ---@param base table
 ---@param ... table
@@ -97,13 +106,16 @@ function M._player_colors(spec)
   }
 end
 
----Represents [Zed::ThemeColors](https://github.com/zed-industries/zed/blob/v0.138.6/crates/theme/src/theme.rs) definition.
 ---@param pal Palette
 ---@param spec Spec
 ---@return table
+---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
 function M._theme_colors(pal, spec)
   return {
     border = spec.bg0,
+    background = spec.bg0,
+    ["accents"] = M._accent_colors(pal),
+    ["background.appearance"] = "blurred", -- TODO: define value, "opaque", "transparent", "blurred"
     ["border.variant"] = spec.bg0,
     ["border.focused"] = spec.sel0,
     ["border.selected"] = spec.sel1,
@@ -111,7 +123,6 @@ function M._theme_colors(pal, spec)
     ["border.disabled"] = spec.bg1,
     ["elevated_surface.background"] = spec.bg0,
     ["surface.background"] = spec.bg0,
-    background = spec.bg0,
     ["element.background"] = spec.sel0,
     ["element.hover"] = M._with_alpha(spec.sel0, 0.25),
     ["element.active"] = spec.sel0,
@@ -134,6 +145,7 @@ function M._theme_colors(pal, spec)
     ["icon.placeholder"] = AS_NONE,
     ["icon.accent"] = AS_NONE,
     ["status_bar.background"] = spec.bg0,
+    ["title_bar.inactive_background"] = AS_NONE,
     ["title_bar.background"] = spec.bg0,
     ["toolbar.background"] = spec.bg1,
     ["tab_bar.background"] = spec.bg0,
@@ -141,7 +153,10 @@ function M._theme_colors(pal, spec)
     ["tab.active_background"] = spec.bg1,
     ["search.match_background"] = spec.sel1,
     ["panel.background"] = spec.bg0,
-    ["panel.focused_border"] = AS_NONE,
+    ["panel.focused_border"] = spec.sel1,
+    ["panel.indent_guide"] = AS_NONE,
+    ["panel.indent_guide_active"] = AS_NONE,
+    ["panel.indent_guide_hover"] = AS_NONE,
     ["pane.focused_border"] = AS_NONE,
     ["pane.group_border"] = AS_NONE,
     ["scrollbar.thumb.background"] = pal.black.dim,
@@ -162,12 +177,15 @@ function M._theme_colors(pal, spec)
     ["editor.active_wrap_guide"] = spec.bg2,
     ["editor.indent_guide"] = spec.bg2,
     ["editor.indent_guide_active"] = spec.sel1,
+    ["editor.document_highlight.bracket_background"] = spec.sel0,
     ["editor.document_highlight.read_background"] = AS_NONE,
     ["editor.document_highlight.write_background"] = AS_NONE,
     ["terminal.background"] = spec.bg1,
     ["terminal.foreground"] = spec.fg1,
     ["terminal.bright_foreground"] = spec.fg0,
     ["terminal.dim_foreground"] = spec.fg2,
+    ["terminal.ansi.background"] = AS_NONE,
+    ["terminal.ansi.black"] = pal.black.base,
     ["terminal.ansi.bright_black"] = pal.black.bright,
     ["terminal.ansi.bright_red"] = pal.red.bright,
     ["terminal.ansi.bright_green"] = pal.green.bright,
@@ -176,7 +194,6 @@ function M._theme_colors(pal, spec)
     ["terminal.ansi.bright_magenta"] = pal.magenta.bright,
     ["terminal.ansi.bright_cyan"] = pal.cyan.bright,
     ["terminal.ansi.bright_white"] = pal.white.bright,
-    ["terminal.ansi.black"] = pal.black.base,
     ["terminal.ansi.red"] = pal.red.base,
     ["terminal.ansi.green"] = pal.green.base,
     ["terminal.ansi.yellow"] = pal.yellow.base,
@@ -199,6 +216,7 @@ end
 ---@param pal Palette
 ---@param spec Spec
 ---@return table<string, ZedHighlightStyle>
+---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
 function M._syntax_theme(pal, spec)
   return {
     boolean = {
@@ -271,7 +289,7 @@ function M._syntax_theme(pal, spec)
       font_style = nil,
       font_weight = nil,
     },
-    ["punctuation.list_marker"] = {
+    ["punctuation.markup"] = {
       color = spec.syntax.bracket,
       font_style = nil,
       font_weight = nil,
@@ -394,7 +412,7 @@ function M.generate(metadata, namespace)
   print(string.format("[%s] ⚙ Generating themes", M._ns))
 
   return {
-    ["$schema"] = "https://zed.dev/schema/themes/v0.1.0.json",
+    ["$schema"] = "https://zed.dev/schema/themes/v0.2.0.json",
     author = metadata.authors[1],
     name = metadata.name,
     themes = {
