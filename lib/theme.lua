@@ -224,6 +224,13 @@ function M._theme_colors(pal, spec)
     ["terminal.ansi.dim_white"] = pal.white.dim,
 
     ["link_text.hover"] = pal.cyan.base,
+
+    ["version_control.added"] = spec.git.add,
+    ["version_control.deleted"] = spec.git.removed,
+    ["version_control.modified"] = spec.git.changed,
+    ["version_control.renamed"] = spec.git.changed,
+    ["version_control.conflict"] = spec.git.conflict,
+    ["version_control.ignored"] = spec.git.ignored,
   }
 end
 
