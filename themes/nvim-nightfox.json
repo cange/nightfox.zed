@@ -17,7 +17,6 @@
           "#baa363"
         ],
         "background": "#131a24",
-        "background.appearance": "blurred",
         "border": "#131a24",
         "border.disabled": "#192330",
         "border.focused": "#2b3b51",
@@ -196,6 +195,12 @@
         "text.placeholder": "#71839b",
         "title_bar.background": "#131a24",
         "toolbar.background": "#192330",
+        "version_control.added": "#81b29a",
+        "version_control.conflict": "#f4a261",
+        "version_control.deleted": "#c94f6d",
+        "version_control.ignored": "#738091",
+        "version_control.modified": "#dbc074",
+        "version_control.renamed": "#dbc074",
         "warning": "#dbc074",
         "warning.background": "#40423e"
       }
@@ -214,7 +219,6 @@
           "#924702"
         ],
         "background": "#e4dcd4",
-        "background.appearance": "blurred",
         "border": "#e4dcd4",
         "border.disabled": "#f6f2ee",
         "border.focused": "#e7d2be",
@@ -393,6 +397,12 @@
         "text.placeholder": "#824d5b",
         "title_bar.background": "#e4dcd4",
         "toolbar.background": "#f6f2ee",
+        "version_control.added": "#396847",
+        "version_control.conflict": "#955f61",
+        "version_control.deleted": "#a5222f",
+        "version_control.ignored": "#837a72",
+        "version_control.modified": "#ac5402",
+        "version_control.renamed": "#ac5402",
         "warning": "#ac5402",
         "warning.background": "#e0c3a7"
       }
@@ -411,7 +421,6 @@
           "#dd9024"
         ],
         "background": "#ebe5df",
-        "background.appearance": "blurred",
         "border": "#ebe5df",
         "border.disabled": "#faf4ed",
         "border.focused": "#d0d8d8",
@@ -590,6 +599,12 @@
         "text.placeholder": "#a8a3b3",
         "title_bar.background": "#ebe5df",
         "toolbar.background": "#faf4ed",
+        "version_control.added": "#618774",
+        "version_control.conflict": "#d7827e",
+        "version_control.deleted": "#b4637a",
+        "version_control.ignored": "#9893a5",
+        "version_control.modified": "#ea9d34",
+        "version_control.renamed": "#ea9d34",
         "warning": "#ea9d34",
         "warning.background": "#f5dab6"
       }
@@ -608,7 +623,6 @@
           "#e6a852"
         ],
         "background": "#191726",
-        "background.appearance": "blurred",
         "border": "#191726",
         "border.disabled": "#232136",
         "border.focused": "#433c59",
@@ -787,6 +801,12 @@
         "text.placeholder": "#6e6a86",
         "title_bar.background": "#191726",
         "toolbar.background": "#232136",
+        "version_control.added": "#a3be8c",
+        "version_control.conflict": "#ea9a97",
+        "version_control.deleted": "#eb6f92",
+        "version_control.ignored": "#817c9c",
+        "version_control.modified": "#f6c177",
+        "version_control.renamed": "#f6c177",
         "warning": "#f6c177",
         "warning.background": "#433940"
       }
@@ -805,7 +825,6 @@
           "#d9b263"
         ],
         "background": "#232831",
-        "background.appearance": "blurred",
         "border": "#232831",
         "border.disabled": "#2e3440",
         "border.focused": "#3e4a5b",
@@ -984,6 +1003,12 @@
         "text.placeholder": "#7e8188",
         "title_bar.background": "#232831",
         "toolbar.background": "#2e3440",
+        "version_control.added": "#a3be8c",
+        "version_control.conflict": "#c9826b",
+        "version_control.deleted": "#bf616a",
+        "version_control.ignored": "#60728a",
+        "version_control.modified": "#ebcb8b",
+        "version_control.renamed": "#ebcb8b",
         "warning": "#ebcb8b",
         "warning.background": "#54524f"
       }
@@ -1002,7 +1027,6 @@
           "#d78b6c"
         ],
         "background": "#0f1c1e",
-        "background.appearance": "blurred",
         "border": "#0f1c1e",
         "border.disabled": "#152528",
         "border.focused": "#293e40",
@@ -1181,6 +1205,12 @@
         "text.placeholder": "#587b7b",
         "title_bar.background": "#0f1c1e",
         "toolbar.background": "#152528",
+        "version_control.added": "#7aa4a1",
+        "version_control.conflict": "#ff8349",
+        "version_control.deleted": "#e85c51",
+        "version_control.ignored": "#6d7f8b",
+        "version_control.modified": "#fda47f",
+        "version_control.renamed": "#fda47f",
         "warning": "#fda47f",
         "warning.background": "#383835"
       }
@@ -1199,7 +1229,6 @@
           "#07a19e"
         ],
         "background": "#0c0c0c",
-        "background.appearance": "blurred",
         "border": "#0c0c0c",
         "border.disabled": "#161616",
         "border.focused": "#2a2a2a",
@@ -1378,6 +1407,12 @@
         "text.placeholder": "#7b7c7e",
         "title_bar.background": "#0c0c0c",
         "toolbar.background": "#161616",
+        "version_control.added": "#25be6a",
+        "version_control.conflict": "#3ddbd9",
+        "version_control.deleted": "#ee5396",
+        "version_control.ignored": "#6e6f70",
+        "version_control.modified": "#08bdba",
+        "version_control.renamed": "#08bdba",
         "warning": "#be95ff",
         "warning.background": "#2f2939"
       }
