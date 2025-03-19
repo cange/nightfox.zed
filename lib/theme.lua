@@ -109,41 +109,50 @@ end
 ---@param pal Palette
 ---@param spec Spec
 ---@return table
+---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/styles/colors.rs
 ---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
 function M._theme_colors(pal, spec)
   return {
-    border = spec.bg0,
-    background = spec.bg0,
     ["accents"] = M._accent_colors(pal),
-    ["background.appearance"] = "blurred", -- TODO: define value, "opaque", "transparent", "blurred"
+
+    border = spec.bg0,
     ["border.variant"] = spec.bg0,
     ["border.focused"] = spec.sel0,
     ["border.selected"] = spec.sel1,
     ["border.transparent"] = spec.bg1,
     ["border.disabled"] = spec.bg1,
+
     ["elevated_surface.background"] = spec.bg0,
     ["surface.background"] = spec.bg0,
+    background = spec.bg0,
+
     ["element.background"] = spec.sel0,
     ["element.hover"] = M._with_alpha(spec.sel0, 0.25),
     ["element.active"] = spec.sel0,
     ["element.selected"] = M._with_alpha(spec.sel0, 0.75),
     ["element.disabled"] = AS_NONE,
+
     ["drop_target.background"] = spec.bg0,
+
     ["ghost_element.background"] = AS_NONE,
     ["ghost_element.hover"] = M._with_alpha(spec.sel1, 0.25),
     ["ghost_element.active"] = spec.sel1,                        -- usage: UI popout trigger
     ["ghost_element.selected"] = M._with_alpha(spec.sel1, 0.75), -- usage: UI popout item
     ["ghost_element.disabled"] = AS_NONE,
+
     text = spec.fg0,
     ["text.muted"] = spec.fg1,
     ["text.placeholder"] = spec.fg3,
     ["text.disabled"] = spec.syntax.comment,
     ["text.accent"] = pal.orange.dim,
+
     icon = AS_NONE,
     ["icon.muted"] = AS_NONE,
     ["icon.disabled"] = AS_NONE,
     ["icon.placeholder"] = AS_NONE,
     ["icon.accent"] = AS_NONE,
+
+    -- UI Elements
     ["status_bar.background"] = spec.bg0,
     ["title_bar.inactive_background"] = AS_NONE,
     ["title_bar.background"] = spec.bg0,
@@ -164,6 +173,8 @@ function M._theme_colors(pal, spec)
     ["scrollbar.thumb.border"] = pal.black.dim,
     ["scrollbar.track.background"] = spec.bg1,
     ["scrollbar.track.border"] = spec.bg0,
+
+    -- Editor
     ["editor.foreground"] = spec.fg1,
     ["editor.background"] = spec.bg1,
     ["editor.gutter.background"] = spec.bg1,
@@ -180,6 +191,8 @@ function M._theme_colors(pal, spec)
     ["editor.document_highlight.bracket_background"] = spec.sel0,
     ["editor.document_highlight.read_background"] = AS_NONE,
     ["editor.document_highlight.write_background"] = AS_NONE,
+
+    -- Terminal
     ["terminal.background"] = spec.bg1,
     ["terminal.foreground"] = spec.fg1,
     ["terminal.bright_foreground"] = spec.fg0,
@@ -209,6 +222,7 @@ function M._theme_colors(pal, spec)
     ["terminal.ansi.dim_magenta"] = pal.magenta.dim,
     ["terminal.ansi.dim_cyan"] = pal.cyan.dim,
     ["terminal.ansi.dim_white"] = pal.white.dim,
+
     ["link_text.hover"] = pal.cyan.base,
   }
 end
