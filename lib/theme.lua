@@ -168,11 +168,11 @@ function M._theme_colors(pal, spec)
     ["panel.indent_guide_hover"] = AS_NONE,
     ["pane.focused_border"] = AS_NONE,
     ["pane.group_border"] = AS_NONE,
-    ["scrollbar.thumb.background"] = pal.black.dim,
-    ["scrollbar.thumb.hover_background"] = pal.black.bright,
-    ["scrollbar.thumb.border"] = pal.black.dim,
-    ["scrollbar.track.background"] = spec.bg1,
-    ["scrollbar.track.border"] = spec.bg0,
+    ["scrollbar.thumb.background"] = M._alpha(spec.sel1, 0.75),
+    ["scrollbar.thumb.hover_background"] = spec.sel1,
+    ["scrollbar.thumb.border"] = nil,
+    ["scrollbar.track.background"] = M._alpha(spec.sel0, 0.25),
+    ["scrollbar.track.border"] = nil,
 
     -- Editor
     ["editor.foreground"] = spec.fg1,
