@@ -170,9 +170,9 @@ function M._theme_colors(pal, spec)
     ["pane.group_border"] = AS_NONE,
     ["scrollbar.thumb.background"] = M._alpha(spec.sel1, 0.75),
     ["scrollbar.thumb.hover_background"] = spec.sel1,
-    ["scrollbar.thumb.border"] = nil,
+    ["scrollbar.thumb.border"] = AS_NONE,
     ["scrollbar.track.background"] = M._alpha(spec.sel0, 0.25),
-    ["scrollbar.track.border"] = nil,
+    ["scrollbar.track.border"] = AS_NONE,
 
     -- Editor
     ["editor.foreground"] = spec.fg1,
