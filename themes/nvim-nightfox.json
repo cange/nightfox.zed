@@ -5,7 +5,7 @@
   "themes": [
     {
       "appearance": "dark",
-      "name": "Nightfox (dev)",
+      "name": "Nightfox",
       "style": {
         "accents": [
           "#6085b6",
@@ -67,11 +67,9 @@
         ],
         "predictive": "#71839b",
         "renamed": "#dbc074",
-        "scrollbar.thumb.background": "#30323a",
-        "scrollbar.thumb.border": "#30323a",
-        "scrollbar.thumb.hover_background": "#575860",
-        "scrollbar.track.background": "#192330",
-        "scrollbar.track.border": "#131a24",
+        "scrollbar.thumb.background": "#3c5372BF",
+        "scrollbar.thumb.hover_background": "#3c5372",
+        "scrollbar.track.background": "#2b3b513F",
         "search.match_background": "#3c5372",
         "status_bar.background": "#131a24",
         "success": "#81b29a",
@@ -207,7 +205,7 @@
     },
     {
       "appearance": "light",
-      "name": "Dayfox (dev)",
+      "name": "Dayfox",
       "style": {
         "accents": [
           "#223d90",
@@ -269,11 +267,9 @@
         ],
         "predictive": "#824d5b",
         "renamed": "#ac5402",
-        "scrollbar.thumb.background": "#2d251f",
-        "scrollbar.thumb.border": "#2d251f",
-        "scrollbar.thumb.hover_background": "#534c45",
-        "scrollbar.track.background": "#f6f2ee",
-        "scrollbar.track.border": "#e4dcd4",
+        "scrollbar.thumb.background": "#a4c1c2BF",
+        "scrollbar.thumb.hover_background": "#a4c1c2",
+        "scrollbar.track.background": "#e7d2be3F",
         "search.match_background": "#a4c1c2",
         "status_bar.background": "#e4dcd4",
         "success": "#396847",
@@ -409,7 +405,7 @@
     },
     {
       "appearance": "light",
-      "name": "Dawnfox (dev)",
+      "name": "Dawnfox",
       "style": {
         "accents": [
           "#295e73",
@@ -471,11 +467,9 @@
         ],
         "predictive": "#a8a3b3",
         "renamed": "#ea9d34",
-        "scrollbar.thumb.background": "#504c6b",
-        "scrollbar.thumb.border": "#504c6b",
-        "scrollbar.thumb.hover_background": "#5f5695",
-        "scrollbar.track.background": "#faf4ed",
-        "scrollbar.track.border": "#ebe5df",
+        "scrollbar.thumb.background": "#b8ceceBF",
+        "scrollbar.thumb.hover_background": "#b8cece",
+        "scrollbar.track.background": "#d0d8d83F",
         "search.match_background": "#b8cece",
         "status_bar.background": "#ebe5df",
         "success": "#618774",
@@ -611,7 +605,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Duskfox (dev)",
+      "name": "Duskfox",
       "style": {
         "accents": [
           "#4a869c",
@@ -673,11 +667,9 @@
         ],
         "predictive": "#6e6a86",
         "renamed": "#f6c177",
-        "scrollbar.thumb.background": "#322e42",
-        "scrollbar.thumb.border": "#322e42",
-        "scrollbar.thumb.hover_background": "#47407d",
-        "scrollbar.track.background": "#232136",
-        "scrollbar.track.border": "#191726",
+        "scrollbar.thumb.background": "#63577dBF",
+        "scrollbar.thumb.hover_background": "#63577d",
+        "scrollbar.track.background": "#433c593F",
         "search.match_background": "#63577d",
         "status_bar.background": "#191726",
         "success": "#a3be8c",
@@ -813,7 +805,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Nordfox (dev)",
+      "name": "Nordfox",
       "style": {
         "accents": [
           "#668aab",
@@ -875,11 +867,9 @@
         ],
         "predictive": "#7e8188",
         "renamed": "#ebcb8b",
-        "scrollbar.thumb.background": "#353a45",
-        "scrollbar.thumb.border": "#353a45",
-        "scrollbar.thumb.hover_background": "#465780",
-        "scrollbar.track.background": "#2e3440",
-        "scrollbar.track.border": "#232831",
+        "scrollbar.thumb.background": "#4f6074BF",
+        "scrollbar.thumb.hover_background": "#4f6074",
+        "scrollbar.track.background": "#3e4a5b3F",
         "search.match_background": "#4f6074",
         "status_bar.background": "#232831",
         "success": "#a3be8c",
@@ -1015,7 +1005,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Terafox (dev)",
+      "name": "Terafox",
       "style": {
         "accents": [
           "#4d7d90",
@@ -1077,11 +1067,9 @@
         ],
         "predictive": "#587b7b",
         "renamed": "#fda47f",
-        "scrollbar.thumb.background": "#282a30",
-        "scrollbar.thumb.border": "#282a30",
-        "scrollbar.thumb.hover_background": "#4e5157",
-        "scrollbar.track.background": "#152528",
-        "scrollbar.track.border": "#0f1c1e",
+        "scrollbar.thumb.background": "#425e5eBF",
+        "scrollbar.thumb.hover_background": "#425e5e",
+        "scrollbar.track.background": "#293e403F",
         "search.match_background": "#425e5e",
         "status_bar.background": "#0f1c1e",
         "success": "#7aa4a1",
@@ -1217,7 +1205,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Carbonfox (dev)",
+      "name": "Carbonfox",
       "style": {
         "accents": [
           "#6690d9",
@@ -1279,11 +1267,9 @@
         ],
         "predictive": "#7b7c7e",
         "renamed": "#08bdba",
-        "scrollbar.thumb.background": "#222222",
-        "scrollbar.thumb.border": "#222222",
-        "scrollbar.thumb.hover_background": "#484848",
-        "scrollbar.track.background": "#161616",
-        "scrollbar.track.border": "#0c0c0c",
+        "scrollbar.thumb.background": "#525253BF",
+        "scrollbar.thumb.hover_background": "#525253",
+        "scrollbar.track.background": "#2a2a2a3F",
         "search.match_background": "#525253",
         "status_bar.background": "#0c0c0c",
         "success": "#25be6a",
