@@ -1,7 +1,7 @@
 ---@class ZedTheme
 ---@field private _ns string Namespace
 ---@field private _neovim_polyfill function
----@field private _with_alpha function
+---@field private _alpha function
 local M = {}
 M._ns = ""
 
@@ -101,7 +101,7 @@ function M._player_colors(spec)
     {
       cursor = spec.fg0,
       background = spec.bg3,
-      selection = M._with_alpha(spec.sel0, 0.5),
+      selection = M._alpha(spec.sel0, 0.5),
     },
   }
 end
@@ -127,17 +127,17 @@ function M._theme_colors(pal, spec)
     background = spec.bg0,
 
     ["element.background"] = spec.sel0,
-    ["element.hover"] = M._with_alpha(spec.sel0, 0.25),
+    ["element.hover"] = M._alpha(spec.sel0, 0.25),
     ["element.active"] = spec.sel0,
-    ["element.selected"] = M._with_alpha(spec.sel0, 0.75),
+    ["element.selected"] = M._alpha(spec.sel0, 0.75),
     ["element.disabled"] = AS_NONE,
 
     ["drop_target.background"] = spec.bg0,
 
     ["ghost_element.background"] = AS_NONE,
-    ["ghost_element.hover"] = M._with_alpha(spec.sel1, 0.25),
-    ["ghost_element.active"] = spec.sel1,                        -- usage: UI popout trigger
-    ["ghost_element.selected"] = M._with_alpha(spec.sel1, 0.75), -- usage: UI popout item
+    ["ghost_element.hover"] = M._alpha(spec.sel1, 0.25),
+    ["ghost_element.active"] = spec.sel1, -- usage: UI popout trigger
+    ["ghost_element.selected"] = M._alpha(spec.sel1, 0.75), -- usage: UI popout item
     ["ghost_element.disabled"] = AS_NONE,
 
     text = spec.fg0,
@@ -416,7 +416,7 @@ end
 ---@param hex_color string
 ---@param percent number Alpha channel number between 0 and 1
 ---@return string Hexadecimal color with alpha channel
-function M._with_alpha(hex_color, percent)
+function M._alpha(hex_color, percent)
   if percent < 0 or percent > 1 then
     error(string.format("[%s] Invalid value! Expected: between 0 and 1. Received: %s", M._ns, percent))
   end
