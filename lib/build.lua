@@ -1,13 +1,13 @@
 local dkjson = require("dkjson")
 local toml = require("toml")
 
----@class ZedBuild
+---@class nightfox_zed.Build
 ---@field private _ns string Namespace
 local M = {}
 M._ns = "nvim-nightfox"
 
 ---Reads data from extension file
----@return Metadata
+---@return nightfox_zed.Metadata
 function M._fetch_metadata()
   local filename = "extension.toml"
   print(string.format("[%s] ⚙ Fetch metadata %q", M._ns, filename))

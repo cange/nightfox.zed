@@ -1,34 +1,34 @@
 ---@meta
 
----@class Metadata
+---@class nightfox_zed.Metadata
 ---@field id string
 ---@field name string
 ---@field authors table
 ---@field description string
 ---@field repository string
 
----@class PaletteMeta
+---@class nightfox_nvim.PaletteMeta
 ---@field name string
 ---@field light boolean
 
----@class Shade
+---@class nightfox_nvim.Shade
 ---@field base string
 ---@field bright string
 ---@field dim string
 ---@field light boolean
 
----@class Palette
----@field meta PaletteMeta
----@field black Shade
----@field red Shade
----@field green Shade
----@field yellow Shade
----@field blue Shade
----@field magenta Shade
----@field cyan Shade
----@field white Shade
----@field orange Shade
----@field pink Shade
+---@class nightfox_nvim.Palette
+---@field meta nightfox_nvim.PaletteMeta
+---@field black nightfox_nvim.Shade
+---@field red nightfox_nvim.Shade
+---@field green nightfox_nvim.Shade
+---@field yellow nightfox_nvim.Shade
+---@field blue nightfox_nvim.Shade
+---@field magenta nightfox_nvim.Shade
+---@field cyan nightfox_nvim.Shade
+---@field white nightfox_nvim.Shade
+---@field orange nightfox_nvim.Shade
+---@field pink nightfox_nvim.Shade
 ---@field comment string
 ---@field bg0 string Dark bg (status line and float)
 ---@field bg1 string Default bg
@@ -42,7 +42,7 @@
 ---@field sel0 string Popup bg, visual selection bg
 ---@field sel1 string Popup sel bg, search bg
 
----@class Spec
+---@class nightfox_nvim.Spec
 ---@field bg0 string Dark bg (status line and float)
 ---@field bg1 string Default bg
 ---@field bg2 string Lighter bg (colorcolm folds)
@@ -54,13 +54,13 @@
 ---@field fg3 string Darker fg (line numbers, fold colums)
 ---@field sel0 string Popup bg, visual selection bg
 ---@field sel1 string Popup sel bg, search bg
----@field syntax SpecSyntax
----@field diag SpecDiagnostic
----@field diag_bg SpecDiagnosticBg
----@field diff SpecDiff
----@field git SpecGit
+---@field syntax nightfox_nvim.SpecSyntax
+---@field diag nightfox_nvim.SpecDiagnostic
+---@field diag_bg nightfox_nvim.SpecDiagnosticBg
+---@field diff nightfox_nvim.SpecDiff
+---@field git nightfox_nvim.SpecGit
 
----@class SpecSyntax
+---@class nightfox_nvim.SpecSyntax
 ---@field bracket string Brackets and Punctuation
 ---@field builtin0 string Builtin variable
 ---@field builtin1 string Builtin type
@@ -83,39 +83,39 @@
 ---@field type string Types
 ---@field variable string Variables
 
----@class SpecDiagnostic
+---@class nightfox_nvim.SpecDiagnostic
 ---@field error string
 ---@field warn string
 ---@field info string
 ---@field hint string
 ---@field ok string
 
----@class SpecDiagnosticBg
+---@class nightfox_nvim.SpecDiagnosticBg
 ---@field error string
 ---@field warn string
 ---@field info string
 ---@field hint string
 ---@field ok string
 
----@class SpecDiff
+---@class nightfox_nvim.SpecDiff
 ---@field add string
 ---@field delete string
 ---@field change string
 ---@field text string
 
----@class SpecGit
+---@class nightfox_nvim.SpecGit
 ---@field add string
 ---@field changed string
 ---@field conflict string
 ---@field ignored string
 ---@field removed string
 
----@class ZedPlayerColor
+---@class nightfox_zed.PlayerColor
 ---@field cursor string
 ---@field background string
----@filed selection string
+---@field selection string
 
----@class ZedHighlightStyle
+---@class nightfox_zed.HighlightStyle
 ---@field color string
 ---@field font_weight string
 ---@field font_style string

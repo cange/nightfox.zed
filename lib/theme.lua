@@ -1,37 +1,13 @@
----@class ZedTheme
+local util = require("lib.util")
+---@class nightfox_zed.Theme
 ---@field private _ns string Namespace
----@field private _neovim_polyfill function
----@field private _alpha function
 local M = {}
 M._ns = ""
 
 ---@type nil -- Marks a nil property as already defined
 local AS_NONE = nil
 
-local debug = {
-  blue = { base = "#0000dd", dim = "#000088", bright = "#0000ff" },
-  cyan = { base = "#00dddd", dim = "#008888", bright = "#00ffff" },
-  green = { base = "#00dd00", dim = "#00a000", bright = "#00ff00" },
-  magenta = { base = "#dd00dd", dim = "#880088", bright = "#ff00ff" },
-  red = { base = "#dd0000", dim = "#880000", bright = "#ff0000" },
-  yellow = { base = "#dddd00", dim = "#888800", bright = "#ffff00" },
-}
-
----Merge two or more tables into one.
----@param base table
----@param ... table
----@return table
-M._tbl_merge = function(base, ...)
-  local tables = { ... }
-  for _, tbl in ipairs(tables) do
-    for key, value in pairs(tbl) do
-      base[key] = value
-    end
-  end
-  return base
-end
-
----@param pal Palette
+---@param pal nightfox_nvim.Palette
 ---@return string[]
 function M._accent_colors(pal)
   return {
@@ -45,7 +21,7 @@ function M._accent_colors(pal)
   }
 end
 
----@param spec Spec
+---@param spec nightfox_nvim.Spec
 ---@return table
 function M._status_colors(spec)
   return {
@@ -94,20 +70,20 @@ function M._status_colors(spec)
   }
 end
 
----@param spec Spec
----@return ZedPlayerColor[]
+---@param spec nightfox_nvim.Spec
+---@return nightfox_zed.PlayerColor[]
 function M._player_colors(spec)
   return {
     {
       cursor = spec.fg0,
       background = spec.bg3,
-      selection = M._alpha(spec.sel0, 0.5),
+      selection = util.color.alpha(spec.sel0, 0.5),
     },
   }
 end
 
----@param pal Palette
----@param spec Spec
+---@param pal nightfox_nvim.Palette
+---@param spec nightfox_nvim.Spec
 ---@return table
 ---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/styles/colors.rs
 ---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
@@ -127,17 +103,17 @@ function M._theme_colors(pal, spec)
     background = spec.bg0,
 
     ["element.background"] = spec.sel0,
-    ["element.hover"] = M._alpha(spec.sel0, 0.25),
+    ["element.hover"] = util.color.alpha(spec.sel0, 0.25),
     ["element.active"] = spec.sel0,
-    ["element.selected"] = M._alpha(spec.sel0, 0.75),
+    ["element.selected"] = util.color.alpha(spec.sel0, 0.75),
     ["element.disabled"] = AS_NONE,
 
     ["drop_target.background"] = spec.bg0,
 
     ["ghost_element.background"] = AS_NONE,
-    ["ghost_element.hover"] = M._alpha(spec.sel1, 0.25),
+    ["ghost_element.hover"] = util.color.alpha(spec.sel1, 0.25),
     ["ghost_element.active"] = spec.sel1, -- usage: UI popout trigger
-    ["ghost_element.selected"] = M._alpha(spec.sel1, 0.75), -- usage: UI popout item
+    ["ghost_element.selected"] = util.color.alpha(spec.sel1, 0.75), -- usage: UI popout item
     ["ghost_element.disabled"] = AS_NONE,
 
     text = spec.fg0,
@@ -168,10 +144,10 @@ function M._theme_colors(pal, spec)
     ["panel.indent_guide_hover"] = AS_NONE,
     ["pane.focused_border"] = AS_NONE,
     ["pane.group_border"] = AS_NONE,
-    ["scrollbar.thumb.background"] = M._alpha(spec.sel1, 0.75),
+    ["scrollbar.thumb.background"] = util.color.alpha(spec.sel1, 0.75),
     ["scrollbar.thumb.hover_background"] = spec.sel1,
     ["scrollbar.thumb.border"] = AS_NONE,
-    ["scrollbar.track.background"] = M._alpha(spec.sel0, 0.25),
+    ["scrollbar.track.background"] = util.color.alpha(spec.sel0, 0.25),
     ["scrollbar.track.border"] = AS_NONE,
 
     -- Editor
@@ -234,9 +210,9 @@ function M._theme_colors(pal, spec)
   }
 end
 
----@param pal Palette
----@param spec Spec
----@return table<string, ZedHighlightStyle>
+---@param pal nightfox_nvim.Palette
+---@param spec nightfox_nvim.Spec
+---@return table<string, nightfox_zed.HighlightStyle>
 ---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
 function M._syntax_theme(pal, spec)
   return {
@@ -373,15 +349,14 @@ function M._syntax_theme(pal, spec)
   }
 end
 
----Maps values of nightfox.vim to zed's theme properties
+---Maps values of nightfox.nvim to zed's theme properties
 ---@param name "Nightfox" | "Dayfox" | "Dawnfox" | "Duskfox" | "Nordfox" | "Terafox" | "Carbonfox"
 ---@return table
 function M._define_theme(name)
-  M._neovim_polyfill()
-  local theme = name:lower()
-  ---@type Palette
+  local theme = string.lower(name)
+  ---@type nightfox_nvim.Palette
   local pal = require("nightfox.palette").load(theme)
-  ---@type Spec
+  ---@type nightfox_nvim.Spec
   local spec = require("nightfox.spec").load(theme)
   local appearance = pal.meta.light and "light" or "dark"
   local display_name = name .. (os.getenv("DEV_MODE") ~= nil and " (dev)" or "")
@@ -390,7 +365,7 @@ function M._define_theme(name)
   return {
     name = display_name,
     appearance = appearance,
-    style = M._tbl_merge({
+    style = util.tbl_merge({
       accents = M._accent_colors(pal),
       players = M._player_colors(spec),
       syntax = M._syntax_theme(pal, spec), -- https://github.com/zed-industries/zed/blob/main/crates/theme/src/one_themes.rs#L191
@@ -398,37 +373,11 @@ function M._define_theme(name)
   }
 end
 
----Mocks Neovim's API since some endpoints are required by nightfox.nvim
-function M._neovim_polyfill()
-  vim = {
-    fn = {
-      has = function()
-        return false
-      end,
-      expand = function(args)
-        return args
-      end,
-    },
-  }
-end
-
----Provides a color in hexadecimal format with an alpha channel
----@param hex_color string
----@param percent number Alpha channel number between 0 and 1
----@return string Hexadecimal color with alpha channel
-function M._alpha(hex_color, percent)
-  if percent < 0 or percent > 1 then
-    error(string.format("[%s] Invalid value! Expected: between 0 and 1. Received: %s", M._ns, percent))
-  end
-  local alpha_value = math.floor(percent * 255)
-  return hex_color .. string.format("%02X", alpha_value)
-end
-
 ---@param namespace string
----@param metadata Metadata
+---@param metadata nightfox_zed.Metadata
 ---@return table
 function M.generate(metadata, namespace)
-  M._neovim_polyfill()
+  util.neovim_polyfill()
   M._ns = namespace
   print(string.format("[%s] ⚙ Generating themes", M._ns))
 
