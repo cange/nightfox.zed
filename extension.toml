@@ -1,6 +1,6 @@
 id = "nvim-nightfox"
-name = "Nightfox (Neovim) Themes"
-version = "0.4.1"
+name = "Nightfox Themes (Neovim)"
+version = "0.4.2"
 schema_version = 1
 authors = ["Christian Angermann"]
 description = "A port of the Neovim Nightfox themes"
