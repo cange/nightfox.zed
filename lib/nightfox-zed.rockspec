@@ -1,5 +1,5 @@
 package = "nvim-nightfox"
-version = "0.4.1-1"
+version = "0.4.2-1"
 description = {
   summary = "A port of the Neovim Nightfox themes",
   detailed = [[
