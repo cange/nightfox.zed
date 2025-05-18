@@ -88,25 +88,28 @@ end
 ---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/styles/colors.rs
 ---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
 function M._theme_colors(pal, spec)
-  return {
-    ["accents"] = M._accent_colors(pal),
+  local editor_bg = pal.bg1
+  local accent = pal.orange
 
-    border = spec.bg0,
-    ["border.variant"] = spec.bg0,
+  return {
+    accents = M._accent_colors(pal),
+
+    border = spec.bg2,
+    ["border.variant"] = spec.bg4,
     ["border.focused"] = spec.sel0,
     ["border.selected"] = spec.sel1,
     ["border.transparent"] = spec.bg1,
     ["border.disabled"] = spec.bg1,
 
-    ["elevated_surface.background"] = spec.bg0,
+    ["elevated_surface.background"] = spec.sel0, -- usage: UI popout bg
     ["surface.background"] = spec.bg0,
-    background = spec.bg0,
+    background = spec.sel0,
 
-    ["element.background"] = spec.sel0,
-    ["element.hover"] = util.color.alpha(spec.sel0, 0.25),
-    ["element.active"] = spec.sel0,
-    ["element.selected"] = util.color.alpha(spec.sel0, 0.75),
-    ["element.disabled"] = AS_NONE,
+    ["element.background"] = util.color.blend(editor_bg, accent.dim, 0.2),
+    ["element.hover"] = util.color.blend(editor_bg, accent.base, 0.2),
+    ["element.active"] = util.color.blend(editor_bg, accent.bright, 0.2),
+    ["element.selected"] = util.color.blend(editor_bg, accent.bright, 0.2),
+    ["element.disabled"] = spec.sel0,
 
     ["drop_target.background"] = spec.bg0,
 
@@ -120,7 +123,7 @@ function M._theme_colors(pal, spec)
     ["text.muted"] = spec.fg1,
     ["text.placeholder"] = spec.fg3,
     ["text.disabled"] = spec.syntax.comment,
-    ["text.accent"] = pal.orange.dim,
+    ["text.accent"] = accent.dim,
 
     icon = AS_NONE,
     ["icon.muted"] = AS_NONE,
@@ -152,7 +155,7 @@ function M._theme_colors(pal, spec)
 
     -- Editor
     ["editor.foreground"] = spec.fg1,
-    ["editor.background"] = spec.bg1,
+    ["editor.background"] = editor_bg,
     ["editor.gutter.background"] = spec.bg1,
     ["editor.subheader.background"] = AS_NONE,
     ["editor.active_line.background"] = spec.bg2,
