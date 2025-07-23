@@ -1,6 +1,6 @@
 id = "nvim-nightfox"
 name = "Nightfox Themes - opaque / blurred"
-version = "0.5.0"
+version = "0.5.1"
 schema_version = 2
 authors = ["Christian Angermann"]
 description = "A port of the Neovim Nightfox themes. Includes all variants as opaque and blurred version."
