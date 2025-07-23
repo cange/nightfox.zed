@@ -3,6 +3,7 @@
 ---@field neovim_polyfill function
 ---@field tbl_merge function
 local M = {}
+M._ns = "util"
 
 ---Provides a color in hexadecimal format with an alpha channel
 ---@param hex_color string
@@ -12,7 +13,7 @@ local function alpha(hex_color, percent)
   if percent < 0 or percent > 1 then
     error(string.format("[%s] Invalid value! Expected: between 0 and 1. Received: %s", M._ns, percent))
   end
-  local alpha_value = math.floor(percent * 255)
+  local alpha_value = math.floor(percent * 255 + 0.5) -- 255 + 0.5 Round to nearest integer for 8-bit alpha value
   return hex_color .. string.format("%02X", alpha_value)
 end
 
