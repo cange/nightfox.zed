@@ -5,33 +5,35 @@
 
 ## Available Themes
 
+All themes are available in both **opaque** and **blurred** variants.
+
 ### Nightfox
 
-![nightfox](https://github.com/cange/nightfox.zed/assets/28717/85cbf841-11d8-45c9-97f8-cbb5eedaea7b)
+![nightfox](https://github.com/cange/nightfox.zed/assets/28717/c5c979a2-5fb0-4f0c-bbea-3f9ff8b38b8a)
 
 ### Dayfox
 
-![dayfox](https://github.com/cange/nightfox.zed/assets/28717/8816c97c-cc29-489b-9f0b-51ec7b24d661)
+![dayfox](https://github.com/cange/nightfox.zed/assets/28717/0de9ba81-aa20-472b-bdca-91f6d95edfa9)
 
 ### Dawnfox
 
-![dawnfox](https://github.com/cange/nightfox.zed/assets/28717/3b085140-ebbb-4937-b186-851821163060)
+![dawnfox](https://github.com/cange/nightfox.zed/assets/28717/454f34b1-70d8-444e-b028-9dee850f9bda)
 
 ### Duskfox
 
-![duskfox](https://github.com/cange/nightfox.zed/assets/28717/74a47210-ed27-448d-bf1a-9f45e7d62b8d)
+![duskfox](https://github.com/cange/nightfox.zed/assets/28717/c5442cd7-b938-4014-b48d-a2c1e88e28c7)
 
 ### Nordfox
 
-![nordfox](https://github.com/cange/nightfox.zed/assets/28717/19d97482-43db-4724-8560-5aef029044cc)
+![nordfox](https://github.com/cange/nightfox.zed/assets/28717/24816d4c-d2a7-45ef-a332-5f6dee5393fd)
 
 ### Terafox
 
-![terafox](https://github.com/cange/nightfox.zed/assets/28717/a56303b5-f286-442f-9aaf-6307cdfbaa3d)
+![terafox](https://github.com/cange/nightfox.zed/assets/28717/4ef6cb17-843e-48c0-96db-b9566621b894)
 
 ### Carbonfox
 
-![carbonfox](https://github.com/cange/nightfox.zed/assets/28717/8a1c33b1-6fd2-48e2-913c-6930845abdc6)
+![carbonfox](https://github.com/cange/nightfox.zed/assets/28717/34635356-1c52-4d86-9c95-e603e8b1fa42)
 
 > Used font in the screenshots: "JetBrainsMono"
 
