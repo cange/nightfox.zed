@@ -1,23 +1,30 @@
+---@alias nightfox_nvim.BackgroundAppearance "opaque" | "blurred" | "transparent" Enables blurred mode incl. alpha colors
+
 local util = require("lib.util")
+
 ---@class nightfox_zed.Theme
 ---@field private _ns string Namespace
 local M = {}
 M._ns = ""
+M._alphas = {}
 
 ---@type nil -- Marks a nil property as already defined
 local AS_NONE = nil
 
 ---@param pal nightfox_nvim.Palette
+---@param alpha_value number
 ---@return string[]
-function M._accent_colors(pal)
+function M._accent_colors(pal, alpha_value)
+  local alpha = util.color.alpha
+
   return {
-    pal.blue.dim,
-    pal.orange.dim,
-    pal.magenta.dim,
-    pal.cyan.dim,
-    pal.red.dim,
-    pal.green.dim,
-    pal.yellow.dim,
+    alpha(pal.blue.bright, alpha_value),
+    alpha(pal.orange.bright, alpha_value),
+    alpha(pal.magenta.bright, alpha_value),
+    alpha(pal.cyan.bright, alpha_value),
+    alpha(pal.red.bright, alpha_value),
+    alpha(pal.green.bright, alpha_value),
+    alpha(pal.yellow.bright, alpha_value),
   }
 end
 
@@ -73,50 +80,55 @@ end
 ---@param spec nightfox_nvim.Spec
 ---@return nightfox_zed.PlayerColor[]
 function M._player_colors(spec)
+  local alpha = util.color.alpha
+
   return {
     {
       cursor = spec.fg0,
-      background = spec.bg3,
-      selection = util.color.alpha(spec.sel0, 0.5),
+      background = alpha(spec.bg3, M._alphas.LOW),
+      selection = alpha(spec.sel1, M._alphas.HIGH),
     },
   }
 end
 
 ---@param pal nightfox_nvim.Palette
 ---@param spec nightfox_nvim.Spec
+---@param background_appearance nightfox_nvim.BackgroundAppearance
 ---@return table
----See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/styles/colors.rs
----See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
-function M._theme_colors(pal, spec)
+-- see https://github.com/zed-industries/zed/blob/main/crates/theme/src/styles/colors.rs
+-- see https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
+function M._theme_colors(pal, spec, background_appearance)
+  local alpha = util.color.alpha
+  local blend = util.color.blend
+
   local editor_bg = pal.bg1
   local accent = pal.orange
 
   return {
-    accents = M._accent_colors(pal),
-
-    border = spec.bg2,
+    border = alpha(spec.bg2, M._alphas.HIGH),
     ["border.variant"] = spec.bg4,
     ["border.focused"] = spec.sel0,
     ["border.selected"] = spec.sel1,
-    ["border.transparent"] = spec.bg1,
+    ["border.transparent"] = alpha(spec.bg1, M._alphas.POLARIZED),
     ["border.disabled"] = spec.bg1,
 
-    ["elevated_surface.background"] = spec.sel0, -- usage: UI popout bg
-    ["surface.background"] = spec.bg0,
-    background = spec.sel0,
+    ["elevated_surface.background"] = spec.bg0, -- usage: UI popout bg
+    ["surface.background"] = alpha(spec.bg0, M._alphas.MAX),
+    background = alpha(spec.bg1, M._alphas.MAX),
+    ["background.appearance"] = background_appearance,
 
-    ["element.background"] = util.color.blend(editor_bg, accent.dim, 0.2),
-    ["element.hover"] = util.color.blend(editor_bg, accent.base, 0.2),
-    ["element.active"] = util.color.blend(editor_bg, accent.bright, 0.2),
-    ["element.selected"] = util.color.blend(editor_bg, accent.bright, 0.2),
+    ["element.background"] = blend(editor_bg, accent.dim, 0.2),
+    ["element.hover"] = blend(editor_bg, accent.base, 0.2),
+    ["element.active"] = blend(editor_bg, accent.bright, 0.2),
+    ["element.selected"] = blend(editor_bg, accent.bright, 0.2),
     ["element.disabled"] = spec.sel0,
 
-    ["drop_target.background"] = spec.bg0,
+    ["drop_target.background"] = alpha(spec.bg0, M._alphas.MAX),
 
     ["ghost_element.background"] = AS_NONE,
-    ["ghost_element.hover"] = util.color.alpha(spec.sel1, 0.25),
-    ["ghost_element.active"] = spec.sel1, -- usage: UI popout trigger
-    ["ghost_element.selected"] = util.color.alpha(spec.sel1, 0.75), -- usage: UI popout item
+    ["ghost_element.hover"] = alpha(spec.sel1, M._alphas.LOW),
+    ["ghost_element.active"] = alpha(spec.sel1, M._alphas.MAX), -- usage: UI popout trigger
+    ["ghost_element.selected"] = alpha(spec.sel1, M._alphas.HIGH), -- usage: UI popout item
     ["ghost_element.disabled"] = AS_NONE,
 
     text = spec.fg0,
@@ -132,47 +144,47 @@ function M._theme_colors(pal, spec)
     ["icon.accent"] = AS_NONE,
 
     -- UI Elements
-    ["status_bar.background"] = spec.bg0,
+    ["search.match_background"] = alpha(spec.sel1, M._alphas.MAX),
+    ["status_bar.background"] = alpha(spec.bg0, M._alphas.MAX),
+    ["tab.active_background"] = alpha(spec.sel0, M._alphas.MID),
+    ["tab.inactive_background"] = alpha(spec.bg1, M._alphas.MID),
+    ["tab_bar.background"] = alpha(spec.bg1, M._alphas.MID),
+    ["title_bar.background"] = alpha(spec.bg0, M._alphas.MAX),
     ["title_bar.inactive_background"] = AS_NONE,
-    ["title_bar.background"] = spec.bg0,
-    ["toolbar.background"] = spec.bg1,
-    ["tab_bar.background"] = spec.bg0,
-    ["tab.inactive_background"] = spec.bg0,
-    ["tab.active_background"] = spec.bg1,
-    ["search.match_background"] = spec.sel1,
-    ["panel.background"] = spec.bg0,
-    ["panel.focused_border"] = spec.sel1,
+    ["toolbar.background"] = alpha(spec.sel0, M._alphas.MID),
+    ["panel.background"] = alpha(spec.bg0, M._alphas.LOW),
+    ["panel.focused_border"] = alpha(spec.sel1, M._alphas.MAX),
     ["panel.indent_guide"] = AS_NONE,
     ["panel.indent_guide_active"] = AS_NONE,
     ["panel.indent_guide_hover"] = AS_NONE,
     ["pane.focused_border"] = AS_NONE,
     ["pane.group_border"] = AS_NONE,
-    ["scrollbar.thumb.background"] = util.color.alpha(spec.sel1, 0.75),
-    ["scrollbar.thumb.hover_background"] = spec.sel1,
+    ["scrollbar.thumb.background"] = alpha(spec.sel1, M._alphas.HIGH),
+    ["scrollbar.thumb.hover_background"] = alpha(spec.sel1, M._alphas.MAX),
     ["scrollbar.thumb.border"] = AS_NONE,
-    ["scrollbar.track.background"] = util.color.alpha(spec.sel0, 0.25),
+    ["scrollbar.track.background"] = alpha(spec.sel0, M._alphas.LOW),
     ["scrollbar.track.border"] = AS_NONE,
 
     -- Editor
     ["editor.foreground"] = spec.fg1,
-    ["editor.background"] = editor_bg,
-    ["editor.gutter.background"] = spec.bg1,
+    ["editor.background"] = alpha(editor_bg, M._alphas.POLARIZED),
+    ["editor.gutter.background"] = alpha(spec.bg1, M._alphas.POLARIZED),
     ["editor.subheader.background"] = AS_NONE,
-    ["editor.active_line.background"] = spec.bg2,
+    ["editor.active_line.background"] = alpha(spec.sel0, M._alphas.LOW),
     ["editor.highlighted_line.background"] = AS_NONE,
     ["editor.line_number"] = spec.fg3,
     ["editor.active_line_number"] = pal.yellow.base,
     ["editor.invisible"] = AS_NONE,
-    ["editor.wrap_guide"] = spec.bg2,
-    ["editor.active_wrap_guide"] = spec.bg2,
-    ["editor.indent_guide"] = spec.bg2,
-    ["editor.indent_guide_active"] = spec.sel1,
-    ["editor.document_highlight.bracket_background"] = spec.sel0,
+    ["editor.wrap_guide"] = alpha(spec.bg2, M._alphas.MID),
+    ["editor.active_wrap_guide"] = alpha(spec.bg2, M._alphas.MAX),
+    ["editor.indent_guide"] = alpha(spec.bg2, M._alphas.MAX),
+    ["editor.indent_guide_active"] = alpha(spec.sel1, M._alphas.MAX),
+    ["editor.document_highlight.bracket_background"] = alpha(spec.sel0, M._alphas.MAX),
     ["editor.document_highlight.read_background"] = AS_NONE,
     ["editor.document_highlight.write_background"] = AS_NONE,
 
     -- Terminal
-    ["terminal.background"] = spec.bg1,
+    ["terminal.background"] = alpha(spec.bg1, M._alphas.POLARIZED),
     ["terminal.foreground"] = spec.fg1,
     ["terminal.bright_foreground"] = spec.fg0,
     ["terminal.dim_foreground"] = spec.fg2,
@@ -352,27 +364,45 @@ function M._syntax_theme(pal, spec)
   }
 end
 
+---@param appearance nightfox_nvim.BackgroundAppearance
+function M._set_alpha_levels(appearance)
+  local is_opaque = appearance == "opaque"
+  local is_blurred = appearance == "blurred"
+
+  M._alphas = { ---@diagnostic disable-line: unused-local
+    MIN = is_opaque and 0.2 or is_blurred and 0.025 or 0.1,
+    LOW = is_opaque and 0.3 or is_blurred and 0.05 or 0.15,
+    MID = is_opaque and 0.5 or is_blurred and 0.15 or 0.25,
+    HIGH = is_opaque and 0.8 or 0.4,
+    MAX = is_opaque and 1 or 0.8,
+    POLARIZED = is_opaque and 1 or 0, -- transparent in non-opaque case
+  }
+end
+
 ---Maps values of nightfox.nvim to zed's theme properties
 ---@param name "Nightfox" | "Dayfox" | "Dawnfox" | "Duskfox" | "Nordfox" | "Terafox" | "Carbonfox"
+---@param background_appearance nightfox_nvim.BackgroundAppearance
 ---@return table
-function M._define_theme(name)
-  local theme = string.lower(name)
-  ---@type nightfox_nvim.Palette
-  local pal = require("nightfox.palette").load(theme)
-  ---@type nightfox_nvim.Spec
-  local spec = require("nightfox.spec").load(theme)
-  local appearance = pal.meta.light and "light" or "dark"
-  local display_name = name .. (os.getenv("DEV_MODE") ~= nil and " (dev)" or "")
+function M._define_theme(name, background_appearance)
+  local theme_name = string.lower(name)
+  local pal = require("nightfox.palette").load(theme_name)
+  local spec = require("nightfox.spec").load(theme_name)
+  local theme_appearance = pal.meta.light and "light" or "dark"
+  local appearance_label = " - " .. background_appearance
+  local dev_label = os.getenv("DEV_MODE") ~= nil and " (dev)" or ""
+  local display_name = name .. appearance_label .. dev_label
 
-  print(string.format("[%s] ✓ %q %s theme defined", M._ns, display_name, appearance))
+  print(string.format("[%s] ✓ %q %s theme defined", M._ns, display_name, theme_appearance))
+  M._set_alpha_levels(background_appearance)
+
   return {
     name = display_name,
-    appearance = appearance,
+    appearance = theme_appearance,
     style = util.tbl_merge({
-      accents = M._accent_colors(pal),
+      accents = M._accent_colors(pal, M._alphas.MID),
       players = M._player_colors(spec),
       syntax = M._syntax_theme(pal, spec), -- https://github.com/zed-industries/zed/blob/main/crates/theme/src/one_themes.rs#L191
-    }, M._status_colors(spec), M._theme_colors(pal, spec)),
+    }, M._status_colors(spec), M._theme_colors(pal, spec, background_appearance)),
   }
 end
 
@@ -389,13 +419,21 @@ function M.generate(metadata, namespace)
     author = metadata.authors[1],
     name = metadata.name,
     themes = {
-      M._define_theme("Nightfox"),
-      M._define_theme("Dayfox"),
-      M._define_theme("Dawnfox"),
-      M._define_theme("Duskfox"),
-      M._define_theme("Nordfox"),
-      M._define_theme("Terafox"),
-      M._define_theme("Carbonfox"),
+      M._define_theme("Nightfox", "opaque"),
+      M._define_theme("Dayfox", "opaque"),
+      M._define_theme("Dawnfox", "opaque"),
+      M._define_theme("Duskfox", "opaque"),
+      M._define_theme("Nordfox", "opaque"),
+      M._define_theme("Terafox", "opaque"),
+      M._define_theme("Carbonfox", "opaque"),
+      --
+      M._define_theme("Nightfox", "blurred"),
+      M._define_theme("Dayfox", "blurred"),
+      M._define_theme("Dawnfox", "blurred"),
+      M._define_theme("Duskfox", "blurred"),
+      M._define_theme("Nordfox", "blurred"),
+      M._define_theme("Terafox", "blurred"),
+      M._define_theme("Carbonfox", "blurred"),
     },
   }
 end
