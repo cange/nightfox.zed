@@ -1,7 +1,7 @@
 ---@alias nightfox_nvim.BackgroundAppearance "opaque" | "blurred" | "transparent" Enables blurred mode incl. alpha colors
 
 local util = require("lib.util")
-
+local logger = util.logger()
 ---@class nightfox_zed.Theme
 ---@field private _ns string Namespace
 local M = {}
@@ -392,7 +392,7 @@ function M._define_theme(name, background_appearance)
   local dev_label = os.getenv("DEV_MODE") ~= nil and " (dev)" or ""
   local display_name = name .. appearance_label .. dev_label
 
-  print(string.format("[%s] ✓ %q %s theme defined", M._ns, display_name, theme_appearance))
+  logger.ok("Theme defined", { display_name, theme_appearance })
   M._set_alpha_levels(background_appearance)
 
   return {
@@ -412,7 +412,7 @@ end
 function M.generate(metadata, namespace)
   util.neovim_polyfill()
   M._ns = namespace
-  print(string.format("[%s] ⚙ Generating themes", M._ns))
+  logger.start("Generating themes")
 
   return {
     ["$schema"] = "https://zed.dev/schema/themes/v0.2.0.json",

@@ -1,5 +1,6 @@
 local dkjson = require("dkjson")
 local toml = require("toml")
+local logger = require("lib.util").logger()
 
 ---@class nightfox_zed.Build
 ---@field private _ns string Namespace
@@ -10,20 +11,20 @@ M._ns = "nvim-nightfox"
 ---@return nightfox_zed.Metadata
 function M._fetch_metadata()
   local filename = "extension.toml"
-  print(string.format("[%s] ⚙ Fetch metadata %q", M._ns, filename))
-  local file = assert(io.open(filename, "r"))
-  if file then
-    local file_content = assert(file:read("*all"))
-    local data = toml.parse(file_content)
-    print(string.format("[%s] ✓ Metadata fetched", M._ns))
-    return data
-  else
-    error(string.format("[%s] Error reading file: %q", M._ns, filename))
+  logger.start("Metadata fetched", filename)
+  local ok, file = pcall(io.open, filename, "r")
+  if not ok or not file then
+    return logger.error("Reading file", filename)
   end
+
+  local file_content = assert(file:read("*all"))
+  local data = toml.parse(file_content)
+  logger.ok("Metadata fetched", filename)
+  return data
 end
 
 function M.build()
-  print(string.format("[%s] → Start in %q mode", M._ns, os.getenv("DEV_MODE") ~= nil and "dev" or "prod"))
+  logger.start("Start mode", os.getenv("DEV_MODE") ~= nil and "dev" or "prod")
   local metadata = M._fetch_metadata()
   local filename = "themes/" .. metadata.id .. ".json"
   local file = assert(io.open(filename, "w"))
@@ -33,9 +34,9 @@ function M.build()
   if file then
     file:write(content .. "\n") -- ensure newline at the end of file
     file:close()
-    print(string.format("[%s] ✓ %q file created", M._ns, filename))
+    logger.ok("File created", filename)
   else
-    error(string.format("[%s] Error opening file: %q", M._ns, filename))
+    return logger.error("Opening file", filename)
   end
 end
 

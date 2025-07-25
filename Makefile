@@ -9,6 +9,6 @@ dev:
 	@$(MAKE) format
 
 format:
-	@echo "[nvim-nightfox] ⚙ Sort and prettify"
 	@jq --sort-keys '.' themes/nvim-nightfox.json > themes/nvim-nightfox.json.tmp
 	@mv themes/nvim-nightfox.json.tmp themes/nvim-nightfox.json
+	@echo "[nvim-nightfox] ✓ Sort and prettify"

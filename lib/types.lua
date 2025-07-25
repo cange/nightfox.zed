@@ -6,6 +6,7 @@
 ---@field authors table
 ---@field description string
 ---@field repository string
+---@field schema_version string
 
 ---@class nightfox_nvim.PaletteMeta
 ---@field name string

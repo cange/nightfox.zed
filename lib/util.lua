@@ -2,6 +2,7 @@
 ---@field color nightfox_zed.UtilColor
 ---@field neovim_polyfill function
 ---@field tbl_merge function
+---@field logger function
 local M = {}
 M._ns = "util"
 
@@ -69,6 +70,60 @@ function M.neovim_polyfill()
         return args
       end,
     },
+  }
+end
+
+---Simple table serialization for logging
+---@param data table
+---@return string
+local function stringify(data)
+  if type(data) ~= "table" then
+    return tostring(data or "")
+  end
+
+  local parts = {}
+  for k, v in pairs(data) do
+    local key_str = type(k) == "string" and k or nil
+    local val_str = type(v) == "table" and stringify(v) or tostring(v)
+    table.insert(parts, (key_str and key_str .. " = " or "") .. val_str)
+  end
+  return "{ " .. table.concat(parts, ", ") .. " }"
+end
+
+---Logs a message with a type and optional metadata.
+---@param type 'ok' | 'start' | 'error'
+---@param msg string | table
+---@param meta? string | table
+local function log(type, msg, meta)
+  local icons = { ok = "✓", start = "⚙", error = "✕" }
+  local msg_str = stringify(msg)
+  local meta_str = meta and stringify(meta) or nil
+  if meta_str then
+    print(string.format("[%s] %s %s %s", M._ns, icons[type], msg_str, meta_str))
+  else
+    print(string.format("[%s] %s %s", M._ns, icons[type], msg_str))
+  end
+end
+
+---@class nightfox_nvim.Logger
+---@field start fun(msg: string | table, meta?: table)
+---@field ok fun(msg: string | table, meta?: table)
+---@field error fun(msg: string | table, details: string | table)
+
+M._ns = "nvim-nightfox"
+
+---@return nightfox_nvim.Logger
+M.logger = function()
+  return {
+    ok = function(msg, meta)
+      log("ok", msg, meta)
+    end,
+    start = function(msg, meta)
+      log("start", msg, meta)
+    end,
+    error = function(msg, meta)
+      log("error", msg, meta)
+    end,
   }
 end
 
