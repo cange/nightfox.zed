@@ -153,6 +153,7 @@ function M._theme_colors(pal, spec, background_appearance)
     ["title_bar.inactive_background"] = AS_NONE,
     ["toolbar.background"] = alpha(spec.sel0, M._alphas.MID),
     ["panel.background"] = alpha(spec.bg0, M._alphas.LOW),
+    ["panel.overlay_background"] = alpha(spec.bg0, M._alphas.MAX),
     ["panel.focused_border"] = alpha(spec.sel1, M._alphas.MAX),
     ["panel.indent_guide"] = AS_NONE,
     ["panel.indent_guide_active"] = AS_NONE,
