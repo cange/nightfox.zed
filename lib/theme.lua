@@ -142,6 +142,7 @@ function M._theme_colors(pal, spec, background_appearance)
     ["icon.disabled"] = AS_NONE,
     ["icon.placeholder"] = AS_NONE,
     ["icon.accent"] = AS_NONE,
+    ["debugger.accent"] = accent.base,
 
     -- UI Elements
     ["search.match_background"] = alpha(spec.sel1, M._alphas.MAX),
@@ -153,18 +154,38 @@ function M._theme_colors(pal, spec, background_appearance)
     ["title_bar.inactive_background"] = AS_NONE,
     ["toolbar.background"] = alpha(spec.sel0, M._alphas.MID),
     ["panel.background"] = alpha(spec.bg0, M._alphas.LOW),
-    ["panel.overlay_background"] = alpha(spec.bg0, M._alphas.MAX),
     ["panel.focused_border"] = alpha(spec.sel1, M._alphas.MAX),
     ["panel.indent_guide"] = AS_NONE,
     ["panel.indent_guide_active"] = AS_NONE,
     ["panel.indent_guide_hover"] = AS_NONE,
+
+    -- The overlay surface on top of panel.
+    ["panel.overlay_background"] = alpha(spec.bg0, M._alphas.MAX),
+    -- The overlay surface on top of panel when hovered over.
+    ["panel.overlay_hover"] = AS_NONE,
+
     ["pane.focused_border"] = AS_NONE,
     ["pane.group_border"] = AS_NONE,
-    ["scrollbar.thumb.background"] = alpha(spec.sel1, M._alphas.HIGH),
+    -- The scrollbar thumb.
+    ["scrollbar.thumb.background"] = alpha(spec.sel0, M._alphas.HIGH),
+    -- The scrollbar thumb when hovered over.
     ["scrollbar.thumb.hover_background"] = alpha(spec.sel1, M._alphas.MAX),
+    -- The scrollbar thumb whilst being actively dragged.
+    ["scrollbar.thumb.active_background"] = alpha(accent.base, M._alphas.HIGH),
+    -- The border color of the scrollbar thumb.
     ["scrollbar.thumb.border"] = AS_NONE,
+    -- The background color of the scrollbar track.
     ["scrollbar.track.background"] = alpha(spec.sel0, M._alphas.LOW),
+    -- The border color of the scrollbar track.
     ["scrollbar.track.border"] = AS_NONE,
+    -- The minimap thumb.
+    ["minimap.thumb.background"] = alpha(spec.sel0, M._alphas.HIGH),
+    -- The minimap thumb when hovered over.
+    ["minimap.thumb.hover_background"] = alpha(spec.sel1, M._alphas.MAX),
+    -- The minimap thumb whilst being actively dragged.
+    ["minimap.thumb.active_background"] = alpha(accent.base, M._alphas.MID),
+    -- The border color of the minimap thumb.
+    ["minimap.thumb.border"] = AS_NONE,
 
     -- Editor
     ["editor.foreground"] = spec.fg1,
