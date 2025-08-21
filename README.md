@@ -1,13 +1,10 @@
 <div align="center">
   <h1>Nightfox for Zed</h1>
 
-_A highly customizable and elegant dark theme collection_
+_A theme collection – Ported from the beloved [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) theme_
 
 [![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.zed.dev%2Fextensions%3Fmax_schema_version%3D1%26filter%3DNightfox%2520Themes%2520-%2520opaque%2520%2F%2520blurred&query=%24.data%5B%3A1%5D.download_count&style=for-the-badge&logo=zed&label=Downloads&color=blue)](https://github.com/EdenEast/nightfox.nvim)
 [![Zed Extension](https://img.shields.io/badge/Zed-Extension-blue?style=for-the-badge&logo=zed)](https://github.com/zed-industries/zed)
-
-_Ported from the beloved [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) theme_
-
 </div>
 
 ---
