@@ -99,11 +99,28 @@
           "constructor": {
             "color": "#f6b079"
           },
+          "embedded": {
+            "color": "#cdcecf"
+          },
+          "emphasis": {
+            "color": "#cdcecf",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#ab435d",
+            "font_weight": 700
+          },
           "function": {
             "color": "#86abdc"
           },
           "keyword": {
             "color": "#9d79d6"
+          },
+          "link_text": {
+            "color": "#dbc074"
+          },
+          "link_uri": {
+            "color": "#f6b079"
           },
           "number": {
             "color": "#f4a261"
@@ -125,6 +142,9 @@
           },
           "punctuation.delimiter": {
             "color": "#aeafb0"
+          },
+          "punctuation.list_marker": {
+            "color": "#7ad5d6"
           },
           "punctuation.markup": {
             "color": "#aeafb0"
@@ -152,6 +172,10 @@
           },
           "text.literal": {
             "color": "#81b29a"
+          },
+          "title": {
+            "color": "#86abdc",
+            "font_weight": 700
           },
           "type": {
             "color": "#dbc074"
@@ -307,11 +331,28 @@
           "constructor": {
             "color": "#7f5152"
           },
+          "embedded": {
+            "color": "#3d2b5a"
+          },
+          "emphasis": {
+            "color": "#3d2b5a",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#b3434e",
+            "font_weight": 700
+          },
           "function": {
             "color": "#223d90"
           },
           "keyword": {
             "color": "#6e33ce"
+          },
+          "link_text": {
+            "color": "#ac5402"
+          },
+          "link_uri": {
+            "color": "#7f5152"
           },
           "number": {
             "color": "#955f61"
@@ -333,6 +374,9 @@
           },
           "punctuation.delimiter": {
             "color": "#643f61"
+          },
+          "punctuation.list_marker": {
+            "color": "#22676d"
           },
           "punctuation.markup": {
             "color": "#643f61"
@@ -360,6 +404,10 @@
           },
           "text.literal": {
             "color": "#396847"
+          },
+          "title": {
+            "color": "#223d90",
+            "font_weight": 700
           },
           "type": {
             "color": "#ac5402"
@@ -515,11 +563,28 @@
           "constructor": {
             "color": "#ca6e69"
           },
+          "embedded": {
+            "color": "#575279"
+          },
+          "emphasis": {
+            "color": "#575279",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#c26d85",
+            "font_weight": 700
+          },
           "function": {
             "color": "#295e73"
           },
           "keyword": {
             "color": "#907aa9"
+          },
+          "link_text": {
+            "color": "#ea9d34"
+          },
+          "link_uri": {
+            "color": "#ca6e69"
           },
           "number": {
             "color": "#d7827e"
@@ -541,6 +606,9 @@
           },
           "punctuation.delimiter": {
             "color": "#625c87"
+          },
+          "punctuation.list_marker": {
+            "color": "#50848c"
           },
           "punctuation.markup": {
             "color": "#625c87"
@@ -568,6 +636,10 @@
           },
           "text.literal": {
             "color": "#618774"
+          },
+          "title": {
+            "color": "#295e73",
+            "font_weight": 700
           },
           "type": {
             "color": "#ea9d34"
@@ -723,11 +795,28 @@
           "constructor": {
             "color": "#f0a4a2"
           },
+          "embedded": {
+            "color": "#e0def4"
+          },
+          "emphasis": {
+            "color": "#e0def4",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#d84f76",
+            "font_weight": 700
+          },
           "function": {
             "color": "#65b1cd"
           },
           "keyword": {
             "color": "#c4a7e7"
+          },
+          "link_text": {
+            "color": "#f6c177"
+          },
+          "link_uri": {
+            "color": "#f0a4a2"
           },
           "number": {
             "color": "#ea9a97"
@@ -749,6 +838,9 @@
           },
           "punctuation.delimiter": {
             "color": "#cdcbe0"
+          },
+          "punctuation.list_marker": {
+            "color": "#a6dae3"
           },
           "punctuation.markup": {
             "color": "#cdcbe0"
@@ -776,6 +868,10 @@
           },
           "text.literal": {
             "color": "#a3be8c"
+          },
+          "title": {
+            "color": "#65b1cd",
+            "font_weight": 700
           },
           "type": {
             "color": "#f6c177"
@@ -931,11 +1027,28 @@
           "constructor": {
             "color": "#d89079"
           },
+          "embedded": {
+            "color": "#cdcecf"
+          },
+          "emphasis": {
+            "color": "#cdcecf",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#a54e56",
+            "font_weight": 700
+          },
           "function": {
             "color": "#8cafd2"
           },
           "keyword": {
             "color": "#b48ead"
+          },
+          "link_text": {
+            "color": "#ebcb8b"
+          },
+          "link_uri": {
+            "color": "#d89079"
           },
           "number": {
             "color": "#c9826b"
@@ -957,6 +1070,9 @@
           },
           "punctuation.delimiter": {
             "color": "#abb1bb"
+          },
+          "punctuation.list_marker": {
+            "color": "#93ccdc"
           },
           "punctuation.markup": {
             "color": "#abb1bb"
@@ -984,6 +1100,10 @@
           },
           "text.literal": {
             "color": "#a3be8c"
+          },
+          "title": {
+            "color": "#8cafd2",
+            "font_weight": 700
           },
           "type": {
             "color": "#ebcb8b"
@@ -1139,11 +1259,28 @@
           "constructor": {
             "color": "#ff9664"
           },
+          "embedded": {
+            "color": "#e6eaea"
+          },
+          "emphasis": {
+            "color": "#e6eaea",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#c54e45",
+            "font_weight": 700
+          },
           "function": {
             "color": "#73a3b7"
           },
           "keyword": {
             "color": "#ad5c7c"
+          },
+          "link_text": {
+            "color": "#fda47f"
+          },
+          "link_uri": {
+            "color": "#ff9664"
           },
           "number": {
             "color": "#ff8349"
@@ -1165,6 +1302,9 @@
           },
           "punctuation.delimiter": {
             "color": "#cbd9d8"
+          },
+          "punctuation.list_marker": {
+            "color": "#afd4de"
           },
           "punctuation.markup": {
             "color": "#cbd9d8"
@@ -1192,6 +1332,10 @@
           },
           "text.literal": {
             "color": "#7aa4a1"
+          },
+          "title": {
+            "color": "#73a3b7",
+            "font_weight": 700
           },
           "type": {
             "color": "#fda47f"
@@ -1347,11 +1491,28 @@
           "constructor": {
             "color": "#5ae0df"
           },
+          "embedded": {
+            "color": "#f2f4f8"
+          },
+          "emphasis": {
+            "color": "#f2f4f8",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#ca4780",
+            "font_weight": 700
+          },
           "function": {
             "color": "#8cb6ff"
           },
           "keyword": {
             "color": "#be95ff"
+          },
+          "link_text": {
+            "color": "#08bdba"
+          },
+          "link_uri": {
+            "color": "#5ae0df"
           },
           "number": {
             "color": "#3ddbd9"
@@ -1373,6 +1534,9 @@
           },
           "punctuation.delimiter": {
             "color": "#b6b8bb"
+          },
+          "punctuation.list_marker": {
+            "color": "#52bdff"
           },
           "punctuation.markup": {
             "color": "#b6b8bb"
@@ -1400,6 +1564,10 @@
           },
           "text.literal": {
             "color": "#25be6a"
+          },
+          "title": {
+            "color": "#8cb6ff",
+            "font_weight": 700
           },
           "type": {
             "color": "#08bdba"
@@ -1555,11 +1723,28 @@
           "constructor": {
             "color": "#f6b079"
           },
+          "embedded": {
+            "color": "#cdcecf"
+          },
+          "emphasis": {
+            "color": "#cdcecf",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#ab435d",
+            "font_weight": 700
+          },
           "function": {
             "color": "#86abdc"
           },
           "keyword": {
             "color": "#9d79d6"
+          },
+          "link_text": {
+            "color": "#dbc074"
+          },
+          "link_uri": {
+            "color": "#f6b079"
           },
           "number": {
             "color": "#f4a261"
@@ -1581,6 +1766,9 @@
           },
           "punctuation.delimiter": {
             "color": "#aeafb0"
+          },
+          "punctuation.list_marker": {
+            "color": "#7ad5d6"
           },
           "punctuation.markup": {
             "color": "#aeafb0"
@@ -1608,6 +1796,10 @@
           },
           "text.literal": {
             "color": "#81b29a"
+          },
+          "title": {
+            "color": "#86abdc",
+            "font_weight": 700
           },
           "type": {
             "color": "#dbc074"
@@ -1763,11 +1955,28 @@
           "constructor": {
             "color": "#7f5152"
           },
+          "embedded": {
+            "color": "#3d2b5a"
+          },
+          "emphasis": {
+            "color": "#3d2b5a",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#b3434e",
+            "font_weight": 700
+          },
           "function": {
             "color": "#223d90"
           },
           "keyword": {
             "color": "#6e33ce"
+          },
+          "link_text": {
+            "color": "#ac5402"
+          },
+          "link_uri": {
+            "color": "#7f5152"
           },
           "number": {
             "color": "#955f61"
@@ -1789,6 +1998,9 @@
           },
           "punctuation.delimiter": {
             "color": "#643f61"
+          },
+          "punctuation.list_marker": {
+            "color": "#22676d"
           },
           "punctuation.markup": {
             "color": "#643f61"
@@ -1816,6 +2028,10 @@
           },
           "text.literal": {
             "color": "#396847"
+          },
+          "title": {
+            "color": "#223d90",
+            "font_weight": 700
           },
           "type": {
             "color": "#ac5402"
@@ -1971,11 +2187,28 @@
           "constructor": {
             "color": "#ca6e69"
           },
+          "embedded": {
+            "color": "#575279"
+          },
+          "emphasis": {
+            "color": "#575279",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#c26d85",
+            "font_weight": 700
+          },
           "function": {
             "color": "#295e73"
           },
           "keyword": {
             "color": "#907aa9"
+          },
+          "link_text": {
+            "color": "#ea9d34"
+          },
+          "link_uri": {
+            "color": "#ca6e69"
           },
           "number": {
             "color": "#d7827e"
@@ -1997,6 +2230,9 @@
           },
           "punctuation.delimiter": {
             "color": "#625c87"
+          },
+          "punctuation.list_marker": {
+            "color": "#50848c"
           },
           "punctuation.markup": {
             "color": "#625c87"
@@ -2024,6 +2260,10 @@
           },
           "text.literal": {
             "color": "#618774"
+          },
+          "title": {
+            "color": "#295e73",
+            "font_weight": 700
           },
           "type": {
             "color": "#ea9d34"
@@ -2179,11 +2419,28 @@
           "constructor": {
             "color": "#f0a4a2"
           },
+          "embedded": {
+            "color": "#e0def4"
+          },
+          "emphasis": {
+            "color": "#e0def4",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#d84f76",
+            "font_weight": 700
+          },
           "function": {
             "color": "#65b1cd"
           },
           "keyword": {
             "color": "#c4a7e7"
+          },
+          "link_text": {
+            "color": "#f6c177"
+          },
+          "link_uri": {
+            "color": "#f0a4a2"
           },
           "number": {
             "color": "#ea9a97"
@@ -2205,6 +2462,9 @@
           },
           "punctuation.delimiter": {
             "color": "#cdcbe0"
+          },
+          "punctuation.list_marker": {
+            "color": "#a6dae3"
           },
           "punctuation.markup": {
             "color": "#cdcbe0"
@@ -2232,6 +2492,10 @@
           },
           "text.literal": {
             "color": "#a3be8c"
+          },
+          "title": {
+            "color": "#65b1cd",
+            "font_weight": 700
           },
           "type": {
             "color": "#f6c177"
@@ -2387,11 +2651,28 @@
           "constructor": {
             "color": "#d89079"
           },
+          "embedded": {
+            "color": "#cdcecf"
+          },
+          "emphasis": {
+            "color": "#cdcecf",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#a54e56",
+            "font_weight": 700
+          },
           "function": {
             "color": "#8cafd2"
           },
           "keyword": {
             "color": "#b48ead"
+          },
+          "link_text": {
+            "color": "#ebcb8b"
+          },
+          "link_uri": {
+            "color": "#d89079"
           },
           "number": {
             "color": "#c9826b"
@@ -2413,6 +2694,9 @@
           },
           "punctuation.delimiter": {
             "color": "#abb1bb"
+          },
+          "punctuation.list_marker": {
+            "color": "#93ccdc"
           },
           "punctuation.markup": {
             "color": "#abb1bb"
@@ -2440,6 +2724,10 @@
           },
           "text.literal": {
             "color": "#a3be8c"
+          },
+          "title": {
+            "color": "#8cafd2",
+            "font_weight": 700
           },
           "type": {
             "color": "#ebcb8b"
@@ -2595,11 +2883,28 @@
           "constructor": {
             "color": "#ff9664"
           },
+          "embedded": {
+            "color": "#e6eaea"
+          },
+          "emphasis": {
+            "color": "#e6eaea",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#c54e45",
+            "font_weight": 700
+          },
           "function": {
             "color": "#73a3b7"
           },
           "keyword": {
             "color": "#ad5c7c"
+          },
+          "link_text": {
+            "color": "#fda47f"
+          },
+          "link_uri": {
+            "color": "#ff9664"
           },
           "number": {
             "color": "#ff8349"
@@ -2621,6 +2926,9 @@
           },
           "punctuation.delimiter": {
             "color": "#cbd9d8"
+          },
+          "punctuation.list_marker": {
+            "color": "#afd4de"
           },
           "punctuation.markup": {
             "color": "#cbd9d8"
@@ -2648,6 +2956,10 @@
           },
           "text.literal": {
             "color": "#7aa4a1"
+          },
+          "title": {
+            "color": "#73a3b7",
+            "font_weight": 700
           },
           "type": {
             "color": "#fda47f"
@@ -2803,11 +3115,28 @@
           "constructor": {
             "color": "#5ae0df"
           },
+          "embedded": {
+            "color": "#f2f4f8"
+          },
+          "emphasis": {
+            "color": "#f2f4f8",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "#ca4780",
+            "font_weight": 700
+          },
           "function": {
             "color": "#8cb6ff"
           },
           "keyword": {
             "color": "#be95ff"
+          },
+          "link_text": {
+            "color": "#08bdba"
+          },
+          "link_uri": {
+            "color": "#5ae0df"
           },
           "number": {
             "color": "#3ddbd9"
@@ -2829,6 +3158,9 @@
           },
           "punctuation.delimiter": {
             "color": "#b6b8bb"
+          },
+          "punctuation.list_marker": {
+            "color": "#52bdff"
           },
           "punctuation.markup": {
             "color": "#b6b8bb"
@@ -2856,6 +3188,10 @@
           },
           "text.literal": {
             "color": "#25be6a"
+          },
+          "title": {
+            "color": "#8cb6ff",
+            "font_weight": 700
           },
           "type": {
             "color": "#08bdba"

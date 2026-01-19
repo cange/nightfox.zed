@@ -252,6 +252,8 @@ end
 ---@return table<string, nightfox_zed.HighlightStyle>
 ---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
 function M._syntax_theme(pal, spec)
+  local strong_emphasis_color = pal.meta.light and pal.red.bright or pal.red.dim
+
   return {
     boolean = {
       color = spec.syntax.const,
@@ -278,6 +280,21 @@ function M._syntax_theme(pal, spec)
       font_style = nil,
       font_weight = nil,
     },
+    embedded = {
+      color = spec.fg1,
+      font_style = nil,
+      font_weight = nil,
+    },
+    emphasis = {
+      color = spec.fg1,
+      font_style = "italic",
+      font_weight = nil,
+    },
+    ["emphasis.strong"] = {
+      color = strong_emphasis_color,
+      font_style = nil,
+      font_weight = 700,
+    },
     ["function"] = {
       color = spec.syntax.func,
       font_style = nil,
@@ -285,6 +302,16 @@ function M._syntax_theme(pal, spec)
     },
     keyword = {
       color = spec.syntax.keyword,
+      font_style = nil,
+      font_weight = nil,
+    },
+    link_text = {
+      color = pal.yellow.base,
+      font_style = "underline",
+      font_weight = nil,
+    },
+    link_uri = {
+      color = spec.syntax.const,
       font_style = nil,
       font_weight = nil,
     },
@@ -320,6 +347,11 @@ function M._syntax_theme(pal, spec)
     },
     ["punctuation.delimiter"] = {
       color = spec.syntax.bracket,
+      font_style = nil,
+      font_weight = nil,
+    },
+    ["punctuation.list_marker"] = {
+      color = spec.syntax.builtin1,
       font_style = nil,
       font_weight = nil,
     },
@@ -367,6 +399,11 @@ function M._syntax_theme(pal, spec)
       color = pal.green.base,
       font_style = nil,
       font_weight = nil,
+    },
+    title = {
+      color = spec.syntax.func,
+      font_style = nil,
+      font_weight = 700,
     },
     type = {
       color = spec.syntax.type,
