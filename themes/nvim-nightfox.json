@@ -117,7 +117,8 @@
             "color": "#9d79d6"
           },
           "link_text": {
-            "color": "#dbc074"
+            "color": "#dbc074",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#f6b079"
@@ -349,7 +350,8 @@
             "color": "#6e33ce"
           },
           "link_text": {
-            "color": "#ac5402"
+            "color": "#ac5402",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#7f5152"
@@ -581,7 +583,8 @@
             "color": "#907aa9"
           },
           "link_text": {
-            "color": "#ea9d34"
+            "color": "#ea9d34",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#ca6e69"
@@ -813,7 +816,8 @@
             "color": "#c4a7e7"
           },
           "link_text": {
-            "color": "#f6c177"
+            "color": "#f6c177",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#f0a4a2"
@@ -1045,7 +1049,8 @@
             "color": "#b48ead"
           },
           "link_text": {
-            "color": "#ebcb8b"
+            "color": "#ebcb8b",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#d89079"
@@ -1277,7 +1282,8 @@
             "color": "#ad5c7c"
           },
           "link_text": {
-            "color": "#fda47f"
+            "color": "#fda47f",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#ff9664"
@@ -1509,7 +1515,8 @@
             "color": "#be95ff"
           },
           "link_text": {
-            "color": "#08bdba"
+            "color": "#08bdba",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#5ae0df"
@@ -1741,7 +1748,8 @@
             "color": "#9d79d6"
           },
           "link_text": {
-            "color": "#dbc074"
+            "color": "#dbc074",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#f6b079"
@@ -1973,7 +1981,8 @@
             "color": "#6e33ce"
           },
           "link_text": {
-            "color": "#ac5402"
+            "color": "#ac5402",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#7f5152"
@@ -2205,7 +2214,8 @@
             "color": "#907aa9"
           },
           "link_text": {
-            "color": "#ea9d34"
+            "color": "#ea9d34",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#ca6e69"
@@ -2437,7 +2447,8 @@
             "color": "#c4a7e7"
           },
           "link_text": {
-            "color": "#f6c177"
+            "color": "#f6c177",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#f0a4a2"
@@ -2669,7 +2680,8 @@
             "color": "#b48ead"
           },
           "link_text": {
-            "color": "#ebcb8b"
+            "color": "#ebcb8b",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#d89079"
@@ -2901,7 +2913,8 @@
             "color": "#ad5c7c"
           },
           "link_text": {
-            "color": "#fda47f"
+            "color": "#fda47f",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#ff9664"
@@ -3133,7 +3146,8 @@
             "color": "#be95ff"
           },
           "link_text": {
-            "color": "#08bdba"
+            "color": "#08bdba",
+            "font_style": "underline"
           },
           "link_uri": {
             "color": "#5ae0df"
