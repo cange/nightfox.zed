@@ -274,8 +274,6 @@ end
 ---@return table<string, nightfox_zed.HighlightStyle>
 ---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
 function M._syntax_theme(pal, spec)
-  local strong_emphasis_color = pal.meta.light and pal.red.bright or pal.red.dim
-
   return {
     boolean = {
       color = spec.syntax.const,
@@ -313,7 +311,7 @@ function M._syntax_theme(pal, spec)
       font_weight = nil,
     },
     ["emphasis.strong"] = {
-      color = strong_emphasis_color,
+      color = pal.meta.light and pal.red.bright or pal.red.dim,
       font_style = nil,
       font_weight = 700,
     },
