@@ -38,7 +38,7 @@ function M._status_colors(spec)
     created = spec.git.add,
     ["created.background"] = AS_NONE,
     ["created.border"] = AS_NONE,
-    deleted = spec.diff.delete,
+    deleted = spec.git.removed,
     ["deleted.background"] = AS_NONE,
     ["deleted.border"] = AS_NONE,
     error = spec.diag.error,
