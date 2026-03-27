@@ -11,3 +11,8 @@
 /assets
 /bin
 nightfox-nvim
+
+## AI ##
+AGENTS.md
+.agents
+skills-lock.json
