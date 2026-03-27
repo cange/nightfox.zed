@@ -99,9 +99,12 @@ end
 -- see https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
 function M._theme_colors(pal, spec, background_appearance)
   local alpha = util.color.alpha
-  local blend = util.color.blend
-
   local editor_bg = pal.bg1
+  local function fade(color, amount)
+    amount = amount or 0.3
+    return util.color.blend(editor_bg, color, amount)
+  end
+
   local accent = pal.orange
 
   return {
@@ -117,10 +120,10 @@ function M._theme_colors(pal, spec, background_appearance)
     background = alpha(spec.bg1, M._alphas.MAX),
     ["background.appearance"] = background_appearance,
 
-    ["element.background"] = blend(editor_bg, accent.dim, 0.2),
-    ["element.hover"] = blend(editor_bg, accent.base, 0.2),
-    ["element.active"] = blend(editor_bg, accent.bright, 0.2),
-    ["element.selected"] = blend(editor_bg, accent.bright, 0.2),
+    ["element.background"] = fade(accent.dim),
+    ["element.hover"] = fade(accent.base),
+    ["element.active"] = fade(accent.bright),
+    ["element.selected"] = fade(accent.bright),
     ["element.disabled"] = spec.sel0,
 
     ["drop_target.background"] = alpha(spec.bg0, M._alphas.MAX),
@@ -244,6 +247,25 @@ function M._theme_colors(pal, spec, background_appearance)
     ["version_control.renamed"] = spec.git.changed,
     ["version_control.conflict"] = spec.git.conflict,
     ["version_control.ignored"] = spec.git.ignored,
+
+    -- vim status
+    ["vim.normal.background"] = fade(pal.blue.base),
+    ["vim.normal.foreground"] = spec.fg1,
+    ["vim.insert.background"] = fade(pal.green.base),
+    ["vim.insert.foreground"] = spec.fg1,
+    ["vim.visual.background"] = fade(pal.magenta.base),
+    ["vim.visual.foreground"] = spec.fg1,
+    ["vim.visual_block.background"] = fade(pal.magenta.base),
+    ["vim.visual_block.foreground"] = spec.fg1,
+    ["vim.visual_line.background"] = fade(pal.magenta.base),
+    ["vim.visual_line.foreground"] = spec.fg1,
+    ["vim.replace.background"] = fade(pal.red.base),
+    ["vim.replace.foreground"] = spec.fg1,
+    ["vim.yank.background"] = pal.white.base,
+    ["vim.helix_normal.background"] = fade(pal.blue.base),
+    ["vim.helix_normal.foreground"] = spec.fg1,
+    ["vim.helix_select.background"] = fade(pal.magenta.base),
+    ["vim.helix_select.foreground"] = spec.fg1,
   }
 end
 
