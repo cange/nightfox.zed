@@ -148,7 +148,8 @@ function M._theme_colors(pal, spec, background_appearance)
     ["debugger.accent"] = accent.base,
 
     -- UI Elements
-    ["search.match_background"] = alpha(spec.sel1, M._alphas.MAX),
+    ["search.match_background"] = alpha(spec.sel1, M._alphas.MIN),
+    ["search.active_match_background"] = alpha(spec.sel1, M._alphas.MAX),
     ["status_bar.background"] = alpha(spec.bg0, M._alphas.MAX),
     ["tab.active_background"] = alpha(spec.sel0, M._alphas.MID),
     ["tab.inactive_background"] = alpha(spec.bg1, M._alphas.MID),
