@@ -77,18 +77,23 @@ function M._status_colors(spec)
   }
 end
 
+---@param pal nightfox_nvim.Palette
 ---@param spec nightfox_nvim.Spec
 ---@return nightfox_zed.PlayerColor[]
-function M._player_colors(spec)
+function M._player_colors(pal, spec)
   local alpha = util.color.alpha
+  local players = {}
+  local colors = { "blue", "magenta", "cyan", "orange", "green", "yellow", "pink", "red" }
+  for _, name in ipairs(colors) do
+    local color = pal[name]
+    table.insert(players, {
+      cursor = color.base,
+      background = alpha(color.dim, M._alphas.HIGH),
+      selection = alpha(color.base, M._alphas.LOW),
+    })
+  end
 
-  return {
-    {
-      cursor = spec.fg0,
-      background = alpha(spec.bg3, M._alphas.LOW),
-      selection = alpha(spec.sel1, M._alphas.HIGH),
-    },
-  }
+  return players
 end
 
 ---@param pal nightfox_nvim.Palette
@@ -480,7 +485,7 @@ function M._define_theme(name, background_appearance)
     appearance = theme_appearance,
     style = util.tbl_merge({
       accents = M._accent_colors(pal, M._alphas.MID),
-      players = M._player_colors(spec),
+      players = M._player_colors(pal, spec),
       syntax = M._syntax_theme(pal, spec), -- https://github.com/zed-industries/zed/blob/main/crates/theme/src/one_themes.rs#L191
     }, M._status_colors(spec), M._theme_colors(pal, spec, background_appearance)),
   }
