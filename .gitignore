@@ -10,7 +10,7 @@
 ### misc ###
 /assets
 /bin
-nightfox-nvim
+/examples
 
 ## AI ##
 AGENTS.md
