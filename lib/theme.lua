@@ -280,172 +280,67 @@ end
 ---@return table<string, nightfox_zed.HighlightStyle>
 ---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
 function M._syntax_theme(pal, spec)
+  local debug = util.color.debug
+  ---@param tokens table
+  local m = function(tokens)
+    local default = {
+      background_color = nil,
+      color = nil,
+      font_style = nil,
+      font_weight = nil,
+    }
+    return util.tbl_merge(default, tokens)
+  end
+
   return {
-    boolean = {
-      color = spec.syntax.const,
-      font_style = nil,
-      font_weight = nil,
-    },
-    comment = {
-      color = spec.syntax.comment,
-      font_style = nil,
-      font_weight = nil,
-    },
-    ["comment.doc"] = {
-      color = spec.syntax.comment,
-      font_style = nil,
-      font_weight = nil,
-    },
-    constant = {
-      color = spec.syntax.const,
-      font_style = nil,
-      font_weight = nil,
-    },
-    constructor = {
-      color = spec.syntax.builtin2,
-      font_style = nil,
-      font_weight = nil,
-    },
-    embedded = {
-      color = spec.fg1,
-      font_style = nil,
-      font_weight = nil,
-    },
-    emphasis = {
+    attribute = m({ color = spec.syntax.field }),
+    boolean = m({ color = spec.syntax.const }),
+    character = m({ color = debug.red }),
+    ["character.special"] = m({ color = debug.green }),
+    comment = m({ color = spec.syntax.comment }),
+    ["comment.doc"] = m({ color = spec.syntax.comment }),
+    constant = m({ color = spec.syntax.const }),
+    constructor = m({ color = spec.syntax.builtin2 }),
+    embedded = m({ color = spec.fg1 }),
+    emphasis = m({
       color = spec.fg1,
       font_style = "italic",
-      font_weight = nil,
-    },
-    ["emphasis.strong"] = {
-      color = pal.meta.light and pal.red.bright or pal.red.dim,
-      font_style = nil,
+    }),
+    ["emphasis.strong"] = m({
+      color = pal.red.base,
       font_weight = 700,
-    },
-    ["function"] = {
-      color = spec.syntax.func,
-      font_style = nil,
-      font_weight = nil,
-    },
-    keyword = {
-      color = spec.syntax.keyword,
-      font_style = nil,
-      font_weight = nil,
-    },
-    link_text = {
+    }),
+    ["function"] = m({ color = spec.syntax.func }),
+    keyword = m({ color = spec.syntax.keyword }),
+    link_text = m({
       color = pal.yellow.base,
-      font_style = "underline",
-      font_weight = nil,
-    },
-    link_uri = {
-      color = spec.syntax.const,
-      font_style = nil,
-      font_weight = nil,
-    },
-    number = {
-      color = spec.syntax.number,
-      font_style = nil,
-      font_weight = nil,
-    },
-    operator = {
-      color = spec.syntax.operator,
-      font_style = nil,
-      font_weight = nil,
-    },
-    preproc = {
-      color = spec.syntax.preproc,
-      font_style = nil,
-      font_weight = nil,
-    },
-    property = {
-      color = pal.blue.base,
-      font_style = nil,
-      font_weight = nil,
-    },
-    punctuation = {
-      color = spec.syntax.bracket,
-      font_style = nil,
-      font_weight = nil,
-    },
-    ["punctuation.bracket"] = {
-      color = spec.syntax.bracket,
-      font_style = nil,
-      font_weight = nil,
-    },
-    ["punctuation.delimiter"] = {
-      color = spec.syntax.bracket,
-      font_style = nil,
-      font_weight = nil,
-    },
-    ["punctuation.list_marker"] = {
-      color = spec.syntax.builtin1,
-      font_style = nil,
-      font_weight = nil,
-    },
-    ["punctuation.markup"] = {
-      color = spec.syntax.bracket,
-      font_style = nil,
-      font_weight = nil,
-    },
-    ["punctuation.special"] = {
-      color = spec.syntax.bracket,
-      font_style = nil,
-      font_weight = nil,
-    },
-    string = {
-      color = spec.syntax.string,
-      font_style = nil,
-      font_weight = nil,
-    },
-    ["string.escape"] = {
-      color = pal.green.base,
-      font_style = nil,
-      font_weight = nil,
-    },
-    ["string.regex"] = {
-      color = spec.syntax.regex,
-      font_style = nil,
-      font_weight = nil,
-    },
-    ["string.special"] = {
-      color = spec.syntax.builtin1,
-      font_style = nil,
-      font_weight = nil,
-    },
-    ["string.special.symbol"] = {
-      color = spec.syntax.builtin0,
-      font_style = nil,
-      font_weight = nil,
-    },
-    tag = {
-      color = pal.magenta.dim,
-      font_style = nil,
-      font_weight = nil,
-    },
-    ["text.literal"] = {
-      color = pal.green.base,
-      font_style = nil,
-      font_weight = nil,
-    },
-    title = {
+      font_style = "italic",
+    }),
+    link_uri = m({ color = spec.syntax.const }),
+    number = m({ color = spec.syntax.number }),
+    operator = m({ color = spec.syntax.operator }),
+    preproc = m({ color = spec.syntax.preproc }),
+    property = m({ color = pal.blue.base }),
+    punctuation = m({ color = spec.syntax.bracket }),
+    ["punctuation.bracket"] = m({ color = spec.syntax.bracket }),
+    ["punctuation.delimiter"] = m({ color = spec.syntax.bracket }),
+    ["punctuation.list_marker"] = m({ color = spec.syntax.builtin1 }),
+    ["punctuation.markup"] = m({ color = spec.syntax.bracket }),
+    ["punctuation.special"] = m({ color = spec.syntax.bracket }),
+    string = m({ color = spec.syntax.string }),
+    ["string.escape"] = m({ color = pal.green.base }),
+    ["string.regex"] = m({ color = spec.syntax.regex }),
+    ["string.special"] = m({ color = spec.syntax.builtin1 }),
+    ["string.special.symbol"] = m({ color = spec.syntax.builtin0 }),
+    tag = m({ color = pal.magenta.dim }),
+    ["text.literal"] = m({ color = pal.green.base }),
+    title = m({
       color = spec.syntax.func,
-      font_style = nil,
       font_weight = 700,
-    },
-    type = {
-      color = spec.syntax.type,
-      font_style = nil,
-      font_weight = nil,
-    },
-    variable = {
-      color = pal.cyan.base,
-      font_style = nil,
-      font_weight = nil,
-    },
-    ["variable.special"] = {
-      color = spec.syntax.builtin0,
-      font_style = nil,
-      font_weight = nil,
-    },
+    }),
+    type = m({ color = spec.syntax.type }),
+    variable = m({ color = pal.cyan.base }),
+    ["variable.special"] = m({ color = spec.syntax.builtin0 }),
   }
 end
 
@@ -455,11 +350,11 @@ function M._set_alpha_levels(appearance)
   local is_opaque = appearance == "opaque"
   -- NOTE: Fibonacci sequence are used for golden ratio
   return { ---@diagnostic disable-line: unused-local
-    MIN          = is_opaque and 0.21 or 0.13,
-    LOW          = is_opaque and 0.34 or 0.21,
-    MID          = is_opaque and 0.55 or 0.34,
-    HIGH         = is_opaque and 0.89 or 0.55,
-    MAX          = is_opaque and 1 or 0.89,
+    MIN = is_opaque and 0.21 or 0.13,
+    LOW = is_opaque and 0.34 or 0.21,
+    MID = is_opaque and 0.55 or 0.34,
+    HIGH = is_opaque and 0.89 or 0.55,
+    MAX = is_opaque and 1 or 0.89,
     MAX_POLARIZE = is_opaque and 1 or 0,
   }
 end
