@@ -8,7 +8,7 @@ jobs:
     name: Release Zed Extension
     runs-on: ubuntu-latest
     steps:
-      - uses: huacnlee/zed-extension-action@v1
+      - uses: huacnlee/zed-extension-action@v2
         with:
           extension-name: nvim-nightfox
           # extension-path: extensions/${{ extension-name }}
