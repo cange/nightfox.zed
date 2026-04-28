@@ -124,3 +124,11 @@
 ---@field underline string
 ---@field strikethrough string
 ---@field fade_out string
+
+---@class nightfox_nvim.AlphaLevels
+---@field MIN number
+---@field LOW number
+---@field MID number
+---@field HIGH number
+---@field MAX number
+---@field MAX_POLARIZE number Either none transparent or opaque
