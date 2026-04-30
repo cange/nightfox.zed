@@ -84,12 +84,12 @@ end
 function M._player_colors(pal, spec)
   local alpha = util.color.alpha
   local players = {}
-  local colors = { "blue", "magenta", "cyan", "orange", "green", "yellow", "pink", "red" }
+  local colors = { "green", "cyan", "blue", "orange", "yellow", "pink", "magenta", "red" }
   for _, name in ipairs(colors) do
     local color = pal[name]
     table.insert(players, {
       cursor = color.base,
-      background = alpha(color.dim, M._alphas.HIGH),
+      background = alpha(color.base, M._alphas.HIGH),
       selection = alpha(color.base, M._alphas.LOW),
     })
   end
@@ -454,13 +454,13 @@ end
 ---@return nightfox_nvim.AlphaLevels
 function M._set_alpha_levels(appearance)
   local is_opaque = appearance == "opaque"
-
+  -- NOTE: Fibonacci sequence are used for golden ratio
   return { ---@diagnostic disable-line: unused-local
-    MIN = is_opaque and 0.2 or 0.025,
-    LOW = is_opaque and 0.3 or 0.05,
-    MID = is_opaque and 0.5 or 0.15,
-    HIGH = is_opaque and 0.8 or 0.4,
-    MAX = is_opaque and 1 or 0.8,
+    MIN          = is_opaque and 0.21 or 0.13,
+    LOW          = is_opaque and 0.34 or 0.21,
+    MID          = is_opaque and 0.55 or 0.34,
+    HIGH         = is_opaque and 0.89 or 0.55,
+    MAX          = is_opaque and 1 or 0.89,
     MAX_POLARIZE = is_opaque and 1 or 0,
   }
 end
