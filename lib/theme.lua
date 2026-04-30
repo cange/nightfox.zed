@@ -6,7 +6,8 @@ local logger = util.logger()
 ---@field private _ns string Namespace
 local M = {}
 M._ns = ""
-M._alphas = {}
+---@type nightfox_nvim.AlphaLevels | nil
+M._alphas = nil
 
 ---@type nil -- Marks a nil property as already defined
 local AS_NONE = nil
@@ -83,12 +84,12 @@ end
 function M._player_colors(pal, spec)
   local alpha = util.color.alpha
   local players = {}
-  local colors = { "blue", "magenta", "cyan", "orange", "green", "yellow", "pink", "red" }
+  local colors = { "green", "cyan", "blue", "orange", "yellow", "pink", "magenta", "red" }
   for _, name in ipairs(colors) do
     local color = pal[name]
     table.insert(players, {
       cursor = color.base,
-      background = alpha(color.dim, M._alphas.HIGH),
+      background = alpha(color.base, M._alphas.HIGH),
       selection = alpha(color.base, M._alphas.LOW),
     })
   end
@@ -117,7 +118,7 @@ function M._theme_colors(pal, spec, background_appearance)
     ["border.variant"] = spec.bg4,
     ["border.focused"] = spec.sel0,
     ["border.selected"] = spec.sel1,
-    ["border.transparent"] = alpha(spec.bg1, M._alphas.POLARIZED),
+    ["border.transparent"] = alpha(spec.bg1, M._alphas.MAX_POLARIZE),
     ["border.disabled"] = spec.bg1,
 
     ["elevated_surface.background"] = spec.bg0, -- usage: UI popout bg
@@ -135,7 +136,7 @@ function M._theme_colors(pal, spec, background_appearance)
 
     ["ghost_element.background"] = AS_NONE,
     ["ghost_element.hover"] = alpha(spec.sel1, M._alphas.LOW),
-    ["ghost_element.active"] = alpha(spec.sel1, M._alphas.MAX), -- usage: UI popout trigger
+    ["ghost_element.active"] = alpha(spec.sel1, M._alphas.MAX),    -- usage: UI popout trigger
     ["ghost_element.selected"] = alpha(spec.sel1, M._alphas.HIGH), -- usage: UI popout item
     ["ghost_element.disabled"] = AS_NONE,
 
@@ -162,7 +163,7 @@ function M._theme_colors(pal, spec, background_appearance)
     ["title_bar.background"] = alpha(spec.bg0, M._alphas.MAX),
     ["title_bar.inactive_background"] = AS_NONE,
     ["toolbar.background"] = alpha(spec.sel0, M._alphas.MID),
-    ["panel.background"] = alpha(spec.bg0, M._alphas.POLARIZED),
+    ["panel.background"] = alpha(spec.bg0, M._alphas.MAX_POLARIZE),
     ["panel.focused_border"] = alpha(spec.sel1, M._alphas.MAX),
     ["panel.indent_guide"] = AS_NONE,
     ["panel.indent_guide_active"] = AS_NONE,
@@ -198,8 +199,8 @@ function M._theme_colors(pal, spec, background_appearance)
 
     -- Editor
     ["editor.foreground"] = spec.fg1,
-    ["editor.background"] = alpha(editor_bg, M._alphas.POLARIZED),
-    ["editor.gutter.background"] = alpha(spec.bg1, M._alphas.POLARIZED),
+    ["editor.background"] = alpha(editor_bg, M._alphas.MAX_POLARIZE),
+    ["editor.gutter.background"] = alpha(spec.bg1, M._alphas.MAX_POLARIZE),
     ["editor.subheader.background"] = AS_NONE,
     ["editor.active_line.background"] = alpha(spec.sel0, M._alphas.LOW),
     ["editor.highlighted_line.background"] = AS_NONE,
@@ -215,7 +216,7 @@ function M._theme_colors(pal, spec, background_appearance)
     ["editor.document_highlight.write_background"] = AS_NONE,
 
     -- Terminal
-    ["terminal.background"] = alpha(spec.bg1, M._alphas.POLARIZED),
+    ["terminal.background"] = alpha(spec.bg1, M._alphas.MAX_POLARIZE),
     ["terminal.foreground"] = spec.fg1,
     ["terminal.bright_foreground"] = spec.fg0,
     ["terminal.dim_foreground"] = spec.fg2,
@@ -450,17 +451,17 @@ function M._syntax_theme(pal, spec)
 end
 
 ---@param appearance nightfox_nvim.BackgroundAppearance
+---@return nightfox_nvim.AlphaLevels
 function M._set_alpha_levels(appearance)
   local is_opaque = appearance == "opaque"
-  local is_blurred = appearance == "blurred"
-
-  M._alphas = { ---@diagnostic disable-line: unused-local
-    MIN = is_opaque and 0.2 or is_blurred and 0.025 or 0.1,
-    LOW = is_opaque and 0.3 or is_blurred and 0.05 or 0.15,
-    MID = is_opaque and 0.5 or is_blurred and 0.15 or 0.25,
-    HIGH = is_opaque and 0.8 or 0.4,
-    MAX = is_opaque and 1 or 0.8,
-    POLARIZED = is_opaque and 1 or 0, -- transparent in non-opaque case
+  -- NOTE: Fibonacci sequence are used for golden ratio
+  return { ---@diagnostic disable-line: unused-local
+    MIN          = is_opaque and 0.21 or 0.13,
+    LOW          = is_opaque and 0.34 or 0.21,
+    MID          = is_opaque and 0.55 or 0.34,
+    HIGH         = is_opaque and 0.89 or 0.55,
+    MAX          = is_opaque and 1 or 0.89,
+    MAX_POLARIZE = is_opaque and 1 or 0,
   }
 end
 
@@ -478,7 +479,7 @@ function M._define_theme(name, background_appearance)
   local display_name = name .. appearance_label .. dev_label
 
   logger.ok("Theme defined", { display_name, theme_appearance })
-  M._set_alpha_levels(background_appearance)
+  M._alphas = M._set_alpha_levels(background_appearance)
 
   return {
     name = display_name,
