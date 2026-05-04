@@ -117,13 +117,10 @@
 ---@field selection string
 
 ---@class nightfox_zed.HighlightStyle
----@field color string
----@field font_weight string
----@field font_style string
 ---@field background_color string
----@field underline string
----@field strikethrough string
----@field fade_out string
+---@field color string
+---@field font_style nil | 'normal' | 'italic' | 'oblique'
+---@field font_weight nil | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
 
 ---@class nightfox_nvim.AlphaLevels
 ---@field MIN number
