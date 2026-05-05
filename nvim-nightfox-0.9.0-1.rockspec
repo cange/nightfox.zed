@@ -1,5 +1,9 @@
 package = "nvim-nightfox"
 version = "0.9.0-1"
+source = {
+  url = "git+https://github.com/cange/nightfox.zed",
+  tag = "v0.9.0",
+}
 description = {
   summary = "A port of the Neovim Nightfox themes. Supports opaque and blurred variant",
   detailed = [[
