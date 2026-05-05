@@ -83,7 +83,7 @@ _A theme collection – Ported from the beloved [nightfox.nvim](https://github.c
 
 ### Prerequisites
 
-To build the theme, make sure the following is installed:
+To build the theme, make sure the following are installed:
 
 - [Lua](https://www.lua.org/)
 - [Luarocks](https://luarocks.org/)
@@ -116,7 +116,7 @@ One can test the changes in Zed directly by using a symlink of the generated the
 make build
 ```
 
-This generates the appropriate production ready Zed theme file.
+This generates the appropriate production-ready Zed theme file.
 
 </details>
 
