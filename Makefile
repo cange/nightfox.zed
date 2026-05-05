@@ -1,6 +1,6 @@
 .PHONY: build dev format
 
-LUA_ENV := eval $$(luarocks --lua-version=5.5 path)
+LUA_ENV := eval $$(luarocks path)
 
 build:
 	@$(LUA_ENV) && lua lib/build.lua
