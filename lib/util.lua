@@ -74,7 +74,7 @@ function M.neovim_polyfill()
 end
 
 ---Simple table serialization for logging
----@param data table
+---@param data string | table
 ---@return string
 local function stringify(data)
   if type(data) ~= "table" then
