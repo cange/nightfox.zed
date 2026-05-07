@@ -262,7 +262,7 @@ function M._theme_colors(pal, spec, background_appearance)
     ["background.appearance"] = background_appearance,
     ["debugger.accent"] = accent.base,
     ["icon.placeholder"] = AS_NONE,
-    ["pane.group_border"] = AS_NONE,
+    ["pane_group.border"] = AS_NONE, -- Surface - others
     ["search.active_match_background"] = alpha(spec.sel1, M._alphas.MAX),
   }
 end
