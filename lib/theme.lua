@@ -79,9 +79,8 @@ function M._status_colors(spec)
 end
 
 ---@param pal nightfox_nvim.Palette
----@param spec nightfox_nvim.Spec
 ---@return nightfox_zed.PlayerColor[]
-function M._player_colors(pal, spec)
+function M._player_colors(pal)
   local alpha = util.color.alpha
   local players = {}
   local colors = { "green", "cyan", "blue", "orange", "yellow", "pink", "magenta", "red" }
@@ -395,7 +394,7 @@ function M._define_theme(name, background_appearance)
     appearance = theme_appearance,
     style = util.tbl_merge({
       accents = M._accent_colors(pal, M._alphas.MID),
-      players = M._player_colors(pal, spec),
+      players = M._player_colors(pal),
       syntax = M._syntax_theme(pal, spec), -- https://github.com/zed-industries/zed/blob/main/crates/theme/src/one_themes.rs#L191
     }, M._status_colors(spec), M._theme_colors(pal, spec, background_appearance)),
   }

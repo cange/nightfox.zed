@@ -1,8 +1,0 @@
-{
-    "diagnostics.globals": [
-        "vim"
-    ],
-    "diagnostics.disable": [
-        "duplicate-doc-field"
-    ]
-}
