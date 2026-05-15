@@ -113,7 +113,7 @@ One can test the changes in Zed directly by using a symlink of the generated the
 ### Build
 
 ```bash
-make build
+make prod
 ```
 
 This generates the appropriate production-ready Zed theme file.

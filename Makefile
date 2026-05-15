@@ -2,7 +2,7 @@
 
 LUA_ENV := eval $$(luarocks path)
 
-build:
+prod:
 	@$(LUA_ENV) && lua lib/build.lua
 	@$(MAKE) format
 
