@@ -1,0 +1,45 @@
+name: "Manage Stale Issues"
+
+on:
+  schedule:
+    # Runs every day at 02:00 UTC
+    - cron: "0 2 * * *"
+  # Allows you to manually trigger the workflow from the Actions tab for testing
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Handle Inactivity
+        uses: actions/stale@v10
+        with:
+          # --- Configuration Limits ---
+          operations-per-run: 50
+
+          # --- Issue Rules ---
+          days-before-issue-stale: 30
+          days-before-issue-close: 7
+          stale-issue-label: "status: stale"
+          stale-issue-message: >
+            This issue has been automatically marked as stale because it has not had
+            recent activity. It will be closed if no further activity occurs. Thank you
+            for your contributions.
+          close-issue-message: >
+            This issue has been automatically closed due to inactivity. If you feel this
+            is still an active bug or feature request, please feel free to reopen it or
+            leave a comment.
+
+          # --- Pull Request Rules (Optional Safety) ---
+          # Setting to -1 prevents PRs from being closed automatically by this action
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
+
+          # --- Guardrails / Exemptions ---
+          exempt-issue-labels: "pinned, security, critical, backlog"
+          exempt-all-issue-assignees: true
+          exempt-all-issue-milestones: true
