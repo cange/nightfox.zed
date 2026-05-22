@@ -1,8 +1,8 @@
 ---@class nightfox_zed.Util
 ---@field color nightfox_zed.UtilColor
----@field neovim_polyfill function
----@field tbl_merge function
----@field logger function
+---@field neovim_polyfill fun()
+---@field tbl_merge fun(base: table, ...: table): table
+---@field logger fun(): nightfox_nvim.Logger
 local M = {}
 M._ns = "util"
 
@@ -28,17 +28,22 @@ local function blend(base_color, accent_color, factor)
 end
 
 local debug = {
-  blue = "#0000dd",
-  cyan = "#00dddd",
-  green = "#00dd00",
-  magenta = "#dd00dd",
-  red = "#dd0000",
-  yellow = "#dddd00",
+  -- stylua: ignore start
+  blue =    { base = "#0000dd", dim = "#000088", bright = "#0000ff" },
+  cyan =    { base = "#00dddd", dim = "#008888", bright = "#00ffff" },
+  green =   { base = "#00dd00", dim = "#00a000", bright = "#00ff00" },
+  magenta = { base = "#dd00dd", dim = "#880088", bright = "#ff00ff" },
+  orange =  { base = "#dd8800", dim = "#996600", bright = "#ff8800" },
+  pink =    { base = "#dd88dd", dim = "#996699", bright = "#ff88ff" },
+  red =     { base = "#dd0000", dim = "#990000", bright = "#ff0000" },
+  yellow =  { base = "#dddd00", dim = "#999900", bright = "#ffff00" },
+  -- stylua: ignore end
 }
 
 ---@class nightfox_zed.UtilColor
----@field alpha function
----@field debug nightfox_nvim.Palette
+---@field alpha fun(hex_color: string, percent: number): string
+---@field blend fun(base_color: string, accent_color: string, factor: number): string
+---@field debug table<'blue' | 'cyan' | 'green' | 'magenta' | 'orange' | 'pink' | 'red' | 'yellow', nightfox_nvim.Shade>
 M.color = {
   alpha = alpha,
   blend = blend,
