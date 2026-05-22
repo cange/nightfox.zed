@@ -331,7 +331,8 @@ function M._syntax_theme(pal, spec)
     ["punctuation.markup"] = m({ color = spec.syntax.bracket }),
     ["punctuation.special"] = m({ color = spec.syntax.bracket }),
     -- Markup
-    tag = m({ color = pal.magenta.dim }),
+    ["tag"] = m({ color = pal.magenta.base }),
+    ["tag.doctype"] = m({ color = spec.syntax.const }), -- doctypes (e.g., in HTML)
     title = m({
       color = spec.syntax.func,
       font_weight = 700,
