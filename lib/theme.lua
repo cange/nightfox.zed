@@ -285,7 +285,6 @@ end
 ---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
 ---See: https://zed.dev/docs/extensions/languages#syntax-highlighting
 function M._syntax_theme(pal, spec)
-  local todo = util.color.debug
   local m = M._syntax_theme_merge
   return {
     -- Comments & Docs
@@ -297,7 +296,7 @@ function M._syntax_theme(pal, spec)
     ["string.special"] = m({ color = spec.syntax.builtin1 }), -- e.g. javascript, tsx
     ["string.special.path"] = AS_NONE, -- e.g. gitcommit
     ["string.special.symbol"] = AS_NONE, -- e.g. gitcommit
-    ["text.literal"] = m({ color = pal.green.base }),
+    ["text.literal"] = AS_UNUSED,
     -- Numbers & Constants
     boolean = m({ color = spec.syntax.const }),
     ["constant"] = m({ color = spec.syntax.const }),
@@ -324,7 +323,7 @@ function M._syntax_theme(pal, spec)
       color = spec.syntax.const,
       font_style = "normal",
     }), -- e.g. python
-    constructor = m({ color = spec.syntax.builtin2 }),
+    constructor = m({ color = spec.syntax.ident }),
     ["function"] = m({ color = spec.syntax.func }),
     ["function.builtin"] = m({ color = spec.syntax.builtin0 }),
     ["function.call"] = AS_NONE, -- e.g. cpp, python, go
@@ -350,10 +349,10 @@ function M._syntax_theme(pal, spec)
     namespace = m({ color = spec.syntax.builtin1 }), -- e.g. css, go, cpp
     variant = AS_UNUSED,
     -- Variables & Properties
+    label = AS_NONE, -- e.g. c, diff, go, cpp, regex
     ["property"] = m({ color = spec.syntax.field }),
     ["property.json_key"] = AS_NONE,
     ["property.name"] = AS_NONE,
-    label = m({ color = todo.magenta.base }),
     ["variable"] = m({ color = spec.syntax.variable }),
     ["variable.builtin"] = AS_NONE,
     ["variable.other.member"] = AS_NONE, -- e.g. gitcommit
@@ -419,10 +418,10 @@ function M._syntax_theme(pal, spec)
     ["string.escape.regex"] = AS_NONE, -- e.g. regex
     ["string.regex"] = m({ color = spec.syntax.regex }),
     -- Other
-    primary = m({ color = AS_UNUSED }), -- primary elements
     embedded = m({ color = spec.fg1 }), -- embedded content
-    predictive = m({ color = AS_UNUSED }), --  predictive text
-    hint = m({ color = AS_UNUSED }), -- hints
+    hint = AS_UNUSED, -- hints
+    predictive = AS_UNUSED, --  predictive text
+    primary = AS_UNUSED, -- primary elements
   }
 end
 
