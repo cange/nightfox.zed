@@ -344,11 +344,11 @@ function M._syntax_theme(pal, spec)
       color = pal.red.base,
       font_weight = 700,
     }),
-    link_text = m({
-      color = pal.yellow.base,
-      font_style = "underline",
+    link_text = m({ color = spec.syntax.func }),
+    link_uri = m({
+      color = spec.syntax.builtin2,
+      font_style = "italic",
     }),
-    link_uri = m({ color = spec.syntax.const }),
     ["selector"] = m({ color = todo.cyan.base }),
     ["selector.pseudo"] = m({
       color = todo.cyan.base,
