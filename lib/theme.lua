@@ -350,11 +350,8 @@ function M._syntax_theme(pal, spec)
       color = spec.syntax.builtin2,
       font_style = "italic",
     }),
-    ["selector"] = m({ color = todo.cyan.base }),
-    ["selector.pseudo"] = m({
-      color = todo.cyan.base,
-      font_style = "italic",
-    }),
+    ["selector"] = m({ color = spec.syntax.type }),
+    ["selector.pseudo"] = m({ color = spec.syntax.const }),
     -- Other
     primary = m({ color = AS_UNUSED }), -- primary elements
     embedded = m({ color = spec.fg1 }), -- embedded content
