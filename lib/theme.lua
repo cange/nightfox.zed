@@ -283,6 +283,7 @@ end
 ---@param spec nightfox_nvim.Spec
 ---@return table<string, nightfox_zed.HighlightStyle>
 ---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
+---See: https://zed.dev/docs/extensions/languages#syntax-highlighting
 function M._syntax_theme(pal, spec)
   local todo = util.color.debug
   local m = M._syntax_theme_merge
@@ -299,7 +300,8 @@ function M._syntax_theme(pal, spec)
     ["text.literal"] = m({ color = pal.green.base }),
     -- Numbers & Constants
     boolean = m({ color = spec.syntax.const }),
-    constant = m({ color = spec.syntax.const }),
+    ["constant"] = m({ color = spec.syntax.const }),
+    ["constant.builtin"] = m({ color = todo.red.base }),
     number = m({ color = spec.syntax.number }),
     -- Keywords & Operators
     keyword = m({ color = spec.syntax.keyword }),
@@ -310,7 +312,8 @@ function M._syntax_theme(pal, spec)
     constructor = m({ color = spec.syntax.builtin2 }),
     ["function"] = m({ color = spec.syntax.func }),
     -- Types & Classes
-    type = m({ color = spec.syntax.type }),
+    ["type"] = m({ color = spec.syntax.type }),
+    ["type.builtin"] = m({ color = todo.blue.base }),
     enum = m({ color = todo.red.base }),
     namespace = m({ color = todo.blue.base }),
     variant = m({ color = todo.green.base }),
@@ -319,6 +322,7 @@ function M._syntax_theme(pal, spec)
     property = m({ color = pal.blue.base }),
     ["variable"] = m({ color = pal.cyan.base }),
     ["variable.special"] = m({ color = spec.syntax.builtin0 }),
+    ["variable.parameter"] = m({ color = todo.yellow.base }), -- function/method parameters
     -- Punctuation
     ["punctuation"] = m({ color = spec.syntax.bracket }),
     ["punctuation.bracket"] = m({ color = spec.syntax.bracket }),
