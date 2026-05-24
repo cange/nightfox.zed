@@ -134,27 +134,28 @@ function M._theme_colors(pal, spec, background_appearance)
     ["border.disabled"] = spec.bg1,
     -- Text
     text = spec.fg0,
+    ["text.accent"] = accent.base,
+    ["text.disabled"] = spec.syntax.comment,
     ["text.muted"] = spec.fg1,
     ["text.placeholder"] = spec.fg3,
-    ["text.disabled"] = spec.syntax.comment,
-    ["text.accent"] = accent.dim,
     ["link_text.hover"] = pal.cyan.base,
     -- Icon
     icon = AS_NONE,
-    ["icon.muted"] = AS_NONE,
-    ["icon.disabled"] = AS_NONE,
     ["icon.accent"] = AS_NONE,
+    ["icon.disabled"] = AS_NONE,
+    ["icon.muted"] = AS_NONE,
+    ["icon.placeholder"] = AS_NONE,
     -- Editor
     ["editor.foreground"] = spec.fg1,
     ["editor.background"] = alpha(editor_bg, M._alphas.MAX_POLARIZE),
     ["editor.gutter.background"] = alpha(spec.bg1, M._alphas.MAX_POLARIZE),
     ["editor.active_line.background"] = alpha(spec.sel0, M._alphas.LOW),
     ["editor.highlighted_line.background"] = AS_NONE,
-    ["editor.debugger_active_line.background"] = todo.red.dim,
+    ["editor.debugger_active_line.background"] = todo.magenta.base,
     ["editor.subheader.background"] = AS_NONE,
     ["editor.active_line_number"] = pal.yellow.base,
     ["editor.line_number"] = spec.fg3,
-    ["editor.hover_line_number"] = todo.green.dim,
+    ["editor.hover_line_number"] = todo.cyan.base,
     ["editor.invisible"] = AS_NONE,
     ["editor.wrap_guide"] = alpha(spec.bg2, M._alphas.MID),
     ["editor.active_wrap_guide"] = alpha(spec.bg2, M._alphas.MAX),
@@ -170,21 +171,21 @@ function M._theme_colors(pal, spec, background_appearance)
     ["title_bar.inactive_background"] = AS_NONE,
     ["toolbar.background"] = alpha(spec.sel0, M._alphas.MID),
     -- Element
-    ["element.background"] = fade(accent.dim),
-    ["element.hover"] = fade(accent.base),
-    ["element.active"] = fade(accent.bright),
-    ["element.selected"] = fade(accent.bright),
-    ["element.selection_background"] = todo.blue.dim,
+    ["element.active"] = spec.sel1,
+    ["element.background"] = spec.sel0,
     ["element.disabled"] = spec.sel0,
+    ["element.hover"] = fade(accent.dim),
+    ["element.selected"] = fade(accent.base),
+    ["element.selection_background"] = spec.sel0,
     -- Ghost Element
+    ["ghost_element.active"] = spec.sel1, -- usage: UI popout trigger
     ["ghost_element.background"] = AS_NONE,
     ["ghost_element.disabled"] = AS_NONE,
-    ["ghost_element.hover"] = alpha(spec.sel1, M._alphas.LOW),
-    ["ghost_element.active"] = alpha(spec.sel1, M._alphas.MAX), -- usage: UI popout trigger
-    ["ghost_element.selected"] = alpha(spec.sel1, M._alphas.HIGH), -- usage: UI popout item
+    ["ghost_element.hover"] = spec.sel0,
+    ["ghost_element.selected"] = fade(accent.dim), -- usage: UI popout item
     -- Drop Target
     ["drop_target.background"] = alpha(spec.bg0, M._alphas.MAX),
-    ["drop_target.border"] = todo.red.dim,
+    ["drop_target.border"] = todo.red.base,
     -- Tabs
     ["tab_bar.background"] = alpha(spec.bg1, M._alphas.MID),
     ["tab.inactive_background"] = alpha(spec.bg1, M._alphas.MID),
@@ -208,8 +209,8 @@ function M._theme_colors(pal, spec, background_appearance)
     ["version_control.renamed"] = spec.git.changed,
     ["version_control.conflict"] = spec.git.conflict,
     ["version_control.ignored"] = spec.git.ignored,
-    ["version_control.conflict_marker.ours"] = todo.blue.dim,
-    ["version_control.conflict_marker.theirs"] = todo.yellow.dim,
+    ["version_control.conflict_marker.ours"] = todo.blue.base,
+    ["version_control.conflict_marker.theirs"] = todo.yellow.base,
     -- Terminal
     ["terminal.background"] = alpha(spec.bg1, M._alphas.MAX_POLARIZE),
     ["terminal.foreground"] = spec.fg1,
@@ -261,7 +262,6 @@ function M._theme_colors(pal, spec, background_appearance)
     -- others - not defined in https://zed.dev/theme-builder
     ["background.appearance"] = background_appearance,
     ["debugger.accent"] = accent.base,
-    ["icon.placeholder"] = AS_NONE,
     ["pane_group.border"] = AS_NONE, -- Surface - others
     ["search.active_match_background"] = alpha(spec.sel1, M._alphas.MAX),
   }
