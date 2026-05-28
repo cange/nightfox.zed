@@ -328,6 +328,16 @@ function M._syntax_theme(pal, spec)
     }), -- e.g. python
     constructor = m({ color = spec.syntax.builtin2 }),
     ["function"] = m({ color = spec.syntax.func }),
+    ["function.builtin"] = m({ color = spec.syntax.builtin0 }),
+    ["function.call"] = AS_NONE, -- e.g. cpp, python, go
+    ["function.decorator"] = m({ color = spec.syntax.const }), -- e.g. python
+    ["function.decorator.call"] = AS_NONE, -- e.g. python
+    ["function.definition"] = AS_NONE,
+    ["function.kwargs"] = m({ color = spec.syntax.ident }), -- e.g. python
+    ["function.method"] = AS_NONE,
+    ["function.method.call"] = AS_NONE, -- e.g. python, go
+    ["function.method.constructor"] = m({ color = spec.syntax.ident }), -- e.g. python
+    ["function.special"] = m({ color = spec.syntax.builtin0 }),
     -- Types & Classes
     ["type"] = m({ color = spec.syntax.type }),
     ["type.builtin"] = AS_NONE,
