@@ -304,7 +304,15 @@ function M._syntax_theme(pal, spec)
     ["constant.builtin"] = m({ color = todo.red.base }),
     number = m({ color = spec.syntax.number }),
     -- Keywords & Operators
-    keyword = m({ color = spec.syntax.keyword }),
+    ["keyword"] = m({ color = spec.syntax.keyword }),
+    ["keyword.control"] = AS_NONE,
+    ["keyword.declaration"] = AS_NONE,
+    ["keyword.import"] = m({ color = spec.syntax.preproc }),
+    ["keyword.jsdoc"] = AS_NONE,
+    ["keyword.modifier"] = AS_NONE,
+    ["keyword.operator"] = m({ color = spec.syntax.operator }),
+    ["keyword.operator.regex"] = AS_NONE,
+    ["keyword.preproc"] = AS_NONE,
     operator = m({ color = spec.syntax.operator }),
     preproc = m({ color = spec.syntax.preproc }),
     -- Functions & Methods
