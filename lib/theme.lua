@@ -330,10 +330,17 @@ function M._syntax_theme(pal, spec)
     ["function"] = m({ color = spec.syntax.func }),
     -- Types & Classes
     ["type"] = m({ color = spec.syntax.type }),
-    ["type.builtin"] = m({ color = todo.blue.base }),
-    enum = m({ color = todo.red.base }),
-    namespace = m({ color = todo.blue.base }),
-    variant = m({ color = todo.green.base }),
+    ["type.builtin"] = AS_NONE,
+    ["type.class"] = AS_NONE,
+    ["type.class.call"] = m({ color = spec.syntax.ident }), -- e.g. python
+    ["type.class.definition"] = AS_NONE, -- e.g. python
+    ["type.class.inheritance"] = m({ color = spec.syntax.ident }), -- e.g. python
+    ["type.definition"] = AS_NONE,
+    ["type.interface"] = AS_NONE, -- e.g. rust
+    ["type.name"] = AS_NONE, -- e.g. typescript
+    enum = AS_UNUSED,
+    namespace = AS_UNUSED,
+    variant = AS_UNUSED,
     -- Variables & Properties
     ["property"] = m({ color = spec.syntax.field }),
     ["property.json_key"] = AS_NONE,
