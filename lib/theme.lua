@@ -303,7 +303,7 @@ function M._syntax_theme(pal, spec)
     -- Numbers & Constants
     boolean = m({ color = spec.syntax.const }),
     ["constant"] = m({ color = spec.syntax.const }),
-    ["constant.builtin"] = m({ color = todo.red.base }),
+    ["constant.builtin"] = m({ color = spec.syntax.builtin2 }),
     number = m({ color = spec.syntax.number }),
     -- Keywords & Operators
     ["keyword"] = m({ color = spec.syntax.keyword }),
