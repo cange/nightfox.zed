@@ -293,10 +293,12 @@ function M._syntax_theme(pal, spec)
     ["comment.doc"] = m({ color = spec.syntax.comment }),
     -- Strings & Literal
     ["string"] = m({ color = spec.syntax.string }),
+    ["string.doc"] = AS_NONE, -- e.g. python
     ["string.escape"] = m({ color = pal.green.base }),
     ["string.regex"] = m({ color = spec.syntax.regex }),
     ["string.special"] = m({ color = spec.syntax.builtin1 }),
-    ["string.special.symbol"] = m({ color = spec.syntax.builtin0 }),
+    ["string.special.path"] = AS_NONE, -- e.g. gitcommit
+    ["string.special.symbol"] = AS_NONE, -- e.g. gitcommit
     ["text.literal"] = m({ color = pal.green.base }),
     -- Numbers & Constants
     boolean = m({ color = spec.syntax.const }),
