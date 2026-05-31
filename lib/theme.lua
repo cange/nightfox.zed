@@ -368,18 +368,18 @@ function M._syntax_theme(pal, spec)
     ["punctuation.list_marker"] = m({ color = spec.syntax.builtin1 }),
     ["punctuation.special"] = m({ color = spec.syntax.builtin1 }),
     -- Markup
-    ["tag"] = m({ color = pal.magenta.base }),
+    ["tag"] = m({ color = spec.syntax.keyword }),
     ["tag.doctype"] = m({ color = spec.syntax.const }), -- doctypes (e.g., in HTML)
     title = m({
       color = spec.syntax.func,
       font_weight = 700,
     }),
     ["emphasis"] = m({
-      color = spec.fg1,
+      color = spec.syntax.builtin0,
       font_style = "italic",
     }),
     ["emphasis.strong"] = m({
-      color = pal.red.base,
+      color = spec.syntax.builtin0,
       font_weight = 700,
     }),
     link_text = m({ color = spec.syntax.func }),
@@ -389,6 +389,20 @@ function M._syntax_theme(pal, spec)
     }),
     ["selector"] = m({ color = spec.syntax.type }),
     ["selector.pseudo"] = m({ color = spec.syntax.const }),
+    -- special: markup
+    ["emphasis.markup"] = AS_NONE, -- e.g. markdown-inline
+    ["emphasis.strong.markup"] = AS_NONE, -- e.g. markdown-inline
+    ["link_text.markup"] = AS_NONE, -- e.g. markdown, markdown-inline
+    ["link_uri.markup"] = AS_NONE, -- e.g. markdown, markdown-inline
+    ["markup.heading"] = AS_NONE, -- e.g. gitcommit
+    ["markup.link_uri"] = AS_NONE, -- e.g. gitcommit
+    ["punctuation.embedded.markup"] = m({ color = spec.syntax.keyword }), -- e.g. markdown
+    ["punctuation.list_marker.markup"] = AS_NONE, -- e.g. markdown
+    ["punctuation.markup"] = m({ color = spec.syntax.keyword }), -- e.g. markdown
+    ["strikethrough.markup"] = m({ color = spec.syntax.builtin1 }), -- e.g. markdown-inline
+    ["text.literal.markup"] = m({ color = spec.syntax.builtin1 }), -- e.g. markdown-inline
+    ["text.markup"] = AS_NONE, -- e.g. markdown
+    ["title.markup"] = AS_NONE, -- e.g. markdown
     -- Other
     primary = m({ color = AS_UNUSED }), -- primary elements
     embedded = m({ color = spec.fg1 }), -- embedded content
