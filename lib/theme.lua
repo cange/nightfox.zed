@@ -294,9 +294,7 @@ function M._syntax_theme(pal, spec)
     -- Strings & Literal
     ["string"] = m({ color = spec.syntax.string }),
     ["string.doc"] = AS_NONE, -- e.g. python
-    ["string.escape"] = m({ color = pal.green.base }),
-    ["string.regex"] = m({ color = spec.syntax.regex }),
-    ["string.special"] = m({ color = spec.syntax.builtin1 }),
+    ["string.special"] = m({ color = spec.syntax.builtin1 }), -- e.g. javascript, tsx
     ["string.special.path"] = AS_NONE, -- e.g. gitcommit
     ["string.special.symbol"] = AS_NONE, -- e.g. gitcommit
     ["text.literal"] = m({ color = pal.green.base }),
@@ -313,7 +311,6 @@ function M._syntax_theme(pal, spec)
     ["keyword.jsdoc"] = AS_NONE,
     ["keyword.modifier"] = AS_NONE,
     ["keyword.operator"] = m({ color = spec.syntax.operator }),
-    ["keyword.operator.regex"] = AS_NONE,
     ["keyword.preproc"] = AS_NONE,
     operator = m({ color = spec.syntax.operator }),
     preproc = m({ color = spec.syntax.preproc }),
@@ -403,6 +400,16 @@ function M._syntax_theme(pal, spec)
     ["text.literal.markup"] = m({ color = spec.syntax.builtin1 }), -- e.g. markdown-inline
     ["text.markup"] = AS_NONE, -- e.g. markdown
     ["title.markup"] = AS_NONE, -- e.g. markdown
+    -- special: regex
+    ["keyword.operator.regex"] = m({ color = spec.syntax.func }), -- e.g. regex, typescript, javascript, jsx
+    ["label.regex"] = m({ color = spec.syntax.regex }), -- e.g. regex
+    ["number.quantifier.regex"] = AS_NONE, -- e.g. regex
+    ["operator.regex"] = AS_NONE, -- e.g. regex
+    ["punctuation.bracket.regex"] = AS_NONE, -- e.g. regex
+    ["punctuation.delimiter.regex"] = AS_NONE, -- e.g. regex
+    ["string.escape"] = m({ color = spec.syntax.builtin2 }), -- e.g. regex
+    ["string.escape.regex"] = AS_NONE, -- e.g. regex
+    ["string.regex"] = m({ color = spec.syntax.regex }),
     -- Other
     primary = m({ color = AS_UNUSED }), -- primary elements
     embedded = m({ color = spec.fg1 }), -- embedded content
