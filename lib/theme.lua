@@ -307,6 +307,7 @@ function M._syntax_theme(pal, spec)
     ["keyword"] = m({ color = spec.syntax.keyword }),
     ["keyword.control"] = AS_NONE,
     ["keyword.declaration"] = AS_NONE,
+    ["keyword.directive"] = m({ color = spec.syntax.func }), -- e.g. jsx
     ["keyword.import"] = m({ color = spec.syntax.preproc }),
     ["keyword.jsdoc"] = AS_NONE,
     ["keyword.modifier"] = AS_NONE,
@@ -400,6 +401,13 @@ function M._syntax_theme(pal, spec)
     ["text.literal.markup"] = m({ color = spec.syntax.builtin1 }), -- e.g. markdown-inline
     ["text.markup"] = AS_NONE, -- e.g. markdown
     ["title.markup"] = AS_NONE, -- e.g. markdown
+    -- special: jsx
+    ["attribute.jsx"] = AS_NONE,
+    ["punctuation.bracket.jsx"] = m({ color = spec.syntax.builtin1 }), -- e.g. javascript, tsx
+    ["punctuation.delimiter.jsx"] = AS_NONE, -- e.g. tsx
+    ["tag.component.jsx"] = m({ color = spec.syntax.func }), -- e.g. javascript, tsx
+    ["tag.jsx"] = AS_NONE,
+    ["text.jsx"] = AS_NONE,
     -- special: regex
     ["keyword.operator.regex"] = m({ color = spec.syntax.func }), -- e.g. regex, typescript, javascript, jsx
     ["label.regex"] = m({ color = spec.syntax.regex }), -- e.g. regex
