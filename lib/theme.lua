@@ -347,7 +347,7 @@ function M._syntax_theme(pal, spec)
     ["type.interface"] = AS_NONE, -- e.g. rust
     ["type.name"] = AS_NONE, -- e.g. typescript
     enum = AS_UNUSED,
-    namespace = AS_UNUSED,
+    namespace = m({ color = spec.syntax.builtin1 }), -- e.g. css, go, cpp
     variant = AS_UNUSED,
     -- Variables & Properties
     ["property"] = m({ color = spec.syntax.field }),
