@@ -164,6 +164,12 @@ function M._theme_colors(pal, spec, background_appearance)
     ["editor.document_highlight.read_background"] = AS_NONE, -- Read-access of a symbol, like reading a variable. A document highlight is a range inside a text document which deserves special attention. Usually a document highlight is visualized by changing the background color of its range.
     ["editor.document_highlight.write_background"] = AS_NONE, -- Read-access of a symbol, like reading a variable. A document highlight is a range inside a text document which deserves special attention. Usually a document highlight is visualized by changing the background color of its range.
     ["editor.document_highlight.bracket_background"] = alpha(spec.sel0, M._alphas.MAX), -- Highlighted brackets background color. Matching brackets in the cursor scope are highlighted with this background color.
+    ["editor.diff_hunk.added.background"] = AS_NONE, -- Filled background color for added diff hunk row highlights in the editor
+    ["editor.diff_hunk.added.hollow_background"] = AS_NONE, -- Hollow background color for added diff hunk row highlights in the editor
+    ["editor.diff_hunk.added.hollow_border"] = AS_NONE, -- Hollow border color for added diff hunk row highlights in the editor
+    ["editor.diff_hunk.deleted.background"] = AS_NONE, -- Filled background color for deleted diff hunk row highlights in the editor
+    ["editor.diff_hunk.deleted.hollow_background"] = AS_NONE, -- Hollow background color for deleted diff hunk row highlights in the editor
+    ["editor.diff_hunk.deleted.hollow_border"] = AS_NONE, -- Hollow border color for deleted diff hunk row highlights in the editor
     ["search.match_background"] = alpha(spec.sel1, M._alphas.MIN),
     -- Navigation
     ["status_bar.background"] = alpha(spec.bg0, M._alphas.MAX),
