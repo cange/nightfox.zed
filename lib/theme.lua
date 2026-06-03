@@ -335,8 +335,10 @@ function M._syntax_theme(pal, spec)
     namespace = m({ color = todo.blue.base }),
     variant = m({ color = todo.green.base }),
     -- Variables & Properties
+    ["property"] = m({ color = spec.syntax.field }),
+    ["property.json_key"] = AS_NONE,
+    ["property.name"] = AS_NONE,
     label = m({ color = todo.magenta.base }),
-    property = m({ color = pal.blue.base }),
     ["variable"] = m({ color = spec.syntax.variable }),
     ["variable.builtin"] = AS_NONE,
     ["variable.other.member"] = AS_NONE, -- e.g. gitcommit
