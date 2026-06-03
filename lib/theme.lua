@@ -324,12 +324,11 @@ function M._syntax_theme(pal, spec)
     ["variable.special"] = m({ color = spec.syntax.builtin0 }),
     ["variable.parameter"] = m({ color = todo.yellow.base }), -- function/method parameters
     -- Punctuation
-    ["punctuation"] = m({ color = spec.syntax.bracket }),
+    ["punctuation"] = m({ color = spec.syntax.operator }),
     ["punctuation.bracket"] = m({ color = spec.syntax.bracket }),
-    ["punctuation.delimiter"] = m({ color = spec.syntax.bracket }),
+    ["punctuation.delimiter"] = AS_NONE,
     ["punctuation.list_marker"] = m({ color = spec.syntax.builtin1 }),
-    ["punctuation.markup"] = m({ color = spec.syntax.bracket }),
-    ["punctuation.special"] = m({ color = spec.syntax.bracket }),
+    ["punctuation.special"] = m({ color = spec.syntax.builtin1 }),
     -- Markup
     ["tag"] = m({ color = pal.magenta.base }),
     ["tag.doctype"] = m({ color = spec.syntax.const }), -- doctypes (e.g., in HTML)
