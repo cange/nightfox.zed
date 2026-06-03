@@ -283,8 +283,8 @@ end
 ---@param spec nightfox_nvim.Spec
 ---@return table<string, nightfox_zed.HighlightStyle>
 ---See: https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
+---See: https://zed.dev/docs/extensions/languages#syntax-highlighting
 function M._syntax_theme(pal, spec)
-  local todo = util.color.debug
   local m = M._syntax_theme_merge
   return {
     -- Comments & Docs
@@ -292,69 +292,136 @@ function M._syntax_theme(pal, spec)
     ["comment.doc"] = m({ color = spec.syntax.comment }),
     -- Strings & Literal
     ["string"] = m({ color = spec.syntax.string }),
-    ["string.escape"] = m({ color = pal.green.base }),
-    ["string.regex"] = m({ color = spec.syntax.regex }),
-    ["string.special"] = m({ color = spec.syntax.builtin1 }),
-    ["string.special.symbol"] = m({ color = spec.syntax.builtin0 }),
-    ["text.literal"] = m({ color = pal.green.base }),
+    ["string.doc"] = AS_NONE, -- e.g. python
+    ["string.special"] = m({ color = spec.syntax.builtin1 }), -- e.g. javascript, tsx
+    ["string.special.path"] = AS_NONE, -- e.g. gitcommit
+    ["string.special.symbol"] = AS_NONE, -- e.g. gitcommit
+    ["text.literal"] = AS_UNUSED,
     -- Numbers & Constants
     boolean = m({ color = spec.syntax.const }),
-    constant = m({ color = spec.syntax.const }),
+    ["constant"] = m({ color = spec.syntax.const }),
+    ["constant.builtin"] = m({ color = spec.syntax.builtin2 }),
     number = m({ color = spec.syntax.number }),
     -- Keywords & Operators
-    keyword = m({ color = spec.syntax.keyword }),
+    ["keyword"] = m({ color = spec.syntax.keyword }),
+    ["keyword.control"] = AS_NONE,
+    ["keyword.declaration"] = AS_NONE,
+    ["keyword.directive"] = m({ color = spec.syntax.func }), -- e.g. jsx
+    ["keyword.import"] = m({ color = spec.syntax.preproc }),
+    ["keyword.jsdoc"] = AS_NONE,
+    ["keyword.modifier"] = AS_NONE,
+    ["keyword.operator"] = m({ color = spec.syntax.operator }),
+    ["keyword.preproc"] = AS_NONE,
     operator = m({ color = spec.syntax.operator }),
     preproc = m({ color = spec.syntax.preproc }),
     -- Functions & Methods
-    attribute = m({ color = spec.syntax.field }),
-    constructor = m({ color = spec.syntax.builtin2 }),
+    ["attribute"] = m({
+      color = spec.syntax.field,
+      font_style = "italic",
+    }),
+    ["attribute.builtin"] = m({
+      color = spec.syntax.const,
+      font_style = "normal",
+    }), -- e.g. python
+    constructor = m({ color = spec.syntax.ident }),
     ["function"] = m({ color = spec.syntax.func }),
+    ["function.builtin"] = m({ color = spec.syntax.builtin0 }),
+    ["function.call"] = AS_NONE, -- e.g. cpp, python, go
+    ["function.decorator"] = m({ color = spec.syntax.const }), -- e.g. python
+    ["function.decorator.call"] = AS_NONE, -- e.g. python
+    ["function.definition"] = AS_NONE,
+    ["function.kwargs"] = m({ color = spec.syntax.ident }), -- e.g. python
+    ["function.method"] = AS_NONE,
+    ["function.method.call"] = AS_NONE, -- e.g. python, go
+    ["function.method.constructor"] = m({ color = spec.syntax.ident }), -- e.g. python
+    ["function.special"] = m({ color = spec.syntax.builtin0 }),
     -- Types & Classes
-    type = m({ color = spec.syntax.type }),
-    enum = m({ color = todo.red.base }),
-    namespace = m({ color = todo.blue.base }),
-    variant = m({ color = todo.green.base }),
+    ["type"] = m({ color = spec.syntax.type }),
+    ["type.builtin"] = AS_NONE,
+    ["type.class"] = AS_NONE,
+    ["type.class.call"] = m({ color = spec.syntax.ident }), -- e.g. python
+    ["type.class.definition"] = AS_NONE, -- e.g. python
+    ["type.class.inheritance"] = m({ color = spec.syntax.ident }), -- e.g. python
+    ["type.definition"] = AS_NONE,
+    ["type.interface"] = AS_NONE, -- e.g. rust
+    ["type.name"] = AS_NONE, -- e.g. typescript
+    enum = AS_UNUSED,
+    namespace = m({ color = spec.syntax.builtin1 }), -- e.g. css, go, cpp
+    variant = AS_UNUSED,
     -- Variables & Properties
-    label = m({ color = todo.magenta.base }),
-    property = m({ color = pal.blue.base }),
-    ["variable"] = m({ color = pal.cyan.base }),
+    label = AS_NONE, -- e.g. c, diff, go, cpp, regex
+    ["property"] = m({ color = spec.syntax.field }),
+    ["property.json_key"] = AS_NONE,
+    ["property.name"] = AS_NONE,
+    ["variable"] = m({ color = spec.syntax.variable }),
+    ["variable.builtin"] = AS_NONE,
+    ["variable.other.member"] = AS_NONE, -- e.g. gitcommit
+    ["variable.parameter"] = m({ color = spec.syntax.ident }), -- function/method parameters
     ["variable.special"] = m({ color = spec.syntax.builtin0 }),
     -- Punctuation
-    ["punctuation"] = m({ color = spec.syntax.bracket }),
+    ["punctuation"] = m({ color = spec.syntax.operator }),
     ["punctuation.bracket"] = m({ color = spec.syntax.bracket }),
-    ["punctuation.delimiter"] = m({ color = spec.syntax.bracket }),
+    ["punctuation.delimiter"] = AS_NONE,
     ["punctuation.list_marker"] = m({ color = spec.syntax.builtin1 }),
-    ["punctuation.markup"] = m({ color = spec.syntax.bracket }),
-    ["punctuation.special"] = m({ color = spec.syntax.bracket }),
+    ["punctuation.special"] = m({ color = spec.syntax.builtin1 }),
     -- Markup
-    tag = m({ color = pal.magenta.dim }),
+    ["tag"] = m({ color = spec.syntax.keyword }),
+    ["tag.doctype"] = m({ color = spec.syntax.const }), -- doctypes (e.g., in HTML)
     title = m({
       color = spec.syntax.func,
       font_weight = 700,
     }),
     ["emphasis"] = m({
-      color = spec.fg1,
+      color = spec.syntax.builtin0,
       font_style = "italic",
     }),
     ["emphasis.strong"] = m({
-      color = pal.red.base,
+      color = spec.syntax.builtin0,
       font_weight = 700,
     }),
-    link_text = m({
-      color = pal.yellow.base,
-      font_style = "underline",
-    }),
-    link_uri = m({ color = spec.syntax.const }),
-    ["selector"] = m({ color = todo.cyan.base }),
-    ["selector.pseudo"] = m({
-      color = todo.cyan.base,
+    link_text = m({ color = spec.syntax.func }),
+    link_uri = m({
+      color = spec.syntax.builtin2,
       font_style = "italic",
     }),
+    ["selector"] = m({ color = spec.syntax.type }),
+    ["selector.pseudo"] = m({ color = spec.syntax.const }),
+    -- special: markup
+    ["emphasis.markup"] = AS_NONE, -- e.g. markdown-inline
+    ["emphasis.strong.markup"] = AS_NONE, -- e.g. markdown-inline
+    ["link_text.markup"] = AS_NONE, -- e.g. markdown, markdown-inline
+    ["link_uri.markup"] = AS_NONE, -- e.g. markdown, markdown-inline
+    ["markup.heading"] = AS_NONE, -- e.g. gitcommit
+    ["markup.link_uri"] = AS_NONE, -- e.g. gitcommit
+    ["punctuation.embedded.markup"] = m({ color = spec.syntax.keyword }), -- e.g. markdown
+    ["punctuation.list_marker.markup"] = AS_NONE, -- e.g. markdown
+    ["punctuation.markup"] = m({ color = spec.syntax.keyword }), -- e.g. markdown
+    ["strikethrough.markup"] = m({ color = spec.syntax.builtin1 }), -- e.g. markdown-inline
+    ["text.literal.markup"] = m({ color = spec.syntax.builtin1 }), -- e.g. markdown-inline
+    ["text.markup"] = AS_NONE, -- e.g. markdown
+    ["title.markup"] = AS_NONE, -- e.g. markdown
+    -- special: jsx
+    ["attribute.jsx"] = AS_NONE,
+    ["punctuation.bracket.jsx"] = m({ color = spec.syntax.builtin1 }), -- e.g. javascript, tsx
+    ["punctuation.delimiter.jsx"] = AS_NONE, -- e.g. tsx
+    ["tag.component.jsx"] = m({ color = spec.syntax.func }), -- e.g. javascript, tsx
+    ["tag.jsx"] = AS_NONE,
+    ["text.jsx"] = AS_NONE,
+    -- special: regex
+    ["keyword.operator.regex"] = m({ color = spec.syntax.func }), -- e.g. regex, typescript, javascript, jsx
+    ["label.regex"] = m({ color = spec.syntax.regex }), -- e.g. regex
+    ["number.quantifier.regex"] = AS_NONE, -- e.g. regex
+    ["operator.regex"] = AS_NONE, -- e.g. regex
+    ["punctuation.bracket.regex"] = AS_NONE, -- e.g. regex
+    ["punctuation.delimiter.regex"] = AS_NONE, -- e.g. regex
+    ["string.escape"] = m({ color = spec.syntax.builtin2 }), -- e.g. regex
+    ["string.escape.regex"] = AS_NONE, -- e.g. regex
+    ["string.regex"] = m({ color = spec.syntax.regex }),
     -- Other
-    primary = m({ color = AS_UNUSED }), -- primary elements
     embedded = m({ color = spec.fg1 }), -- embedded content
-    predictive = m({ color = AS_UNUSED }), --  predictive text
-    hint = m({ color = AS_UNUSED }), -- hints
+    hint = AS_UNUSED, -- hints
+    predictive = AS_UNUSED, --  predictive text
+    primary = AS_UNUSED, -- primary elements
   }
 end
 
