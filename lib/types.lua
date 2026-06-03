@@ -21,15 +21,15 @@
 ---@class nightfox_nvim.Palette
 ---@field meta nightfox_nvim.PaletteMeta
 ---@field black nightfox_nvim.Shade
----@field red nightfox_nvim.Shade
----@field green nightfox_nvim.Shade
----@field yellow nightfox_nvim.Shade
 ---@field blue nightfox_nvim.Shade
----@field magenta nightfox_nvim.Shade
 ---@field cyan nightfox_nvim.Shade
----@field white nightfox_nvim.Shade
+---@field green nightfox_nvim.Shade
+---@field magenta nightfox_nvim.Shade
 ---@field orange nightfox_nvim.Shade
 ---@field pink nightfox_nvim.Shade
+---@field red nightfox_nvim.Shade
+---@field white nightfox_nvim.Shade
+---@field yellow nightfox_nvim.Shade
 ---@field comment string
 ---@field bg0 string Dark bg (status line and float)
 ---@field bg1 string Default bg
@@ -117,13 +117,10 @@
 ---@field selection string
 
 ---@class nightfox_zed.HighlightStyle
----@field color string
----@field font_weight string
----@field font_style string
 ---@field background_color string
----@field underline string
----@field strikethrough string
----@field fade_out string
+---@field color string
+---@field font_style nil | 'normal' | 'italic' | 'oblique'
+---@field font_weight nil | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
 
 ---@class nightfox_nvim.AlphaLevels
 ---@field MIN number
