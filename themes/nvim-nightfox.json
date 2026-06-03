@@ -5,7 +5,7 @@
   "themes": [
     {
       "appearance": "dark",
-      "name": "Nightfox - opaque (dev)",
+      "name": "Nightfox - opaque",
       "style": {
         "accents": [
           "#86abdc8C",
@@ -365,7 +365,7 @@
     },
     {
       "appearance": "light",
-      "name": "Dayfox - opaque (dev)",
+      "name": "Dayfox - opaque",
       "style": {
         "accents": [
           "#4863b68C",
@@ -725,7 +725,7 @@
     },
     {
       "appearance": "light",
-      "name": "Dawnfox - opaque (dev)",
+      "name": "Dawnfox - opaque",
       "style": {
         "accents": [
           "#2d81a38C",
@@ -1085,7 +1085,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Duskfox - opaque (dev)",
+      "name": "Duskfox - opaque",
       "style": {
         "accents": [
           "#65b1cd8C",
@@ -1445,7 +1445,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Nordfox - opaque (dev)",
+      "name": "Nordfox - opaque",
       "style": {
         "accents": [
           "#8cafd28C",
@@ -1805,7 +1805,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Terafox - opaque (dev)",
+      "name": "Terafox - opaque",
       "style": {
         "accents": [
           "#73a3b78C",
@@ -2165,7 +2165,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Carbonfox - opaque (dev)",
+      "name": "Carbonfox - opaque",
       "style": {
         "accents": [
           "#8cb6ff8C",
@@ -2525,7 +2525,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Nightfox - blurred (dev)",
+      "name": "Nightfox - blurred",
       "style": {
         "accents": [
           "#86abdc57",
@@ -2885,7 +2885,7 @@
     },
     {
       "appearance": "light",
-      "name": "Dayfox - blurred (dev)",
+      "name": "Dayfox - blurred",
       "style": {
         "accents": [
           "#4863b657",
@@ -3245,7 +3245,7 @@
     },
     {
       "appearance": "light",
-      "name": "Dawnfox - blurred (dev)",
+      "name": "Dawnfox - blurred",
       "style": {
         "accents": [
           "#2d81a357",
@@ -3605,7 +3605,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Duskfox - blurred (dev)",
+      "name": "Duskfox - blurred",
       "style": {
         "accents": [
           "#65b1cd57",
@@ -3965,7 +3965,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Nordfox - blurred (dev)",
+      "name": "Nordfox - blurred",
       "style": {
         "accents": [
           "#8cafd257",
@@ -4325,7 +4325,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Terafox - blurred (dev)",
+      "name": "Terafox - blurred",
       "style": {
         "accents": [
           "#73a3b757",
@@ -4685,7 +4685,7 @@
     },
     {
       "appearance": "dark",
-      "name": "Carbonfox - blurred (dev)",
+      "name": "Carbonfox - blurred",
       "style": {
         "accents": [
           "#8cb6ff57",
