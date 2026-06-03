@@ -318,7 +318,14 @@ function M._syntax_theme(pal, spec)
     operator = m({ color = spec.syntax.operator }),
     preproc = m({ color = spec.syntax.preproc }),
     -- Functions & Methods
-    attribute = m({ color = spec.syntax.field }),
+    ["attribute"] = m({
+      color = spec.syntax.field,
+      font_style = "italic",
+    }),
+    ["attribute.builtin"] = m({
+      color = spec.syntax.const,
+      font_style = "normal",
+    }), -- e.g. python
     constructor = m({ color = spec.syntax.builtin2 }),
     ["function"] = m({ color = spec.syntax.func }),
     -- Types & Classes
