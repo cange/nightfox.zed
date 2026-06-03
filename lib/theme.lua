@@ -337,9 +337,11 @@ function M._syntax_theme(pal, spec)
     -- Variables & Properties
     label = m({ color = todo.magenta.base }),
     property = m({ color = pal.blue.base }),
-    ["variable"] = m({ color = pal.cyan.base }),
+    ["variable"] = m({ color = spec.syntax.variable }),
+    ["variable.builtin"] = AS_NONE,
+    ["variable.other.member"] = AS_NONE, -- e.g. gitcommit
+    ["variable.parameter"] = m({ color = spec.syntax.ident }), -- function/method parameters
     ["variable.special"] = m({ color = spec.syntax.builtin0 }),
-    ["variable.parameter"] = m({ color = todo.yellow.base }), -- function/method parameters
     -- Punctuation
     ["punctuation"] = m({ color = spec.syntax.operator }),
     ["punctuation.bracket"] = m({ color = spec.syntax.bracket }),
