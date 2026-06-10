@@ -74,51 +74,9 @@ _A theme collection – Ported from the beloved [nightfox.nvim](https://github.c
 4. Search for "Nightfox"
 5. Click "Install"
 
----
+## 🤝 Contributors
 
-## 🛠️ Development
-
-<details>
-<summary>For Contributors</summary>
-
-### Prerequisites
-
-To build the theme, make sure the following are installed:
-
-- [Lua](https://www.lua.org/)
-- [Luarocks](https://luarocks.org/)
-- [jq](https://jqlang.org/) (for JSON formatting)
-
-Install the required Lua dependencies via (from `nvim-nightfox-<version>.rockspec`):
-
-```bash
-luarocks make --only-deps --local
-```
-
-### Development Workflow
-
-1. Create a fork of the repository and clone it locally.
-2. Use a descriptive name for your topic branch.
-3. Edit the Lua files in `lib/`.
-4. Run `make dev` command to generate a theme file in `themes/` with theme names suffixed with `(dev)`.
-
-#### Testing
-
-One can test the changes in Zed directly by using a symlink of the generated theme file:
-
-1. Run `ln -s $(pwd)/themes/nvim-nightfox.json ~/.config/zed/themes/` (macOS example).
-2. Restart Zed.
-3. The `(dev)` marked themes should now be available within the editor's theme picker.
-
-### Build
-
-```bash
-make prod
-```
-
-This generates the appropriate production-ready Zed theme file.
-
-</details>
+See [contributing guide](CONTRIBUTING.md)
 
 ---
 
