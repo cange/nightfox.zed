@@ -7,7 +7,7 @@ Thanks for contributing!
 - All changes happen through Pull Requests
 - Fork the repo and create your branch from `main`.
 - Use [Conventional Commits] for writing explicit and meaningful commit messages.
-- Use `stylua .` to format Lua code to maintain consistent coding styles.
+- Use `make format` to format Lua code to maintain consistent coding styles.
 - If it's your first time contributing to a project then read [About pull requests] on GitHub's docs.
 - Commit only production-ready theme files (`themes/`).
 
@@ -24,6 +24,7 @@ To build the theme, make sure the following are installed:
 
 - [Lua](https://www.lua.org/)
 - [Luarocks](https://luarocks.org/)
+- [StyLua](https://github.com/JohnnyMorganz/StyLua)
 - [jq](https://jqlang.org/) (for JSON formatting)
 
 Install the required Lua dependencies via (from `nvim-nightfox-<version>.rockspec`):
