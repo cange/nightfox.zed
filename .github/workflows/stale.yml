@@ -1,6 +1,7 @@
-name: "Manage Stale Issues"
+---
+name: "Check Stale Issues"
 
-on:
+"on":
   schedule:
     # Runs every day at 02:00 UTC
     - cron: "0 2 * * *"
