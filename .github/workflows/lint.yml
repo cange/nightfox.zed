@@ -1,5 +1,5 @@
 ---
-name: lint
+name: "Check code quality"
 
 "on":
   pull_request:
