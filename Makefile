@@ -13,7 +13,8 @@ else
 endif
 
 # jq ---
-JQ := $(DEPDIR)/$(JQ_ARCH)/jq
+# Use the system jq if available, otherwise fallback to the downloaded .tmp version
+JQ := $(shell command -v jq 2>/dev/null || echo $(DEPDIR)/$(JQ_ARCH)/jq)
 $(JQ):
 	@$(CURL) https://github.com/jqlang/jq/releases/latest/download/$(notdir $(JQ_ARCH)) -o $(JQ)
 	@chmod +x $(JQ)
