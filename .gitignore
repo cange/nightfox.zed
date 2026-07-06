@@ -11,6 +11,7 @@
 /assets
 /bin
 /examples
+/.tmp
 
 ## AI ##
 AGENTS.md
