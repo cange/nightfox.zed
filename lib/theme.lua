@@ -221,8 +221,8 @@ function M._theme_colors(pal, spec, background_appearance)
     ["version_control.renamed"] = spec.git.changed,
     ["version_control.conflict"] = spec.git.conflict,
     ["version_control.ignored"] = spec.git.ignored,
-    ["version_control.conflict_marker.ours"] = todo.blue.base,
-    ["version_control.conflict_marker.theirs"] = todo.yellow.base,
+    ["version_control.conflict_marker.ours"] = alpha(pal.magenta.bright, a.LOW),
+    ["version_control.conflict_marker.theirs"] = alpha(pal.cyan.bright, a.LOW),
     -- Terminal
     ["terminal.background"] = alpha(spec.bg1, a.MAX_POLARIZE),
     ["terminal.foreground"] = spec.fg1,
