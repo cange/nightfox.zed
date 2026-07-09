@@ -9,7 +9,7 @@ changelog:
     - title: Bug Fixes
       labels:
         - bug
-        - bugfix
+        - fix
     - title: Other Changes
       labels:
         - "*"
