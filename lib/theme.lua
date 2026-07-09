@@ -8,6 +8,7 @@ local M = {}
 M._ns = ""
 ---@type nightfox_nvim.AlphaLevels | nil
 M._alphas = nil
+M._base_bg = nil
 
 local AS_NONE = nil -- properties explicitly defined as nil in theme
 local AS_UNUSED = nil -- public properties; currently unmapped or unused
@@ -96,6 +97,13 @@ function M._player_colors(pal)
   return players
 end
 
+---@param color string
+---@param amount number|nil
+---@return string
+function M._fade(color, amount)
+  return util.color.blend(M._base_bg, color, amount or 0.3)
+end
+
 ---@param pal nightfox_nvim.Palette
 ---@param spec nightfox_nvim.Spec
 ---@param background_appearance nightfox_nvim.BackgroundAppearance
@@ -104,33 +112,31 @@ end
 -- see https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
 function M._theme_colors(pal, spec, background_appearance)
   local alpha = util.color.alpha
-  local editor_bg = pal.bg1
-  local function fade(color, amount)
-    amount = amount or 0.3
-    return util.color.blend(editor_bg, color, amount)
-  end
+  ---@type nightfox_nvim.AlphaLevels
+  local a = M._alphas
   local todo = util.color.debug
   local accent = pal.orange
+  local fade = M._fade
 
   return {
     -- Surface
     ["elevated_surface.background"] = spec.bg0, -- Background color. Used for elevated surfaces, like a context menu, popup, or dialog.
-    ["surface.background"] = alpha(spec.bg0, M._alphas.MAX), -- Background Color. Used for grounded surfaces like a panel or tab.
-    background = alpha(spec.bg1, M._alphas.MAX), -- Background Color. Used for the app background and blank panels or windows.
-    ["panel.background"] = alpha(spec.bg0, M._alphas.MAX_POLARIZE),
-    ["panel.focused_border"] = alpha(spec.sel1, M._alphas.MAX),
+    ["surface.background"] = alpha(spec.bg0, a.MAX), -- Background Color. Used for grounded surfaces like a panel or tab.
+    background = alpha(spec.bg1, a.MAX), -- Background Color. Used for the app background and blank panels or windows.
+    ["panel.background"] = alpha(spec.bg0, a.MAX_POLARIZE),
+    ["panel.focused_border"] = alpha(spec.sel1, a.MAX),
     ["panel.indent_guide"] = AS_NONE,
     ["panel.indent_guide_active"] = AS_NONE,
     ["panel.indent_guide_hover"] = AS_NONE,
-    ["panel.overlay_background"] = alpha(spec.bg0, M._alphas.MAX),
+    ["panel.overlay_background"] = alpha(spec.bg0, a.MAX),
     ["panel.overlay_hover"] = AS_NONE,
     ["pane.focused_border"] = AS_NONE,
     -- Border
-    border = alpha(spec.bg2, M._alphas.HIGH), -- Border color. Used for most borders, is usually a high contrast color.
+    border = alpha(spec.bg2, a.HIGH), -- Border color. Used for most borders, is usually a high contrast color.
     ["border.variant"] = spec.bg4, -- Border color. Used for deemphasized borders, like a visual divider between two sections
     ["border.focused"] = spec.sel0, -- Border color. Used for focused elements, like keyboard focused list item.
     ["border.selected"] = spec.sel1, -- Border color. Used for selected elements, like an active search filter or selected checkbox.
-    ["border.transparent"] = alpha(spec.bg1, M._alphas.MAX_POLARIZE), -- Border color. Used for transparent borders. Used for placeholder borders when an element gains a border on state change.
+    ["border.transparent"] = alpha(spec.bg1, a.MAX_POLARIZE), -- Border color. Used for transparent borders. Used for placeholder borders when an element gains a border on state change.
     ["border.disabled"] = spec.bg1, -- Border color. Used for disabled elements, like a disabled input or button.
     -- Text
     ["text"] = spec.fg0, -- Text Color. Default text color used for most text.
@@ -147,9 +153,9 @@ function M._theme_colors(pal, spec, background_appearance)
     ["icon.placeholder"] = AS_NONE, -- Fill Color. Used for the placeholder fill color of an icon. This might be used to show an icon in an input that disappears when the user enters text.
     -- Editor
     ["editor.foreground"] = spec.fg1,
-    ["editor.background"] = alpha(editor_bg, M._alphas.MAX_POLARIZE),
-    ["editor.gutter.background"] = alpha(spec.bg1, M._alphas.MAX_POLARIZE),
-    ["editor.active_line.background"] = alpha(spec.sel0, M._alphas.LOW),
+    ["editor.background"] = alpha(M._base_bg, a.MAX_POLARIZE),
+    ["editor.gutter.background"] = alpha(spec.bg1, a.MAX_POLARIZE),
+    ["editor.active_line.background"] = alpha(spec.sel0, a.LOW),
     ["editor.highlighted_line.background"] = AS_NONE,
     ["editor.debugger_active_line.background"] = todo.magenta.base, -- Background of active line of debugger
     ["editor.subheader.background"] = AS_NONE,
@@ -157,32 +163,32 @@ function M._theme_colors(pal, spec, background_appearance)
     ["editor.line_number"] = spec.fg3, -- Text Color. Used for the text of the line number in the editor gutter.
     ["editor.hover_line_number"] = todo.cyan.base, -- Text Color. Used for the text of the line number in the editor gutter when the line is hovered over.
     ["editor.invisible"] = AS_NONE, -- Text Color. Used to mark invisible characters in the editor. Example: spaces, tabs, carriage returns, etc.
-    ["editor.wrap_guide"] = alpha(spec.bg2, M._alphas.MID),
-    ["editor.active_wrap_guide"] = alpha(spec.bg2, M._alphas.MAX),
-    ["editor.indent_guide"] = alpha(spec.bg2, M._alphas.MAX),
-    ["editor.indent_guide_active"] = alpha(spec.sel1, M._alphas.MAX),
+    ["editor.wrap_guide"] = alpha(spec.bg2, a.MID),
+    ["editor.active_wrap_guide"] = alpha(spec.bg2, a.MAX),
+    ["editor.indent_guide"] = alpha(spec.bg2, a.MAX),
+    ["editor.indent_guide_active"] = alpha(spec.sel1, a.MAX),
     ["editor.document_highlight.read_background"] = AS_NONE, -- Read-access of a symbol, like reading a variable. A document highlight is a range inside a text document which deserves special attention. Usually a document highlight is visualized by changing the background color of its range.
     ["editor.document_highlight.write_background"] = AS_NONE, -- Read-access of a symbol, like reading a variable. A document highlight is a range inside a text document which deserves special attention. Usually a document highlight is visualized by changing the background color of its range.
-    ["editor.document_highlight.bracket_background"] = alpha(spec.sel0, M._alphas.MAX), -- Highlighted brackets background color. Matching brackets in the cursor scope are highlighted with this background color.
+    ["editor.document_highlight.bracket_background"] = alpha(spec.sel0, a.MAX), -- Highlighted brackets background color. Matching brackets in the cursor scope are highlighted with this background color.
     ["editor.diff_hunk.added.background"] = AS_NONE, -- Filled background color for added diff hunk row highlights in the editor
     ["editor.diff_hunk.added.hollow_background"] = AS_NONE, -- Hollow background color for added diff hunk row highlights in the editor
     ["editor.diff_hunk.added.hollow_border"] = AS_NONE, -- Hollow border color for added diff hunk row highlights in the editor
     ["editor.diff_hunk.deleted.background"] = AS_NONE, -- Filled background color for deleted diff hunk row highlights in the editor
     ["editor.diff_hunk.deleted.hollow_background"] = AS_NONE, -- Hollow background color for deleted diff hunk row highlights in the editor
     ["editor.diff_hunk.deleted.hollow_border"] = AS_NONE, -- Hollow border color for deleted diff hunk row highlights in the editor
-    ["search.match_background"] = alpha(spec.sel1, M._alphas.MIN),
+    ["search.match_background"] = alpha(spec.sel1, a.MIN),
     -- Navigation
-    ["status_bar.background"] = alpha(spec.bg0, M._alphas.MAX),
-    ["title_bar.background"] = alpha(spec.bg0, M._alphas.MAX),
+    ["status_bar.background"] = alpha(spec.bg0, a.MAX),
+    ["title_bar.background"] = alpha(spec.bg0, a.MAX),
     ["title_bar.inactive_background"] = AS_NONE,
-    ["toolbar.background"] = alpha(spec.sel0, M._alphas.MID),
+    ["toolbar.background"] = alpha(spec.sel0, a.MID),
     -- Element
     ["element.active"] = spec.sel1, -- Background Color. Used for the active state of an element that should have a different background than the surface it's on. Active states are triggered by the mouse button being pressed down on an element, or the Return button or other activator being pressed.
     ["element.background"] = spec.sel0, -- Background Color. Used for the background of an element that should have a different background than the surface it's on. Elements might include: Buttons, Inputs, Checkboxes, Radio Buttons... For an element that should have the same background as the surface it's on, use `ghost_element_background`.
     ["element.disabled"] = spec.sel0, -- Background Color. Used for the disabled state of an element that should have a different background than the surface it's on. Disabled states are shown when a user cannot interact with an element, like a disabled button or input.
     ["element.hover"] = fade(accent.dim), -- Background Color. Used for the hover state of an element that should have a different background than the surface it's on. Hover states are triggered by the mouse entering an element, or a finger touching an element on a touch screen.
     ["element.selected"] = fade(accent.base), -- Background Color. Used for the selected state of an element that should have a different background than the surface it's on. Selected states are triggered by the element being selected (or "activated") by the user. This could include a selected checkbox, a toggleable button that is toggled on, etc.
-    ["element.selection_background"] = alpha(spec.sel1, M._alphas.LOW), -- Background Color. Used for the background of selections in a UI element.
+    ["element.selection_background"] = alpha(spec.sel1, a.LOW), -- Background Color. Used for the background of selections in a UI element.
     -- Ghost Element
     ["ghost_element.active"] = spec.sel1, -- Background Color. Used for the active state of a ghost element that should have the same background as the surface it's on. Active states are triggered by the mouse button being pressed down on an element, or the Return button or other activator being pressed.
     ["ghost_element.background"] = AS_NONE, -- Used for the background of a ghost element that should have the same background as the surface it's on. Elements might include: Buttons, Inputs, Checkboxes, Radio Buttons... For an element that should have a different background than the surface it's on, use `element_background`.
@@ -190,23 +196,23 @@ function M._theme_colors(pal, spec, background_appearance)
     ["ghost_element.hover"] = spec.sel0, -- Background Color. Used for the hover state of a ghost element that should have the same background as the surface it's on. Hover states are triggered by the mouse entering an element, or a finger touching an element on a touch screen.
     ["ghost_element.selected"] = fade(accent.dim), -- Background Color. Used for the selected state of a ghost element that should have the same background as the surface it's on. Selected states are triggered by the element being selected (or "activated") by the user. This could include a selected checkbox, a toggleable button that is toggled on, etc.
     -- Drop Target
-    ["drop_target.background"] = alpha(spec.bg0, M._alphas.MAX),
+    ["drop_target.background"] = alpha(spec.bg0, a.MAX),
     ["drop_target.border"] = todo.red.base,
     -- Tabs
-    ["tab_bar.background"] = alpha(spec.bg1, M._alphas.MID),
-    ["tab.inactive_background"] = alpha(spec.bg1, M._alphas.MID),
-    ["tab.active_background"] = alpha(spec.sel0, M._alphas.MID),
+    ["tab_bar.background"] = alpha(spec.bg1, a.MID),
+    ["tab.inactive_background"] = alpha(spec.bg1, a.MID),
+    ["tab.active_background"] = alpha(spec.sel0, a.MID),
     -- Scrollbar
-    ["scrollbar.thumb.background"] = alpha(spec.sel0, M._alphas.HIGH),
-    ["scrollbar.thumb.hover_background"] = alpha(spec.sel1, M._alphas.MAX),
-    ["scrollbar.thumb.active_background"] = alpha(accent.base, M._alphas.HIGH),
+    ["scrollbar.thumb.background"] = alpha(spec.sel0, a.HIGH),
+    ["scrollbar.thumb.hover_background"] = alpha(spec.sel1, a.MAX),
+    ["scrollbar.thumb.active_background"] = alpha(accent.base, a.HIGH),
     ["scrollbar.thumb.border"] = AS_NONE,
-    ["scrollbar.track.background"] = alpha(spec.sel0, M._alphas.LOW),
+    ["scrollbar.track.background"] = alpha(spec.sel0, a.LOW),
     ["scrollbar.track.border"] = AS_NONE,
     -- Minimap
-    ["minimap.thumb.background"] = alpha(spec.sel0, M._alphas.HIGH),
-    ["minimap.thumb.hover_background"] = alpha(spec.sel1, M._alphas.MAX),
-    ["minimap.thumb.active_background"] = alpha(accent.base, M._alphas.MID),
+    ["minimap.thumb.background"] = alpha(spec.sel0, a.HIGH),
+    ["minimap.thumb.hover_background"] = alpha(spec.sel1, a.MAX),
+    ["minimap.thumb.active_background"] = alpha(accent.base, a.MID),
     ["minimap.thumb.border"] = AS_NONE,
     -- Version Control
     ["version_control.added"] = spec.git.add,
@@ -218,7 +224,7 @@ function M._theme_colors(pal, spec, background_appearance)
     ["version_control.conflict_marker.ours"] = todo.blue.base,
     ["version_control.conflict_marker.theirs"] = todo.yellow.base,
     -- Terminal
-    ["terminal.background"] = alpha(spec.bg1, M._alphas.MAX_POLARIZE),
+    ["terminal.background"] = alpha(spec.bg1, a.MAX_POLARIZE),
     ["terminal.foreground"] = spec.fg1,
     ["terminal.bright_foreground"] = spec.fg0,
     ["terminal.dim_foreground"] = spec.fg2,
@@ -269,7 +275,7 @@ function M._theme_colors(pal, spec, background_appearance)
     ["background.appearance"] = background_appearance,
     ["debugger.accent"] = accent.base, -- Color used to accent some of the debuggers elements Only accent breakpoint & breakpoint related symbols right now
     ["pane_group.border"] = AS_NONE, -- Surface - others
-    ["search.active_match_background"] = alpha(spec.sel1, M._alphas.MAX),
+    ["search.active_match_background"] = alpha(spec.sel1, a.MAX),
   }
 end
 
@@ -461,6 +467,7 @@ function M._define_theme(name, background_appearance)
 
   logger.ok("Theme defined", { display_name, theme_appearance })
   M._alphas = M._set_alpha_levels(background_appearance)
+  M._base_bg = pal.bg1
 
   return {
     name = display_name,
