@@ -12,13 +12,26 @@
 ---@field name string
 ---@field light boolean
 
+---@class nightfox_nvim.PaletteBase
+---@field bg0 string Dark bg (status line and float)
+---@field bg1 string Default bg
+---@field bg2 string Lighter bg (colorcolm folds)
+---@field bg3 string Lighter bg (cursor line)
+---@field bg4 string Conceal, border fg
+---@field fg0 string Lighter fg
+---@field fg1 string Default fg
+---@field fg2 string Darker fg (status line)
+---@field fg3 string Darker fg (line numbers, fold colums)
+---@field sel0 string Popup bg, visual selection bg
+---@field sel1 string Popup sel bg, search bg
+
 ---@class nightfox_nvim.Shade
 ---@field base string
 ---@field bright string
 ---@field dim string
 ---@field light boolean
 
----@class nightfox_nvim.Palette
+---@class nightfox_nvim.Palette: nightfox_nvim.PaletteBase
 ---@field meta nightfox_nvim.PaletteMeta
 ---@field black nightfox_nvim.Shade
 ---@field blue nightfox_nvim.Shade
@@ -31,30 +44,8 @@
 ---@field white nightfox_nvim.Shade
 ---@field yellow nightfox_nvim.Shade
 ---@field comment string
----@field bg0 string Dark bg (status line and float)
----@field bg1 string Default bg
----@field bg2 string Lighter bg (colorcolm folds)
----@field bg3 string Lighter bg (cursor line)
----@field bg4 string Conceal, border fg
----@field fg0 string Lighter fg
----@field fg1 string Default fg
----@field fg2 string Darker fg (status line)
----@field fg3 string Darker fg (line numbers, fold colums)
----@field sel0 string Popup bg, visual selection bg
----@field sel1 string Popup sel bg, search bg
 
----@class nightfox_nvim.Spec
----@field bg0 string Dark bg (status line and float)
----@field bg1 string Default bg
----@field bg2 string Lighter bg (colorcolm folds)
----@field bg3 string Lighter bg (cursor line)
----@field bg4 string Conceal, border fg
----@field fg0 string Lighter fg
----@field fg1 string Default fg
----@field fg2 string Darker fg (status line)
----@field fg3 string Darker fg (line numbers, fold colums)
----@field sel0 string Popup bg, visual selection bg
----@field sel1 string Popup sel bg, search bg
+---@class nightfox_nvim.Spec: nightfox_nvim.PaletteBase
 ---@field syntax nightfox_nvim.SpecSyntax
 ---@field diag nightfox_nvim.SpecDiagnostic
 ---@field diag_bg nightfox_nvim.SpecDiagnosticBg
