@@ -1,8 +1,13 @@
+--#region Types
+
 ---@class nightfox_zed.Util
----@field color nightfox_zed.UtilColor
+---@field debug table
 ---@field neovim_polyfill fun()
 ---@field tbl_merge fun(base: table, ...: table): table
 ---@field logger fun(): nightfox_nvim.Logger
+
+--#endregion
+
 local M = {}
 M._ns = "util"
 
@@ -27,6 +32,7 @@ local function blend(base_color, accent_color, factor)
   return C(base_color):blend(C(accent_color), factor):to_css()
 end
 
+---@type table<'blue' | 'cyan' | 'green' | 'magenta' | 'orange' | 'pink' | 'red' | 'yellow', nightfox_nvim.Shade>
 local debug = {
   -- stylua: ignore start
   blue =    { base = "#0000dd", dim = "#000088", bright = "#0000ff" },
@@ -40,14 +46,35 @@ local debug = {
   -- stylua: ignore end
 }
 
----@class nightfox_zed.UtilColor
----@field alpha fun(hex_color: string, percent: number): string
----@field blend fun(base_color: string, accent_color: string, factor: number): string
----@field debug table<'blue' | 'cyan' | 'green' | 'magenta' | 'orange' | 'pink' | 'red' | 'yellow', nightfox_nvim.Shade>
+---@param base_color string
+---@return fun(color: string, amount: number|nil): string
+local function fade(base_color)
+  return function(color, amount)
+    return blend(base_color, color, amount or 0.3)
+  end
+end
+
+---@param appearance nightfox_nvim.BackgroundAppearance
+---@return nightfox_zed.AlphaLevels
+local function set_alpha_levels(appearance)
+  local is_opaque = appearance == "opaque"
+  -- NOTE: Fibonacci sequence are used for golden ratio
+  return { ---@diagnostic disable-line: unused-local
+    MIN = is_opaque and 0.21 or 0.13,
+    LOW = is_opaque and 0.34 or 0.21,
+    MID = is_opaque and 0.55 or 0.34,
+    HIGH = is_opaque and 0.89 or 0.55,
+    MAX = is_opaque and 1 or 0.89,
+    MAX_POLARIZE = is_opaque and 1 or 0,
+  }
+end
+
 M.color = {
   alpha = alpha,
   blend = blend,
   debug = debug,
+  fade = fade,
+  set_alpha_levels = set_alpha_levels,
 }
 
 ---Merge two or more tables into one.

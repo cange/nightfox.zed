@@ -6,7 +6,7 @@ local logger = util.logger()
 ---@field private _ns string Namespace
 local M = {}
 M._ns = ""
----@type nightfox_nvim.AlphaLevels | nil
+---@type nightfox_zed.AlphaLevels | nil
 M._alphas = nil
 M._base_bg = nil
 
@@ -97,13 +97,6 @@ function M._player_colors(pal)
   return players
 end
 
----@param color string
----@param amount number|nil
----@return string
-function M._fade(color, amount)
-  return util.color.blend(M._base_bg, color, amount or 0.3)
-end
-
 ---@param pal nightfox_nvim.Palette
 ---@param spec nightfox_nvim.Spec
 ---@param background_appearance nightfox_nvim.BackgroundAppearance
@@ -112,11 +105,11 @@ end
 -- see https://github.com/zed-industries/zed/blob/main/crates/theme/src/fallback_themes.rs
 function M._theme_colors(pal, spec, background_appearance)
   local alpha = util.color.alpha
-  ---@type nightfox_nvim.AlphaLevels
+  ---@type nightfox_zed.AlphaLevels
   local a = M._alphas
   local todo = util.color.debug
   local accent = pal.orange
-  local fade = M._fade
+  local fade = util.color.fade(M._base_bg)
 
   return {
     -- Surface
@@ -146,11 +139,11 @@ function M._theme_colors(pal, spec, background_appearance)
     ["text.placeholder"] = spec.fg3, -- Text Color. Color of the placeholder text typically shown in input fields to guide the user to enter valid data.
     ["link_text.hover"] = pal.cyan.base,
     -- Icon
-    icon = AS_NONE, -- Fill Color. Used for the default fill color of an icon.
-    ["icon.accent"] = AS_NONE, -- Fill Color. Used for the accent fill color of an icon. This might be used to show when a toggleable icon button is selected.
-    ["icon.disabled"] = AS_NONE, -- Fill Color. Used for the disabled fill color of an icon. Disabled states are shown when a user cannot interact with an element, like a icon button.
-    ["icon.muted"] = AS_NONE, -- Fill Color. Used for the muted or deemphasized fill color of an icon. This might be used to show an icon in an inactive pane, or to deemphasize a series of icons to give them less visual weight.
-    ["icon.placeholder"] = AS_NONE, -- Fill Color. Used for the placeholder fill color of an icon. This might be used to show an icon in an input that disappears when the user enters text.
+    icon = todo.cyan.base, -- Used for the default fill color of an icon.
+    ["icon.accent"] = todo.red.base, -- This might be used to show when a toggleable icon button is selected.
+    ["icon.disabled"] = todo.blue.base, -- Disabled states are shown when a user cannot interact with an element, like a icon button.
+    ["icon.muted"] = todo.green.base, -- This might be used to show an icon in an inactive pane, or to deemphasize a series of icons to give them less visual weight.
+    ["icon.placeholder"] = todo.magenta.base, -- This might be used to show an icon in an input that disappears when the user enters text.
     -- Editor
     ["editor.foreground"] = spec.fg1,
     ["editor.background"] = alpha(M._base_bg, a.MAX_POLARIZE),
@@ -437,21 +430,6 @@ function M._syntax_theme(pal, spec)
   }
 end
 
----@param appearance nightfox_nvim.BackgroundAppearance
----@return nightfox_nvim.AlphaLevels
-function M._set_alpha_levels(appearance)
-  local is_opaque = appearance == "opaque"
-  -- NOTE: Fibonacci sequence are used for golden ratio
-  return { ---@diagnostic disable-line: unused-local
-    MIN = is_opaque and 0.21 or 0.13,
-    LOW = is_opaque and 0.34 or 0.21,
-    MID = is_opaque and 0.55 or 0.34,
-    HIGH = is_opaque and 0.89 or 0.55,
-    MAX = is_opaque and 1 or 0.89,
-    MAX_POLARIZE = is_opaque and 1 or 0,
-  }
-end
-
 ---Maps values of nightfox.nvim to zed's theme properties
 ---@param name "Nightfox" | "Dayfox" | "Dawnfox" | "Duskfox" | "Nordfox" | "Terafox" | "Carbonfox"
 ---@param background_appearance nightfox_nvim.BackgroundAppearance
@@ -466,7 +444,7 @@ function M._define_theme(name, background_appearance)
   local display_name = name .. appearance_label .. dev_label
 
   logger.ok("Theme defined", { display_name, theme_appearance })
-  M._alphas = M._set_alpha_levels(background_appearance)
+  M._alphas = util.color.set_alpha_levels(background_appearance)
   M._base_bg = pal.bg1
 
   return {

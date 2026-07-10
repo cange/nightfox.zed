@@ -1,3 +1,5 @@
+--#region Types
+
 ---@meta
 
 ---@class nightfox_zed.Metadata
@@ -29,7 +31,7 @@
 ---@field base string
 ---@field bright string
 ---@field dim string
----@field light boolean
+---@field light boolean | nil
 
 ---@class nightfox_nvim.Palette: nightfox_nvim.PaletteBase
 ---@field meta nightfox_nvim.PaletteMeta
@@ -113,10 +115,12 @@
 ---@field font_style nil | 'normal' | 'italic' | 'oblique'
 ---@field font_weight nil | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
 
----@class nightfox_nvim.AlphaLevels
+---@class nightfox_zed.AlphaLevels
 ---@field MIN number
 ---@field LOW number
 ---@field MID number
 ---@field HIGH number
 ---@field MAX number
 ---@field MAX_POLARIZE number Either none transparent or opaque
+
+--#endregion
