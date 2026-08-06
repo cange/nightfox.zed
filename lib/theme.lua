@@ -150,7 +150,7 @@ function M._theme_colors(pal, spec, background_appearance)
     ["editor.gutter.background"] = alpha(spec.bg1, a.MAX_POLARIZE),
     ["editor.active_line.background"] = alpha(spec.sel0, a.LOW),
     ["editor.highlighted_line.background"] = AS_NONE,
-    ["editor.debugger_active_line.background"] = todo.magenta.base, -- Background of active line of debugger
+    ["editor.debugger_active_line.background"] = alpha(accent.base, a.LOW), -- Background of active line of debugger
     ["editor.subheader.background"] = AS_NONE,
     ["editor.active_line_number"] = pal.yellow.base, -- Text Color. Used for the text of the line number in the editor gutter when the line is highlighted.
     ["editor.line_number"] = spec.fg3, -- Text Color. Used for the text of the line number in the editor gutter.
