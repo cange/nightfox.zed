@@ -3,8 +3,8 @@
 
 _A theme collection – Ported from the beloved [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) theme_
 
-[![Zed Extension](https://img.shields.io/badge/Zed_Extension-black?logo=zedindustries&logoColor=1348DC&style=flat-square)](https://zed.dev/extensions/nvim-nightfox)
-[![Downloads](https://img.shields.io/badge/dynamic/json?url=https://api.zed.dev/extensions?filter=nvim-nightfox&query=$.data[:1].download_count&style=flat-square&label=Downloads&labelColor=000&color=1348DC&link=https://zed.dev/extensions/nvim-nightfox)](https://zed.dev/extensions/nvim-nightfox)
+[![Zed Extension](https://img.shields.io/badge/Zed_Extension-1348DC?logo=zedindustries&logoColor=&style=for-the-badge)](https://zed.dev/extensions/nvim-nightfox)
+[![Downloads](https://img.shields.io/badge/dynamic/json?url=https://api.zed.dev/extensions?filter=nvim-nightfox&query=$.data[:1].download_count&style=for-the-badge&label=Downloads&labelColor=black&color=black&link=https://zed.dev/extensions/nvim-nightfox)](https://zed.dev/extensions/nvim-nightfox)
 
 </div>
 
@@ -69,10 +69,9 @@ _A theme collection – Ported from the beloved [nightfox.nvim](https://github.c
 ## 🚀 Installation
 
 1. Open Zed editor
-2. Press `Cmd+Shift+P` (macOS) or `Ctrl+Shift+P` (Linux/Windows)
-3. Type "Extensions" and select "zed: extensions"
-4. Search for "Nightfox"
-5. Click "Install"
+2. Press `cmd+shift+x` (macOS) or `ctrl+shift+x` (Linux/Windows)
+3. Search for "Nightfox" within the Extensions
+4. Click "Install"
 
 ## 🤝 Contributors
 
