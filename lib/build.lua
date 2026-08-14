@@ -14,7 +14,8 @@ function M._fetch_metadata()
   logger.start("Metadata fetched", filename)
   local ok, file = pcall(io.open, filename, "r")
   if not ok or not file then
-    return logger.error("Reading file", filename)
+    logger.error("Reading file", filename)
+    return {}
   end
 
   local file_content = assert(file:read("*all"))

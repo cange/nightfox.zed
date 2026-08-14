@@ -138,8 +138,8 @@ local function log(type, msg, meta)
 end
 
 ---@class nightfox_nvim.Logger
----@field start fun(msg: string | table, meta?: table)
----@field ok fun(msg: string | table, meta?: table)
+---@field start fun(msg: string | table, meta?: string | table)
+---@field ok fun(msg: string | table, meta?: string | table)
 ---@field error fun(msg: string | table, details: string | table)
 
 M._ns = "nvim-nightfox"
