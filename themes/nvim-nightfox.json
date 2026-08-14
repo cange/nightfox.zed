@@ -52,12 +52,14 @@
         "elevated_surface.background": "#131a24",
         "error": "#c94f6d",
         "error.background": "#3c2c3c",
+        "error.border": "#c94f6d",
         "ghost_element.active": "#3c5372",
         "ghost_element.hover": "#2b3b51",
         "ghost_element.selected": "#50423a",
         "hidden": "#71839b",
-        "hint": "#738091",
+        "hint": "#81b29a",
         "hint.background": "#2e4045",
+        "hint.border": "#81b29a",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -66,6 +68,7 @@
         "ignored": "#738091",
         "info": "#719cd6",
         "info.background": "#2b3b51",
+        "info.border": "#719cd6",
         "link_text.hover": "#63cdcf",
         "minimap.thumb.active_background": "#f4a2618C",
         "minimap.thumb.background": "#2b3b51E3",
@@ -127,6 +130,7 @@
         "status_bar.background": "#131a24FF",
         "success": "#81b29a",
         "success.background": "#2e4045",
+        "success.border": "#81b29a",
         "surface.background": "#131a24FF",
         "syntax": {
           "attribute": {
@@ -365,7 +369,8 @@
         "vim.visual_line.foreground": "#cdcecf",
         "vim.yank.background": "#dfdfe0",
         "warning": "#dbc074",
-        "warning.background": "#40423e"
+        "warning.background": "#40423e",
+        "warning.border": "#dbc074"
       }
     },
     {
@@ -417,12 +422,14 @@
         "elevated_surface.background": "#e4dcd4",
         "error": "#a5222f",
         "error.background": "#deb4b5",
+        "error.border": "#a5222f",
         "ghost_element.active": "#a4c1c2",
         "ghost_element.hover": "#e7d2be",
         "ghost_element.selected": "#d2c2bf",
         "hidden": "#824d5b",
-        "hint": "#837a72",
+        "hint": "#396847",
         "hint.background": "#bdc9bc",
+        "hint.border": "#396847",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -431,6 +438,7 @@
         "ignored": "#837a72",
         "info": "#2848a9",
         "info.background": "#b8bfd9",
+        "info.border": "#2848a9",
         "link_text.hover": "#287980",
         "minimap.thumb.active_background": "#955f618C",
         "minimap.thumb.background": "#e7d2beE3",
@@ -492,6 +500,7 @@
         "status_bar.background": "#e4dcd4FF",
         "success": "#396847",
         "success.background": "#bdc9bc",
+        "success.border": "#396847",
         "surface.background": "#e4dcd4FF",
         "syntax": {
           "attribute": {
@@ -730,7 +739,8 @@
         "vim.visual_line.foreground": "#3d2b5a",
         "vim.yank.background": "#f2e9e1",
         "warning": "#ac5402",
-        "warning.background": "#e0c3a7"
+        "warning.background": "#e0c3a7",
+        "warning.border": "#ac5402"
       }
     },
     {
@@ -782,12 +792,14 @@
         "elevated_surface.background": "#ebe5df",
         "error": "#b4637a",
         "error.background": "#e5c9cb",
+        "error.border": "#b4637a",
         "ghost_element.active": "#b8cece",
         "ghost_element.hover": "#d0d8d8",
         "ghost_element.selected": "#ecccc5",
         "hidden": "#a8a3b3",
-        "hint": "#9893a5",
+        "hint": "#618774",
         "hint.background": "#ccd3c9",
+        "hint.border": "#618774",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -796,6 +808,7 @@
         "ignored": "#9893a5",
         "info": "#286983",
         "info.background": "#bbcacd",
+        "info.border": "#286983",
         "link_text.hover": "#56949f",
         "minimap.thumb.active_background": "#d7827e8C",
         "minimap.thumb.background": "#d0d8d8E3",
@@ -857,6 +870,7 @@
         "status_bar.background": "#ebe5dfFF",
         "success": "#618774",
         "success.background": "#ccd3c9",
+        "success.border": "#618774",
         "surface.background": "#ebe5dfFF",
         "syntax": {
           "attribute": {
@@ -1095,7 +1109,8 @@
         "vim.visual_line.foreground": "#575279",
         "vim.yank.background": "#e5e9f0",
         "warning": "#ea9d34",
-        "warning.background": "#f5dab6"
+        "warning.background": "#f5dab6",
+        "warning.border": "#ea9d34"
       }
     },
     {
@@ -1147,12 +1162,14 @@
         "elevated_surface.background": "#191726",
         "error": "#eb6f92",
         "error.background": "#412d44",
+        "error.border": "#eb6f92",
         "ghost_element.active": "#63577d",
         "ghost_element.hover": "#433c59",
         "ghost_element.selected": "#593a47",
         "hidden": "#6e6a86",
-        "hint": "#817c9c",
+        "hint": "#a3be8c",
         "hint.background": "#363943",
+        "hint.border": "#a3be8c",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -1161,6 +1178,7 @@
         "ignored": "#817c9c",
         "info": "#569fba",
         "info.background": "#2b344a",
+        "info.border": "#569fba",
         "link_text.hover": "#9ccfd8",
         "minimap.thumb.active_background": "#ea9a978C",
         "minimap.thumb.background": "#433c59E3",
@@ -1222,6 +1240,7 @@
         "status_bar.background": "#191726FF",
         "success": "#a3be8c",
         "success.background": "#363943",
+        "success.border": "#a3be8c",
         "surface.background": "#191726FF",
         "syntax": {
           "attribute": {
@@ -1460,7 +1479,8 @@
         "vim.visual_line.foreground": "#e0def4",
         "vim.yank.background": "#e0def4",
         "warning": "#f6c177",
-        "warning.background": "#433940"
+        "warning.background": "#433940",
+        "warning.border": "#f6c177"
       }
     },
     {
@@ -1512,12 +1532,14 @@
         "elevated_surface.background": "#232831",
         "error": "#bf616a",
         "error.background": "#4b3d48",
+        "error.border": "#bf616a",
         "ghost_element.active": "#4f6074",
         "ghost_element.hover": "#3e4a5b",
         "ghost_element.selected": "#564445",
         "hidden": "#7e8188",
-        "hint": "#60728a",
+        "hint": "#a3be8c",
         "hint.background": "#45504f",
+        "hint.border": "#a3be8c",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -1526,6 +1548,7 @@
         "ignored": "#60728a",
         "info": "#81a1c1",
         "info.background": "#3f4a5a",
+        "info.border": "#81a1c1",
         "link_text.hover": "#88c0d0",
         "minimap.thumb.active_background": "#c9826b8C",
         "minimap.thumb.background": "#3e4a5bE3",
@@ -1587,6 +1610,7 @@
         "status_bar.background": "#232831FF",
         "success": "#a3be8c",
         "success.background": "#45504f",
+        "success.border": "#a3be8c",
         "surface.background": "#232831FF",
         "syntax": {
           "attribute": {
@@ -1825,7 +1849,8 @@
         "vim.visual_line.foreground": "#cdcecf",
         "vim.yank.background": "#e5e9f0",
         "warning": "#ebcb8b",
-        "warning.background": "#54524f"
+        "warning.background": "#54524f",
+        "warning.border": "#ebcb8b"
       }
     },
     {
@@ -1877,12 +1902,14 @@
         "elevated_surface.background": "#0f1c1e",
         "error": "#e85c51",
         "error.background": "#352d2e",
+        "error.border": "#e85c51",
         "ghost_element.active": "#425e5e",
         "ghost_element.hover": "#293e40",
         "ghost_element.selected": "#503b2f",
         "hidden": "#587b7b",
-        "hint": "#6d7f8b",
+        "hint": "#7aa4a1",
         "hint.background": "#24383a",
+        "hint.border": "#7aa4a1",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -1891,6 +1918,7 @@
         "ignored": "#6d7f8b",
         "info": "#5a93aa",
         "info.background": "#1f353c",
+        "info.border": "#5a93aa",
         "link_text.hover": "#a1cdd8",
         "minimap.thumb.active_background": "#ff83498C",
         "minimap.thumb.background": "#293e40E3",
@@ -1952,6 +1980,7 @@
         "status_bar.background": "#0f1c1eFF",
         "success": "#7aa4a1",
         "success.background": "#24383a",
+        "success.border": "#7aa4a1",
         "surface.background": "#0f1c1eFF",
         "syntax": {
           "attribute": {
@@ -2190,7 +2219,8 @@
         "vim.visual_line.foreground": "#e6eaea",
         "vim.yank.background": "#ebebeb",
         "warning": "#fda47f",
-        "warning.background": "#383835"
+        "warning.background": "#383835",
+        "warning.border": "#fda47f"
       }
     },
     {
@@ -2242,12 +2272,14 @@
         "elevated_surface.background": "#0c0c0c",
         "error": "#ee5396",
         "error.background": "#361f29",
+        "error.border": "#ee5396",
         "ghost_element.active": "#525253",
         "ghost_element.hover": "#2a2a2a",
         "ghost_element.selected": "#1f4747",
         "hidden": "#7b7c7e",
-        "hint": "#6e6f70",
+        "hint": "#3ddbd9",
         "hint.background": "#1c3433",
+        "hint.border": "#3ddbd9",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -2256,6 +2288,7 @@
         "ignored": "#6e6f70",
         "info": "#78a9ff",
         "info.background": "#252c39",
+        "info.border": "#78a9ff",
         "link_text.hover": "#33b1ff",
         "minimap.thumb.active_background": "#3ddbd98C",
         "minimap.thumb.background": "#2a2a2aE3",
@@ -2317,6 +2350,7 @@
         "status_bar.background": "#0c0c0cFF",
         "success": "#25be6a",
         "success.background": "#182f23",
+        "success.border": "#25be6a",
         "surface.background": "#0c0c0cFF",
         "syntax": {
           "attribute": {
@@ -2555,7 +2589,8 @@
         "vim.visual_line.foreground": "#f2f4f8",
         "vim.yank.background": "#dfdfe0",
         "warning": "#be95ff",
-        "warning.background": "#2f2939"
+        "warning.background": "#2f2939",
+        "warning.border": "#be95ff"
       }
     },
     {
@@ -2607,12 +2642,14 @@
         "elevated_surface.background": "#131a24",
         "error": "#c94f6d",
         "error.background": "#3c2c3c",
+        "error.border": "#c94f6d",
         "ghost_element.active": "#3c5372",
         "ghost_element.hover": "#2b3b51",
         "ghost_element.selected": "#50423a",
         "hidden": "#71839b",
-        "hint": "#738091",
+        "hint": "#81b29a",
         "hint.background": "#2e4045",
+        "hint.border": "#81b29a",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -2621,6 +2658,7 @@
         "ignored": "#738091",
         "info": "#719cd6",
         "info.background": "#2b3b51",
+        "info.border": "#719cd6",
         "link_text.hover": "#63cdcf",
         "minimap.thumb.active_background": "#f4a26157",
         "minimap.thumb.background": "#2b3b518C",
@@ -2682,6 +2720,7 @@
         "status_bar.background": "#131a24E3",
         "success": "#81b29a",
         "success.background": "#2e4045",
+        "success.border": "#81b29a",
         "surface.background": "#131a24E3",
         "syntax": {
           "attribute": {
@@ -2920,7 +2959,8 @@
         "vim.visual_line.foreground": "#cdcecf",
         "vim.yank.background": "#dfdfe0",
         "warning": "#dbc074",
-        "warning.background": "#40423e"
+        "warning.background": "#40423e",
+        "warning.border": "#dbc074"
       }
     },
     {
@@ -2972,12 +3012,14 @@
         "elevated_surface.background": "#e4dcd4",
         "error": "#a5222f",
         "error.background": "#deb4b5",
+        "error.border": "#a5222f",
         "ghost_element.active": "#a4c1c2",
         "ghost_element.hover": "#e7d2be",
         "ghost_element.selected": "#d2c2bf",
         "hidden": "#824d5b",
-        "hint": "#837a72",
+        "hint": "#396847",
         "hint.background": "#bdc9bc",
+        "hint.border": "#396847",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -2986,6 +3028,7 @@
         "ignored": "#837a72",
         "info": "#2848a9",
         "info.background": "#b8bfd9",
+        "info.border": "#2848a9",
         "link_text.hover": "#287980",
         "minimap.thumb.active_background": "#955f6157",
         "minimap.thumb.background": "#e7d2be8C",
@@ -3047,6 +3090,7 @@
         "status_bar.background": "#e4dcd4E3",
         "success": "#396847",
         "success.background": "#bdc9bc",
+        "success.border": "#396847",
         "surface.background": "#e4dcd4E3",
         "syntax": {
           "attribute": {
@@ -3285,7 +3329,8 @@
         "vim.visual_line.foreground": "#3d2b5a",
         "vim.yank.background": "#f2e9e1",
         "warning": "#ac5402",
-        "warning.background": "#e0c3a7"
+        "warning.background": "#e0c3a7",
+        "warning.border": "#ac5402"
       }
     },
     {
@@ -3337,12 +3382,14 @@
         "elevated_surface.background": "#ebe5df",
         "error": "#b4637a",
         "error.background": "#e5c9cb",
+        "error.border": "#b4637a",
         "ghost_element.active": "#b8cece",
         "ghost_element.hover": "#d0d8d8",
         "ghost_element.selected": "#ecccc5",
         "hidden": "#a8a3b3",
-        "hint": "#9893a5",
+        "hint": "#618774",
         "hint.background": "#ccd3c9",
+        "hint.border": "#618774",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -3351,6 +3398,7 @@
         "ignored": "#9893a5",
         "info": "#286983",
         "info.background": "#bbcacd",
+        "info.border": "#286983",
         "link_text.hover": "#56949f",
         "minimap.thumb.active_background": "#d7827e57",
         "minimap.thumb.background": "#d0d8d88C",
@@ -3412,6 +3460,7 @@
         "status_bar.background": "#ebe5dfE3",
         "success": "#618774",
         "success.background": "#ccd3c9",
+        "success.border": "#618774",
         "surface.background": "#ebe5dfE3",
         "syntax": {
           "attribute": {
@@ -3650,7 +3699,8 @@
         "vim.visual_line.foreground": "#575279",
         "vim.yank.background": "#e5e9f0",
         "warning": "#ea9d34",
-        "warning.background": "#f5dab6"
+        "warning.background": "#f5dab6",
+        "warning.border": "#ea9d34"
       }
     },
     {
@@ -3702,12 +3752,14 @@
         "elevated_surface.background": "#191726",
         "error": "#eb6f92",
         "error.background": "#412d44",
+        "error.border": "#eb6f92",
         "ghost_element.active": "#63577d",
         "ghost_element.hover": "#433c59",
         "ghost_element.selected": "#593a47",
         "hidden": "#6e6a86",
-        "hint": "#817c9c",
+        "hint": "#a3be8c",
         "hint.background": "#363943",
+        "hint.border": "#a3be8c",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -3716,6 +3768,7 @@
         "ignored": "#817c9c",
         "info": "#569fba",
         "info.background": "#2b344a",
+        "info.border": "#569fba",
         "link_text.hover": "#9ccfd8",
         "minimap.thumb.active_background": "#ea9a9757",
         "minimap.thumb.background": "#433c598C",
@@ -3777,6 +3830,7 @@
         "status_bar.background": "#191726E3",
         "success": "#a3be8c",
         "success.background": "#363943",
+        "success.border": "#a3be8c",
         "surface.background": "#191726E3",
         "syntax": {
           "attribute": {
@@ -4015,7 +4069,8 @@
         "vim.visual_line.foreground": "#e0def4",
         "vim.yank.background": "#e0def4",
         "warning": "#f6c177",
-        "warning.background": "#433940"
+        "warning.background": "#433940",
+        "warning.border": "#f6c177"
       }
     },
     {
@@ -4067,12 +4122,14 @@
         "elevated_surface.background": "#232831",
         "error": "#bf616a",
         "error.background": "#4b3d48",
+        "error.border": "#bf616a",
         "ghost_element.active": "#4f6074",
         "ghost_element.hover": "#3e4a5b",
         "ghost_element.selected": "#564445",
         "hidden": "#7e8188",
-        "hint": "#60728a",
+        "hint": "#a3be8c",
         "hint.background": "#45504f",
+        "hint.border": "#a3be8c",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -4081,6 +4138,7 @@
         "ignored": "#60728a",
         "info": "#81a1c1",
         "info.background": "#3f4a5a",
+        "info.border": "#81a1c1",
         "link_text.hover": "#88c0d0",
         "minimap.thumb.active_background": "#c9826b57",
         "minimap.thumb.background": "#3e4a5b8C",
@@ -4142,6 +4200,7 @@
         "status_bar.background": "#232831E3",
         "success": "#a3be8c",
         "success.background": "#45504f",
+        "success.border": "#a3be8c",
         "surface.background": "#232831E3",
         "syntax": {
           "attribute": {
@@ -4380,7 +4439,8 @@
         "vim.visual_line.foreground": "#cdcecf",
         "vim.yank.background": "#e5e9f0",
         "warning": "#ebcb8b",
-        "warning.background": "#54524f"
+        "warning.background": "#54524f",
+        "warning.border": "#ebcb8b"
       }
     },
     {
@@ -4432,12 +4492,14 @@
         "elevated_surface.background": "#0f1c1e",
         "error": "#e85c51",
         "error.background": "#352d2e",
+        "error.border": "#e85c51",
         "ghost_element.active": "#425e5e",
         "ghost_element.hover": "#293e40",
         "ghost_element.selected": "#503b2f",
         "hidden": "#587b7b",
-        "hint": "#6d7f8b",
+        "hint": "#7aa4a1",
         "hint.background": "#24383a",
+        "hint.border": "#7aa4a1",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -4446,6 +4508,7 @@
         "ignored": "#6d7f8b",
         "info": "#5a93aa",
         "info.background": "#1f353c",
+        "info.border": "#5a93aa",
         "link_text.hover": "#a1cdd8",
         "minimap.thumb.active_background": "#ff834957",
         "minimap.thumb.background": "#293e408C",
@@ -4507,6 +4570,7 @@
         "status_bar.background": "#0f1c1eE3",
         "success": "#7aa4a1",
         "success.background": "#24383a",
+        "success.border": "#7aa4a1",
         "surface.background": "#0f1c1eE3",
         "syntax": {
           "attribute": {
@@ -4745,7 +4809,8 @@
         "vim.visual_line.foreground": "#e6eaea",
         "vim.yank.background": "#ebebeb",
         "warning": "#fda47f",
-        "warning.background": "#383835"
+        "warning.background": "#383835",
+        "warning.border": "#fda47f"
       }
     },
     {
@@ -4797,12 +4862,14 @@
         "elevated_surface.background": "#0c0c0c",
         "error": "#ee5396",
         "error.background": "#361f29",
+        "error.border": "#ee5396",
         "ghost_element.active": "#525253",
         "ghost_element.hover": "#2a2a2a",
         "ghost_element.selected": "#1f4747",
         "hidden": "#7b7c7e",
-        "hint": "#6e6f70",
+        "hint": "#3ddbd9",
         "hint.background": "#1c3433",
+        "hint.border": "#3ddbd9",
         "icon": "#00dddd",
         "icon.accent": "#dd0000",
         "icon.disabled": "#0000dd",
@@ -4811,6 +4878,7 @@
         "ignored": "#6e6f70",
         "info": "#78a9ff",
         "info.background": "#252c39",
+        "info.border": "#78a9ff",
         "link_text.hover": "#33b1ff",
         "minimap.thumb.active_background": "#3ddbd957",
         "minimap.thumb.background": "#2a2a2a8C",
@@ -4872,6 +4940,7 @@
         "status_bar.background": "#0c0c0cE3",
         "success": "#25be6a",
         "success.background": "#182f23",
+        "success.border": "#25be6a",
         "surface.background": "#0c0c0cE3",
         "syntax": {
           "attribute": {
@@ -5110,7 +5179,8 @@
         "vim.visual_line.foreground": "#f2f4f8",
         "vim.yank.background": "#dfdfe0",
         "warning": "#be95ff",
-        "warning.background": "#2f2939"
+        "warning.background": "#2f2939",
+        "warning.border": "#be95ff"
       }
     }
   ]
