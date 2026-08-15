@@ -1,5 +1,3 @@
----@alias nightfox_nvim.BackgroundAppearance "opaque" | "blurred" | "transparent" Enables blurred mode incl. alpha colors
-
 local util = require("lib.util")
 local logger = util.logger()
 ---@class nightfox_zed.Theme
@@ -431,9 +429,9 @@ function M._syntax_theme(pal, spec)
 end
 
 ---Maps values of nightfox.nvim to zed's theme properties
----@param name "Nightfox" | "Dayfox" | "Dawnfox" | "Duskfox" | "Nordfox" | "Terafox" | "Carbonfox"
+---@param name nightfox_nvim.ThemeVariation
 ---@param background_appearance nightfox_nvim.BackgroundAppearance
----@return table
+---@return nightfox_nvim.ThemeContent
 function M._define_theme(name, background_appearance)
   local theme_name = string.lower(name)
   local pal = require("nightfox.palette").load(theme_name)
@@ -460,7 +458,7 @@ end
 
 ---@param namespace string
 ---@param metadata nightfox_zed.Metadata
----@return table
+---@return { ["$schema"]: string, name: string, author: string, themes: nightfox_nvim.ThemeContent[] }
 function M.generate(metadata, namespace)
   util.neovim_polyfill()
   M._ns = namespace

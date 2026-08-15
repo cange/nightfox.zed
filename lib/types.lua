@@ -123,4 +123,12 @@
 ---@field MAX number
 ---@field MAX_POLARIZE number Either none transparent or opaque
 
+---@alias nightfox_nvim.ThemeVariation "Nightfox" | "Dayfox" | "Dawnfox" | "Duskfox" | "Nordfox" | "Terafox" | "Carbonfox"
+---@alias nightfox_nvim.BackgroundAppearance "opaque" | "blurred" | "transparent" Enables blurred mode incl. alpha colors
+
+---@class nightfox_nvim.ThemeContent
+---@field appearance "light" | "dark",
+---@field name string
+---@field style { accents: table, players: table, syntax: table, status_colors: table }
+
 --#endregion
