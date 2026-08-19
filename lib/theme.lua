@@ -137,11 +137,11 @@ function M._theme_colors(pal, spec, background_appearance)
     ["text.placeholder"] = spec.fg3, -- Text Color. Color of the placeholder text typically shown in input fields to guide the user to enter valid data.
     ["link_text.hover"] = pal.cyan.base,
     -- Icon
-    icon = todo.cyan.base, -- Used for the default fill color of an icon.
-    ["icon.accent"] = todo.red.base, -- This might be used to show when a toggleable icon button is selected.
-    ["icon.disabled"] = todo.blue.base, -- Disabled states are shown when a user cannot interact with an element, like a icon button.
-    ["icon.muted"] = todo.green.base, -- This might be used to show an icon in an inactive pane, or to deemphasize a series of icons to give them less visual weight.
-    ["icon.placeholder"] = todo.magenta.base, -- This might be used to show an icon in an input that disappears when the user enters text.
+    icon = AS_NONE, -- Used for the default fill color of an OS window icon.
+    ["icon.accent"] = AS_NONE, -- This might be used to show when a toggleable OS window icon button is selected.
+    ["icon.disabled"] = AS_NONE, -- Disabled states are shown when a user cannot interact with an element, like a OS window icon button.
+    ["icon.muted"] = AS_NONE, -- This might be used to show an OS window icon in an inactive pane, or to deemphasize a series of icons to give them less visual weight.
+    ["icon.placeholder"] = AS_NONE, -- This might be used to show an OS window icon in an input that disappears when the user enters text.
     -- Editor
     ["editor.foreground"] = spec.fg1,
     ["editor.background"] = alpha(M._base_bg, a.MAX_POLARIZE),
