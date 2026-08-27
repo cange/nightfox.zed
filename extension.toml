@@ -1,6 +1,6 @@
 id = "nvim-nightfox"
 name = "Nightfox"
-version = "0.10.4"
+version = "0.10.5"
 schema_version = 1
 authors = ["cange"]
 description = "🦊 A port of the Neovim Nightfox themes. Includes all variants as opaque and blurred version."
