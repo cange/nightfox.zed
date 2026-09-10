@@ -107,7 +107,7 @@ function M._theme_colors(pal, spec, background_appearance)
   local a = M._alphas
   local todo = util.color.debug
   local accent = pal.orange
-  local fade = util.color.fade(M._base_bg)
+  local f = util.color.fade(M._base_bg)
 
   return {
     -- Surface
@@ -177,15 +177,15 @@ function M._theme_colors(pal, spec, background_appearance)
     ["element.active"] = spec.sel1, -- Background Color. Used for the active state of an element that should have a different background than the surface it's on. Active states are triggered by the mouse button being pressed down on an element, or the Return button or other activator being pressed.
     ["element.background"] = spec.sel0, -- Background Color. Used for the background of an element that should have a different background than the surface it's on. Elements might include: Buttons, Inputs, Checkboxes, Radio Buttons... For an element that should have the same background as the surface it's on, use `ghost_element_background`.
     ["element.disabled"] = spec.sel0, -- Background Color. Used for the disabled state of an element that should have a different background than the surface it's on. Disabled states are shown when a user cannot interact with an element, like a disabled button or input.
-    ["element.hover"] = fade(accent.dim), -- Background Color. Used for the hover state of an element that should have a different background than the surface it's on. Hover states are triggered by the mouse entering an element, or a finger touching an element on a touch screen.
-    ["element.selected"] = fade(accent.base), -- Background Color. Used for the selected state of an element that should have a different background than the surface it's on. Selected states are triggered by the element being selected (or "activated") by the user. This could include a selected checkbox, a toggleable button that is toggled on, etc.
+    ["element.hover"] = f(accent.dim), -- Background Color. Used for the hover state of an element that should have a different background than the surface it's on. Hover states are triggered by the mouse entering an element, or a finger touching an element on a touch screen.
+    ["element.selected"] = f(accent.base), -- Background Color. Used for the selected state of an element that should have a different background than the surface it's on. Selected states are triggered by the element being selected (or "activated") by the user. This could include a selected checkbox, a toggleable button that is toggled on, etc.
     ["element.selection_background"] = alpha(spec.sel1, a.LOW), -- Background Color. Used for the background of selections in a UI element.
     -- Ghost Element
     ["ghost_element.active"] = spec.sel1, -- Background Color. Used for the active state of a ghost element that should have the same background as the surface it's on. Active states are triggered by the mouse button being pressed down on an element, or the Return button or other activator being pressed.
     ["ghost_element.background"] = AS_NONE, -- Used for the background of a ghost element that should have the same background as the surface it's on. Elements might include: Buttons, Inputs, Checkboxes, Radio Buttons... For an element that should have a different background than the surface it's on, use `element_background`.
     ["ghost_element.disabled"] = AS_NONE, -- Background Color. Used for the disabled state of a ghost element that should have the same background as the surface it's on. Disabled states are shown when a user cannot interact with an element, like a disabled button or input.
     ["ghost_element.hover"] = spec.sel0, -- Background Color. Used for the hover state of a ghost element that should have the same background as the surface it's on. Hover states are triggered by the mouse entering an element, or a finger touching an element on a touch screen.
-    ["ghost_element.selected"] = fade(accent.dim), -- Background Color. Used for the selected state of a ghost element that should have the same background as the surface it's on. Selected states are triggered by the element being selected (or "activated") by the user. This could include a selected checkbox, a toggleable button that is toggled on, etc.
+    ["ghost_element.selected"] = f(accent.dim), -- Background Color. Used for the selected state of a ghost element that should have the same background as the surface it's on. Selected states are triggered by the element being selected (or "activated") by the user. This could include a selected checkbox, a toggleable button that is toggled on, etc.
     -- Drop Target
     ["drop_target.background"] = alpha(spec.bg0, a.MAX),
     ["drop_target.border"] = todo.red.base,
@@ -245,22 +245,22 @@ function M._theme_colors(pal, spec, background_appearance)
     ["terminal.ansi.dim_yellow"] = pal.yellow.dim,
     ["terminal.ansi.dim_magenta"] = pal.magenta.dim,
     -- vim status
-    ["vim.normal.background"] = fade(pal.blue.base),
+    ["vim.normal.background"] = f(pal.blue.base),
     ["vim.normal.foreground"] = spec.fg1,
-    ["vim.insert.background"] = fade(pal.green.base, 0.5),
+    ["vim.insert.background"] = f(pal.green.base, 0.5),
     ["vim.insert.foreground"] = spec.fg1,
-    ["vim.visual.background"] = fade(pal.magenta.base, 0.5),
+    ["vim.visual.background"] = f(pal.magenta.base, 0.5),
     ["vim.visual.foreground"] = spec.fg1,
-    ["vim.visual_block.background"] = fade(pal.magenta.base, 0.5),
+    ["vim.visual_block.background"] = f(pal.magenta.base, 0.5),
     ["vim.visual_block.foreground"] = spec.fg1,
-    ["vim.visual_line.background"] = fade(pal.magenta.base, 0.5),
+    ["vim.visual_line.background"] = f(pal.magenta.base, 0.5),
     ["vim.visual_line.foreground"] = spec.fg1,
-    ["vim.replace.background"] = fade(pal.red.base, 0.5),
+    ["vim.replace.background"] = f(pal.red.base, 0.5),
     ["vim.replace.foreground"] = spec.fg1,
     ["vim.yank.background"] = pal.white.base,
-    ["vim.helix_normal.background"] = fade(pal.blue.base),
+    ["vim.helix_normal.background"] = f(pal.blue.base),
     ["vim.helix_normal.foreground"] = spec.fg1,
-    ["vim.helix_select.background"] = fade(pal.magenta.base, 0.5),
+    ["vim.helix_select.background"] = f(pal.magenta.base, 0.5),
     ["vim.helix_select.foreground"] = spec.fg1,
     -- others - not defined in https://zed.dev/theme-builder
     ["background.appearance"] = background_appearance,
