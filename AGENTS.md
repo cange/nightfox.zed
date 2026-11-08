@@ -1,9 +1,8 @@
 # Nightfox for Zed
 
-Port of [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) color schemes. Lua scripts read `nightfox.nvim`
-palettes and generate `themes/nvim-nightfox.json` for Zed.
+Port of [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) color schemes. Lua scripts read `nightfox.nvim` palettes and generate `themes/nvim-nightfox.json` for Zed.
 
-## Project and commands
+## Commands
 
 | Command         | Description                      |
 | --------------- | -------------------------------- |
@@ -14,7 +13,7 @@ palettes and generate `themes/nvim-nightfox.json` for Zed.
 | `make stylua`   | Run StyLua                       |
 | `make lint`     | Check JSON and Lua formatting    |
 
-**Key Files**
+## Layout
 
 - `lib/build.lua`: Entry point.
 - `lib/theme.lua`: Palette mapping.
@@ -24,18 +23,13 @@ palettes and generate `themes/nvim-nightfox.json` for Zed.
 - `extension.toml`: Zed metadata.
 - `nvim-nightfox-0.0.0-1.rockspec`: Luarocks spec.
 
-## Commit and PR titles
+## Conventions
 
+### Commit and PR titles
 Follow [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/).
 Format: `type(scope)!: description`
 
-## Find authoritative documentation
-
-- [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) for palette specifications.
-- [Zed documentation](https://zed.dev/) for theme property definitions.
-
-## Code Style
-
+### Code Style
 - **Runtime**: Lua `vim` is a polyfill.
 - **Formatting**: StyLua.
 - **Module Pattern**: `local M = {}; ... return M`.
@@ -43,7 +37,11 @@ Format: `type(scope)!: description`
 - **Naming**: `snake_case` (variables/functions), `PascalCase` (themes).
 - **Zed Keys**: Dot-notation strings (e.g., `["editor.background"]`).
 
-## Common Pitfalls
+### Documentation
+- [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) for palette specifications.
+- [Zed documentation](https://zed.dev/) for theme property definitions.
+
+## Gotchas
 
 - Never edit `themes/nvim-nightfox.json` manually.
 - Alpha levels are dependent on appearance mode (`opaque` vs `blurred`).
